@@ -29,11 +29,11 @@ vector<string> dns_seeds
 
 vector<string> dns_seed
 {
-	"seed.bitcoin.sipa.be",
+	"dnsseed.emzy.de",
 };
 
 int main()
 {
-	tcp::tcp_client client(dns_seed);
+	tcp::tcp_client client(dns_seeds);
 	client.getheaders(1);
 }

@@ -14,10 +14,8 @@ namespace tcp
 	{
 		public:
 			tcp_client(vector<string> _dns_seeds);
-			int getheaders(int curr_block_height);
-			int send_ping_message();
+			string getheaders(int curr_block_height);
 		private:
-			int send_verack_message(string ip);
 			static vector<string> dns_seeds;
 			void get_ips(vector<string>& dns_ips_out);
 	};
@@ -26,6 +24,7 @@ namespace tcp
 	{
 		public:
 			string make_message(string payload, string command_name);
+			string make_ping_message(string payload);
 			string verack_message();
 			string ping_message_payload();
 			string getheaders_message_payload(int hashes_count, char block_locator_hashes[65] = {});

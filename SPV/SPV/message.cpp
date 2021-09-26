@@ -24,8 +24,7 @@ namespace tcp
 		sstream << hex << _byteswap_ulong(version);
 
 		// Service - 8 bytes
-		//string service = "0100000000000000";
-		string service = "0000000000000000";
+		string service = "0100000000000000";
 		sstream << service;
 
 		// Timestamp - 8 bytes
@@ -33,7 +32,7 @@ namespace tcp
 		sstream << hex << _byteswap_uint64(timestamp);
 
 		// Addr_recv - 26 bytes
-		sstream << service;
+		sstream << "0000000000000000";
 		string ip_prefix = "00000000000000000000FFFF";
 		sstream << ip_prefix;
 			
@@ -53,14 +52,6 @@ namespace tcp
 		sstream << "00000000";
 		sstream << "0000";
 
-		// port
-
-		/*ip = "215.239.156.213";
-		vector<string> from_ip_res;
-		conv.ip2hex(ip, from_ip_res);
-		for (string s : from_ip_res) sstream << hex << stoi(s);
-		sstream << port;*/
-
 		// Nonce
 		std::random_device rd;
 		std::mt19937_64 n64(rd());
@@ -69,8 +60,8 @@ namespace tcp
 		sstream << hex << _byteswap_uint64(nonce);
 
 		// User-agent
-		//sstream << "102f5361746f7368693a302e32312e302f";
 		sstream << "00";
+		//sstream << "102f5361746f7368693a302e32312e312f";
 
 		// Block height
 		int32_t start_height = _start_height;
@@ -100,6 +91,42 @@ namespace tcp
 			cout << "Relay: " << "00" << endl;
 			cout << endl;
 		}
+		return sstream.str();
+	}
+
+	std::string message::ping_message_payload()
+	{
+		std::stringstream sstream;
+
+		std::random_device rd;
+		std::mt19937_64 n64(rd());
+
+		uint64_t nonce = n64();
+		sstream << hex << _byteswap_uint64(nonce);
+
+		return sstream.str();
+	}
+
+	std::string message::getheaders_message_payload(int hashes_count, char block_locator_hashes[65])
+	{
+		string genesis_block = "00000000000000000024fb37364cbf81fd49cc2d51c09c75c35433c3a1945d04";
+		stringstream sstream;
+		converter conv;
+
+		// Version
+		uint32_t version = 70016;
+		sstream << hex << _byteswap_ulong(version);
+
+		// Hash count
+		uint8_t hash_count = 1;
+		sstream << "01";
+
+		// Block locator hashes
+		sstream << conv.hex_str_to_little_endian(genesis_block);
+
+		// Hash stop. Not stopping by default
+		sstream << "0000000000000000000000000000000000000000000000000000000000000000";
+
 		return sstream.str();
 	}
 
@@ -149,41 +176,25 @@ namespace tcp
 		return sstream.str() + payload;
 	}
 
-	std::string message::ping_message_payload()
+	std::string message::make_ping_message(std::string payload)
 	{
-		std::stringstream sstream;
-
-		std::random_device rd;
-		std::mt19937_64 n64(rd());
-
-		uint64_t nonce = n64();
-		sstream << hex << _byteswap_uint64(nonce);
-
-		return sstream.str();
-	}
-
-	std::string message::getheaders_message_payload(int hashes_count, char block_locator_hashes[65])
-	{
-		string genesis_block = "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f";
 		stringstream sstream;
+		converter conv;
 
-		// Version
-		uint32_t version = 70016;
-		sstream << hex << _byteswap_ulong(version);
+		// Magic
+		string magic = "F9BEB4D9";
+		sstream << magic;
 
-		// Hash count
-		uint8_t hash_count = hashes_count;
-		sstream << hex << hash_count;
+		// Command
+		sstream << "70696e670000000000000000";
+		// Length of payload
+		sstream << "08000000";
 
-		// Block locator hashes
-		if (hashes_count > 1)
-			sstream << block_locator_hashes;
-		else
-			sstream << "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f";
+		// Checksum
+		string checksum;
+		conv.checksum(payload, checksum);
+		sstream << hex << checksum;
 
-		// Hash stop. Not stopping by default
-		sstream << "0000000000000000000000000000000000000000000000000000000000000000";
-
-		return sstream.str();
+		return sstream.str() + payload;
 	}
 }

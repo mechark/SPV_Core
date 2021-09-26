@@ -57,9 +57,7 @@ namespace tcp
 		dns_ips_out = seeds_ips;
 	}
 
-	// Public methods
-
-	int tcp_client::send_verack_message(string ip)
+	void send_getheaders(string ip)
 	{
 		converter conv;
 		message msg;
@@ -69,24 +67,13 @@ namespace tcp
 		ip::tcp::socket socket(ioc);
 		error_code erc;
 
-		string request = conv.hex_str_to_binary(msg.verack_message());
-
-		connect(socket, resolver.resolve(ip, "8333"), erc);
-		if (!erc)
-		{
-			socket.write_some(buffer(request.data(), request.size()), erc);
-			socket.wait(socket.wait_read);
-
-			vector<unsigned char> reply;
-			if (!erc) socket.read_some(buffer(reply.data(), reply.size()), erc);
-
-			for (unsigned char uch : reply) cout << uch;
-		}
-
-		return 0;
+		string get_headers = msg.make_message(msg.getheaders_message_payload(1), "getheaders");
+		get_headers = conv.hex_str_to_binary(get_headers);
+		socket.write_some(buffer(get_headers.data(), get_headers.size()), erc);
 	}
 
-	int tcp_client::getheaders(int curr_block_height)
+	// Public methods
+	std::string tcp_client::getheaders(int curr_block_height)
 	{
 		std::vector<std::string> ips;
 		get_ips(ips);
@@ -99,98 +86,49 @@ namespace tcp
 		for (int i = 0; i < ips.size(); ++i)
 		{
 			connect(socket, resolver.resolve(ips[i], "8333"), erc);
+			boost::asio::socket_base::keep_alive option(true);
+			socket.set_option(option);
 
 			if (erc) continue;
 			else
 			{
-				//Cooking request
 				converter conv;
-
-				// Feeding version_message by bytes;
+				message msg;
 				vector<string> ips;
 				get_ips(ips);
-				message msg;
+
+				// Version message
 				string request = conv.hex_str_to_binary(msg.make_message(msg.version_message_payload(curr_block_height, ips[i], false), "version"));
 				if (request.length() == 0) continue;
 
-				if (request.size() > 1)
-				{
-					socket.write_some(buffer(request.data(), request.size()));
-					socket.wait(socket.wait_read);
+				socket.send(buffer(request));
+				socket.wait(socket.wait_write);
 
-					if (erc) continue;
-					int verack = send_verack_message(ips[i]);
-					
-					if (verack == 0)
-					{
-						request = conv.hex_str_to_binary(msg.make_message(msg.getheaders_message_payload(1), "getheaders"));
+				// Verack message
+				string verack_message = conv.hex_str_to_binary(msg.verack_message());
+				socket.send(buffer(verack_message));
+				socket.wait(socket.wait_write);
 
-						socket.write_some(buffer(request.data(), request.size()), erc);
-						socket.wait(socket.wait_read);
+				// GetHeaders message
+				string get_headers = msg.make_message(msg.getheaders_message_payload(1), "getheaders");
+				get_headers = conv.hex_str_to_binary(get_headers);
+				if (get_headers.length() == 0) continue;
 
-						if (erc) throw exception("Проблема при отправке getheaders message");
+				Sleep(3000);
+				socket.send(buffer(get_headers));
+				socket.wait(socket.wait_read);
+				Sleep(3000);
 
-						vector<unsigned char> headerv;
-						socket.read_some(buffer(headerv.data(), headerv.size()));
+				// Response
+				stringstream sstream;
+				vector<unsigned char> buff(socket.available());
 
-						// Call a method which will parse response. Create a header model.
-					}
-				}
-
+				socket.receive(buffer(buff));
+				for (unsigned char ch : buff) sstream << hex << int(ch);
+				// pow
+				return sstream.str();
+				// Call a method which will parse response. Create a header model.
 			}
 		}
-
-		return 0;
-	}
-
-	int tcp_client::send_ping_message()
-	{
-		std::vector<std::string> ips;
-		converter conv;
-		message msg;
-		get_ips(ips);
-
-		io_context ioc;
-		ip::tcp::resolver resolver(ioc);
-		ip::tcp::socket socket(ioc);
-		error_code erc;
-
-		for (int i = 0; i < ips.size(); ++i)
-		{
-			std::cout << "Trying establish connection with " << ips[i] << std::endl;
-			connect(socket, resolver.resolve(ips[i], "8333"), erc);
-			std::cout << "Connection status: " << erc.message() << std::endl;
-			std::cout << "----------------------------------------------------" << std::endl;
-			std::cout << std::endl;
-			if (erc) continue;
-			else
-			{
-				vector<string> ips;
-				get_ips(ips);
-				string request = conv.hex_str_to_binary(msg.make_message(msg.ping_message_payload(), "ping"));
-				cout << "String sending bytes: " << request << endl;
-				if (request.length() == 0) continue;
-
-				cout << "\nBytes to send: " << request.size() << "bytes" << endl;
-				if (request.size() > 1)
-				{
-					socket.write_some(buffer(request.data(), request.size()));
-					if (erc) continue;
-					else
-					{
-						auto bytes_available = socket.available();
-						cout << "Avalible bytes to read: " << bytes_available << endl;
-						vector<char> response(bytes_available);
-						socket.read_some(buffer(response.data(), response.size()), erc);
-						for (char ch : response)
-							std::cout << ch << " ";
-					}
-				}
-				std::cout << "----------------------------------------------------" << std::endl;
-				std::cout << std::endl;
-			}
-		}
-
-		return 0;
 	}
 }
