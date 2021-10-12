@@ -5,6 +5,7 @@
 #include <boost/dynamic_bitset.hpp>
 #include <cstdarg>
 #include <random>
+
 #include "sha256.h"
 #include "spv.h"
 
@@ -12,7 +13,7 @@ using namespace std::chrono;
 
 namespace tcp
 {
-	std::string message::version_message_payload(int _start_height, string _ip, bool is_debug)
+	std::string message::version_message_payload(string _ip, bool is_debug)
 	{
 		stringstream sstream;
 		converter conv;
@@ -61,11 +62,8 @@ namespace tcp
 
 		// User-agent
 		sstream << "00";
-		//sstream << "102f5361746f7368693a302e32312e312f";
 
 		// Block height
-		int32_t start_height = _start_height;
-		//sstream << hex << _byteswap_ulong(start_height);
 		sstream << hex << "00000000";
 
 		// Relay
@@ -87,7 +85,7 @@ namespace tcp
 			cout << hex << port << endl;
 			cout << "Nonce: " << hex << _byteswap_uint64(nonce) << endl;
 			cout << "User Agent: " << "3B2EB35D8CE61765" << endl;
-			cout << "Start Height: " << hex << _byteswap_ulong(start_height) << endl;
+			//cout << "Start Height: " << hex << _byteswap_ulong(start_height) << endl;
 			cout << "Relay: " << "00" << endl;
 			cout << endl;
 		}
@@ -107,9 +105,9 @@ namespace tcp
 		return sstream.str();
 	}
 
-	std::string message::getheaders_message_payload(int hashes_count, char block_locator_hashes[65])
+	std::string message::getheaders_message_payload(string block_hash)
 	{
-		string genesis_block = "00000000000000000024fb37364cbf81fd49cc2d51c09c75c35433c3a1945d04";
+		string genesis_block = block_hash;
 		stringstream sstream;
 		converter conv;
 
@@ -161,7 +159,6 @@ namespace tcp
 
 		// Command
 		for (char ch : command) sstream << hex << int(ch);
-		//sstream << "76657273696F6E0000000000";
 		while (sstream.str().length() != 32) sstream << "0";
 
 		// Length of payload
@@ -187,6 +184,7 @@ namespace tcp
 
 		// Command
 		sstream << "70696e670000000000000000";
+
 		// Length of payload
 		sstream << "08000000";
 

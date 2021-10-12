@@ -29,6 +29,7 @@ namespace tcp
 		string payload_bytes_str = hex_str_to_binary(payload_str);
 		vector<unsigned char> payload_bytes;
 
+		// Double hashing
 		picosha2::hash256(payload_bytes_str.begin(), payload_bytes_str.end(), payload_bytes.begin(), payload_bytes.end());
 		string hex_hash = picosha2::hash256_hex_string(payload_bytes_str);
 		payload_bytes_str = hex_str_to_binary(hex_hash);
@@ -36,6 +37,21 @@ namespace tcp
 		hex_hash = picosha2::hash256_hex_string(payload_bytes_str);
 
 		checksum = hex_hash.substr(0, 8);
+	}
+
+	int converter::hex_str_toi(string hex_str, bool is_little_endian)
+	{
+		unsigned int res = 0;
+
+		std::stringstream sstream;
+
+		if (is_little_endian)
+			hex_str = hex_str_to_little_endian(hex_str);
+
+		sstream << std::hex << hex_str;
+		sstream >> res;
+
+		return res;
 	}
 
 	string converter::hex_str_to_binary(string hex_str)

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package tcp;
+
+message Header
+{
+    int32 version = 70016;
+    string block = 500000;
+    string merkle_root = 1;
+    uint32 timestamp = 2;
+    uint32 bits = 3;
+	uint32 nonce = 4;
+}

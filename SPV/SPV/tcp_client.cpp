@@ -7,6 +7,7 @@
 #include <bitset>
 #include "spv.h"
 #include <fstream>
+#include <iomanip>
 #include <sstream>
 
 using namespace boost::asio;
@@ -14,9 +15,8 @@ using namespace boost::asio;
 namespace tcp
 {
 	typedef boost::system::error_code error_code;
-	vector<string> tcp_client::dns_seeds;
-	vector<string> seeds_ips;
-
+	std::vector<string> tcp_client::dns_seeds;
+	std::vector<string> seeds_ips;
 
 	//Public methods
 
@@ -57,23 +57,22 @@ namespace tcp
 		dns_ips_out = seeds_ips;
 	}
 
-	void send_getheaders(string ip)
+	int tcp_client::grab_payload_length(string message_header, int& headers_starts_at)
 	{
+		// This numbers (26 and 20) take from bitcoin protocol byte order.
+		string headers_command = "d9686561646572730000000000";
+		unsigned int start_headers_index = message_header.find(headers_command) + headers_command.length();
+		headers_starts_at = start_headers_index + 18;
+		string payload_length_hex = message_header.substr(start_headers_index, 8);
+
 		converter conv;
-		message msg;
+		start_headers_index = conv.hex_str_toi(payload_length_hex, true);
 
-		io_context ioc;
-		ip::tcp::resolver resolver(ioc);
-		ip::tcp::socket socket(ioc);
-		error_code erc;
-
-		string get_headers = msg.make_message(msg.getheaders_message_payload(1), "getheaders");
-		get_headers = conv.hex_str_to_binary(get_headers);
-		socket.write_some(buffer(get_headers.data(), get_headers.size()), erc);
+		return start_headers_index;
 	}
 
 	// Public methods
-	std::string tcp_client::getheaders(int curr_block_height)
+	std::string tcp_client::getheaders(string start_block_header)
 	{
 		std::vector<std::string> ips;
 		get_ips(ips);
@@ -98,36 +97,48 @@ namespace tcp
 				get_ips(ips);
 
 				// Version message
-				string request = conv.hex_str_to_binary(msg.make_message(msg.version_message_payload(curr_block_height, ips[i], false), "version"));
+				std::string request = conv.hex_str_to_binary(msg.make_message(msg.version_message_payload(ips[i], false), "version"));
 				if (request.length() == 0) continue;
 
 				socket.send(buffer(request));
 				socket.wait(socket.wait_write);
 
+				socket.non_blocking();
+
 				// Verack message
 				string verack_message = conv.hex_str_to_binary(msg.verack_message());
 				socket.send(buffer(verack_message));
-				socket.wait(socket.wait_write);
+				socket.wait(socket.wait_read);
 
-				// GetHeaders message
-				string get_headers = msg.make_message(msg.getheaders_message_payload(1), "getheaders");
+				// GetHeaders message forming
+				std::string block_hash = "0000000000000000000bebffafa27a2e302cfe6bf61776bc5c55f85dc541b20c";
+				std::string get_headers = msg.make_message(msg.getheaders_message_payload(block_hash), "getheaders");
 				get_headers = conv.hex_str_to_binary(get_headers);
 				if (get_headers.length() == 0) continue;
 
+				// Sending
 				Sleep(3000);
 				socket.send(buffer(get_headers));
 				socket.wait(socket.wait_read);
-				Sleep(3000);
+				Sleep(6000);
 
 				// Response
-				stringstream sstream;
-				vector<unsigned char> buff(socket.available());
+				std::stringstream sstream;
+				std::vector<char> buff(1024 * 200);
 
-				socket.receive(buffer(buff));
-				for (unsigned char ch : buff) sstream << hex << int(ch);
-				// pow
-				return sstream.str();
-				// Call a method which will parse response. Create a header model.
+				socket.read_some(buffer(buff.data(), buff.size()));
+
+				sstream << hex << std::setfill('0');
+				for (unsigned char ch : buff) sstream << std::setw(2) << static_cast<unsigned>(ch);
+				string response = sstream.str();
+
+				// Selecting headers bytes from response
+				int ifrom = 0;
+				int message_payload_length = grab_payload_length(response, ifrom);
+				message_payload_length = (message_payload_length - 1) * 2;
+				string headers = response.substr(ifrom, message_payload_length);
+				
+				return headers;
 			}
 		}
 	}

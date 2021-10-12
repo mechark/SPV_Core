@@ -1,0 +1,11 @@
+prefix=C:/protobuf/install
+exec_prefix=C:/protobuf/install
+libdir=C:/protobuf/install/lib
+includedir=C:/protobuf/install/include
+
+Name: Protocol Buffers
+Description: Google's Data Interchange Format
+Version: 3.18.0.0
+Libs: -L${libdir} -lprotobuf 
+Cflags: -I${includedir}
+Conflicts: protobuf-lite

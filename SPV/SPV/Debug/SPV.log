@@ -94,7 +94,7 @@
              SplitResourcesByCulture;
              CreateManifestResourceNames;
              CreateCustomManifestResourceNames
-           ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (97,7)
+           ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (97,7)
        Property reassignment: $(PrepareResourcesDependsOn)="
                        MarkupCompilePass1;
                        AfterMarkupCompilePass1;
@@ -112,7 +112,7 @@
              PrepareResourceNames;
              ResGen;
              CompileLicxFiles
-           ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (108,7)
+           ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (108,7)
        Property reassignment: $(CompileDependsOn)="
                
              ResolveReferences;
@@ -140,7 +140,7 @@
              CoreCompile;
              _TimeStampAfterCompile;
              AfterCompile;
-           ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (184,5)
+           ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (184,5)
        Property reassignment: $(PublishBuildDependsOn)="
                    BuildOnlySettings;
                    PrepareForBuild;
@@ -158,7 +158,7 @@
              ResolveKeySource;
              GenerateSerializationAssemblies;
              CreateSatelliteAssemblies;
-           ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (813,9)
+           ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (813,9)
        Property reassignment: $(BuildDependsOn)="
              EntityDeploy;
              
@@ -170,7 +170,7 @@
              BeforeBuild;
              CoreBuild;
              AfterBuild
-           ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets (35,5)
+           ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets (35,5)
        Property reassignment: $(CleanDependsOn)="
              
              BeforeClean;
@@ -188,7 +188,7 @@
              CleanReferencedProjects;
              CleanPublishFolder;
              AfterClean
-           ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets (42,5)
+           ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets (42,5)
        Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
        Property reassignment: $(PrepareResourcesDependsOn)="
              XamlMarkupCompilePass1;
@@ -218,7 +218,7 @@
              ResGen;
              CompileLicxFiles
            
-             ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets (35,5)
+             ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets (35,5)
        Property reassignment: $(CoreCompileDependsOn)="
                DesignTimeXamlMarkupCompilation;
                
@@ -228,7 +228,7 @@
            " (previous value: "
                  DesignTimeMarkupCompilation;
                  
-             ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets (76,5)
+             ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets (76,5)
        Property reassignment: $(ResolveReferencesDependsOn)="
              
              
@@ -915,7 +915,7 @@
            ;
            ") at C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets (541,5)
        Overriding target "GetFrameworkPaths" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetFrameworkPaths" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets".
-       Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets".
+       Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets".
        Overriding target "GenerateTargetFrameworkMonikerAttribute" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GenerateTargetFrameworkMonikerAttribute" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets".
        Overriding target "Build" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "Build" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets".
        Overriding target "Rebuild" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "Rebuild" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets".
@@ -955,8 +955,8 @@
        Overriding target "GetNativeManifest" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetNativeManifest" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets".
        Overriding target "GetTargetPathWithTargetPlatformMoniker" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPathWithTargetPlatformMoniker" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets".
        The target "CopyLocalFilesOutputGroup" listed in a BeforeTargets attribute at "D:\vcpkg\scripts\buildsystems\msbuild\vcpkg.targets (117,82)" does not exist in the project, and will be ignored.
-Build started 9/26/2021 10:07:48 PM.
-Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" on node 2 (Rebuild target(s)).
+Build started 10/12/2021 3:53:29 PM.
+Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" on node 2 (Build target(s)).
      1>Building with tools version "Current".
        Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
      1>Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "SetTelemetryEnvironmentVariables" depends on it):
@@ -976,68 +976,33 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
        Task "Warning" skipped, due to false condition; ( '$(EnableBaseIntermediateOutputPathMismatchWarning)' == 'true' And '$(_InitialBaseIntermediateOutputPath)' != '$(BaseIntermediateOutputPath)' And '$(BaseIntermediateOutputPath)' != '$(MSBuildProjectExtensionsPath)' ) was evaluated as ( '' == 'true' And 'obj\' != 'obj\' And 'obj\' != 'D:\SPV_TCP\SPV\SPV\obj\' ).
      1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "SPV.vcxproj".
        Target "_CheckForInvalidConfigurationAndPlatform" skipped. Previously built successfully.
-     1>Target "SetTelemetryEnvironmentVariables" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Rebuild" depends on it):
+     1>Target "SetTelemetryEnvironmentVariables" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Build" depends on it):
        Using "SetEnv" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
        Task "SetEnv"
-         VSTEL_SolutionSessionID={E195F331-2FC5-4C77-992A-4C6EB4270064}
+         VSTEL_SolutionSessionID={2A7D9EB8-D290-4AEF-8C48-3DCA6ED496BC}
        Done executing task "SetEnv".
        Task "SetEnv"
-         VSTEL_CurrentSolutionBuildID=595694536
+         VSTEL_CurrentSolutionBuildID=1955635656
        Done executing task "SetEnv".
        Task "SetEnv"
          VSTEL_ProjectID={7ed8e4c4-74f9-450c-9ec0-4c48a99fb47f}
        Done executing task "SetEnv".
      1>Done building target "SetTelemetryEnvironmentVariables" in project "SPV.vcxproj".
-     1>Target "_PrepareForRebuild" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Rebuild" depends on it):
-     1>Done building target "_PrepareForRebuild" in project "SPV.vcxproj".
-     1>Target "BeforeRebuild" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Rebuild" depends on it):
-     1>Done building target "BeforeRebuild" in project "SPV.vcxproj".
-     1>Target "_PrepareForClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Clean" depends on it):
-       Using "Delete" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-       Task "Delete"
-         Deleting file "Debug\SPV.tlog\SPV.lastbuildstate".
-       Done executing task "Delete".
-     1>Done building target "_PrepareForClean" in project "SPV.vcxproj".
-     1>Target "BeforeClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Clean" depends on it):
-     1>Done building target "BeforeClean" in project "SPV.vcxproj".
-       Target "UnmanagedUnregistration" skipped, due to false condition; ((('$(_AssemblyTimestampBeforeCompile)' != '$(_AssemblyTimestampAfterCompile)' or '$(RegisterForComInterop)' != 'true' or '$(OutputType)' != 'library') or
-                           ('$(_AssemblyTimestampBeforeCompile)' == '')) and
-                          Exists('@(_UnmanagedRegistrationCache)')) was evaluated as ((('' != '' or '' != 'true' or 'staticlibrary' != 'library') or
-                           ('' == '')) and
-                          Exists('obj\SPV.vcxproj.UnmanagedRegistration.cache')).
-     1>Target "CoreClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Clean" depends on it):
-       Task "Delete"
-         File "Debug\\TempCA\SPV.pdb" doesn't exist. Skipping.
-         File "Debug\\TempCA\SPV.lib" doesn't exist. Skipping.
-       Done executing task "Delete".
-       Using "ReadLinesFromFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-       Task "ReadLinesFromFile"
-       Done executing task "ReadLinesFromFile".
-       Using "FindUnderPath" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-       Task "FindUnderPath"
-         Comparison path is "D:\SPV_TCP\SPV\Debug\".
-       Done executing task "FindUnderPath".
-       Task "FindUnderPath"
-         Comparison path is "Debug\".
-       Done executing task "FindUnderPath".
-       Task "Delete"
-       Done executing task "Delete".
-       Using "RemoveDuplicates" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-       Task "RemoveDuplicates"
-       Done executing task "RemoveDuplicates".
-       Using "MakeDir" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-       Task "MakeDir"
-       Done executing task "MakeDir".
-       Using "WriteLinesToFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-       Task "WriteLinesToFile"
-       Done executing task "WriteLinesToFile".
-     1>Done building target "CoreClean" in project "SPV.vcxproj".
-       Target "_CleanMdbFiles" skipped, due to false condition; (Exists('$(TargetPath).mdb')) was evaluated as (Exists('D:\SPV_TCP\SPV\Debug\SPV.lib.mdb')).
-     1>Target "AssignProjectConfiguration" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "PrepareProjectReferences" depends on it):
+     1>Target "_PrepareForBuild" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Build" depends on it):
+       Task "CreateItem" skipped, due to false condition; ('%(CustomBuild.IncludeFileToTool)'!='') was evaluated as (''!='').
+     1>Done building target "_PrepareForBuild" in project "SPV.vcxproj".
+     1>Target "_PrepareForReferenceResolution" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "ResolveReferences" depends on it):
+       Task "Message" skipped, due to false condition; ('$(_REFERENCE_DEBUG)'=='true') was evaluated as (''=='true').
+     1>Done building target "_PrepareForReferenceResolution" in project "SPV.vcxproj".
+       Target "ComputeCrtSDKReference" skipped, due to false condition; ('@(ClCompile)'!='' and '$(WindowsAppContainer)'=='true' and '$(UseCrtSDKReference)' != 'false') was evaluated as ('dissector.cpp;converter.cpp;message.cpp;...'!='' and 'false'=='true' and '' != 'false').
+     1>Target "BeforeResolveReferences" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "ResolveReferences" depends on it):
+     1>Done building target "BeforeResolveReferences" in project "SPV.vcxproj".
+     1>Target "AssignProjectConfiguration" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "ResolveReferences" depends on it):
        Using "AssignProjectConfiguration" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
        Task "AssignProjectConfiguration"
        Done executing task "AssignProjectConfiguration".
      1>Done building target "AssignProjectConfiguration" in project "SPV.vcxproj".
+       Target "AssignProjectConfiguration" skipped. Previously built successfully.
      1>Target "_SplitProjectReferencesByFileExistence" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "PrepareProjectReferences" depends on it):
        Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as ('true'=='true' and ''!='').
      1>Done building target "_SplitProjectReferencesByFileExistence" in project "SPV.vcxproj".
@@ -1054,50 +1019,8 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
                                                                And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' != 'true') was evaluated as ('0' != '0' and '.NETFramework,Version=v4.0' != ''
                                                                And 'true' != 'true').
      1>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "SPV.vcxproj".
-     1>Target "PrepareProjectReferences" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "CleanReferencedProjects" depends on it):
+     1>Target "PrepareProjectReferences" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "ResolveProjectReferences" depends on it):
      1>Done building target "PrepareProjectReferences" in project "SPV.vcxproj".
-     1>Target "CleanReferencedProjects" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Clean" depends on it):
-       Task "MSBuild" skipped, due to false condition; ('$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('true' != 'true' and 'true' == 'true' and '' != '').
-     1>Done building target "CleanReferencedProjects" in project "SPV.vcxproj".
-     1>Target "CleanPublishFolder" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Clean" depends on it):
-       Task "RemoveDir" skipped, due to false condition; ('$(PublishDir)'=='$(OutputPath)app.publish\' and Exists('$(PublishDir)')) was evaluated as ('D:\SPV_TCP\SPV\Debug\app.publish\'=='D:\SPV_TCP\SPV\Debug\app.publish\' and Exists('D:\SPV_TCP\SPV\Debug\app.publish\')).
-     1>Done building target "CleanPublishFolder" in project "SPV.vcxproj".
-     1>Target "AfterClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Clean" depends on it):
-     1>Done building target "AfterClean" in project "SPV.vcxproj".
-       Target "EntityClean" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').
-     1>Target "BeforeCppClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppClean.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "CppClean" depends on it):
-     1>Done building target "BeforeCppClean" in project "SPV.vcxproj".
-     1>Target "CoreCppClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppClean.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "CppClean" depends on it):
-       Task "MakeDir"
-       Done executing task "MakeDir".
-       Using "CppClean" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
-       Task "CppClean"
-       Done executing task "CppClean".
-       Task "WriteLinesToFile"
-       Done executing task "WriteLinesToFile".
-     1>Done building target "CoreCppClean" in project "SPV.vcxproj".
-     1>Target "AfterCppClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppClean.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "CppClean" depends on it):
-     1>Done building target "AfterCppClean" in project "SPV.vcxproj".
-     1>Target "PGInstrumentedClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppClean.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "CppClean" depends on it):
-       Task "Delete"
-       Done executing task "Delete".
-     1>Done building target "PGInstrumentedClean" in project "SPV.vcxproj".
-     1>Target "CppClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppClean.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Clean" depends on it):
-     1>Done building target "CppClean" in project "SPV.vcxproj".
-     1>Target "Clean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Rebuild" depends on it):
-     1>Done building target "Clean" in project "SPV.vcxproj".
-       Target "SetTelemetryEnvironmentVariables" skipped. Previously built successfully.
-     1>Target "_PrepareForBuild" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Build" depends on it):
-       Task "CreateItem" skipped, due to false condition; ('%(CustomBuild.IncludeFileToTool)'!='') was evaluated as (''!='').
-     1>Done building target "_PrepareForBuild" in project "SPV.vcxproj".
-     1>Target "_PrepareForReferenceResolution" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "ResolveReferences" depends on it):
-       Task "Message" skipped, due to false condition; ('$(_REFERENCE_DEBUG)'=='true') was evaluated as (''=='true').
-     1>Done building target "_PrepareForReferenceResolution" in project "SPV.vcxproj".
-       Target "ComputeCrtSDKReference" skipped, due to false condition; ('@(ClCompile)'!='' and '$(WindowsAppContainer)'=='true' and '$(UseCrtSDKReference)' != 'false') was evaluated as ('converter.cpp;message.cpp;tcp_client.cpp'!='' and 'false'=='true' and '' != 'false').
-     1>Target "BeforeResolveReferences" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "ResolveReferences" depends on it):
-     1>Done building target "BeforeResolveReferences" in project "SPV.vcxproj".
-       Target "AssignProjectConfiguration" skipped. Previously built successfully.
-       Target "PrepareProjectReferences" skipped. Previously built successfully.
        Target "_RemoveNameMetadataFromProjectReferenceItems" skipped, due to false condition; ('@(ProjectReference)'!='') was evaluated as (''!='').
      1>Target "ResolveProjectReferences" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "ResolveReferences" depends on it):
        Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' != '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and ('true' == 'true' or 'true' != 'true') and '16.0' != '10.0' and '' != '').
@@ -1122,7 +1045,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
      1>Done building target "AddExternalIncludDirectoriesToPaths" in project "SPV.vcxproj".
      1>Target "SetBuildDefaultEnvironmentVariables" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.Current.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "PrepareForBuild" depends on it):
        Task "SetEnv"
-         PATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86;C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86;;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\tools;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ide;C:\Program Files (x86)\HTML Help Workshop;;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin;C:\Windows\Microsoft.NET\Framework\v4.0.30319\;;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\php;C:\composer;C:\Program Files\Git\cmd;C:\Program Files (x86)\dotnet\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Go\bin;C:\Program Files\cURL\bin;C:\Users\forru\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\forru\AppData\Local\Programs\Python\Python39\;C:\Users\forru\AppData\Local\Microsoft\WindowsApps;C:\Users\forru\AppData\Roaming\npm;C:\Users\forru\AppData\Roaming\Composer\vendor\bin;C:\Users\forru\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\forru\AppData\Local\Programs\Fiddler;C:\Users\forru\.dotnet\tools;C:\Users\forru\AppData\Local\GitHubDesktop\bin;C:\Program Files\Azure Data Studio\bin;C:\Users\forru\go\bin;C:\Program Files\CMake\bin;
+         PATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86;C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86;;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\tools;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ide;C:\Program Files (x86)\HTML Help Workshop;;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin;C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\;;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\php;C:\composer;C:\Program Files\Git\cmd;C:\Program Files (x86)\dotnet\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Go\bin;C:\Program Files\cURL\bin;C:\Users\forru\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\forru\AppData\Local\Programs\Python\Python39\;C:\Users\forru\AppData\Local\Microsoft\WindowsApps;C:\Users\forru\AppData\Roaming\npm;C:\Users\forru\AppData\Roaming\Composer\vendor\bin;C:\Users\forru\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\forru\AppData\Local\Programs\Fiddler;C:\Users\forru\.dotnet\tools;C:\Users\forru\AppData\Local\GitHubDesktop\bin;C:\Program Files\Azure Data Studio\bin;C:\Users\forru\go\bin;C:\Program Files\CMake\bin;C:\Users\forru\AppData\Local\Microsoft\WindowsApps;;
        Done executing task "SetEnv".
        Task "SetEnv"
          LIB=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\lib\x86;;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\atlmfc\lib\x86;;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\VS\lib\x86;;C:\Program Files (x86)\Windows Kits\10\lib\10.0.19041.0\ucrt\x86;;;C:\Program Files (x86)\Windows Kits\10\lib\10.0.19041.0\um\x86;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\lib\um\x86;
@@ -1157,6 +1080,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
      1>Target "PrepareForBuild" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "ResolveAssemblyReferences" depends on it):
        Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)' != 'true' and '$(ConfigurationPlatformExists)' != 'true') was evaluated as ('' != 'true' and 'true' != 'true').
        Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)' != 'true' and '$(_ToolsetFound)' != 'true') was evaluated as ('' != 'true' and 'true' != 'true').
+       Using "MakeDir" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
        Task "MakeDir"
        Done executing task "MakeDir".
        Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(WindowsAppContainer)'=='true' and '$(ConfigurationType)'!='Application' and '$(ConfigurationType)'!='DynamicLibrary' and '$(ConfigurationType)'!='StaticLibrary') was evaluated as (''!='true' and 'false'=='true' and 'StaticLibrary'!='Application' and 'StaticLibrary'!='DynamicLibrary' and 'StaticLibrary'!='StaticLibrary').
@@ -1191,7 +1115,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
        Done executing task "MakeDir".
      1>Done building target "PrepareForBuild" in project "SPV.vcxproj".
        Target "_PrepareForReferenceResolution" skipped. Previously built successfully.
-       Target "ComputeCrtSDKReference" skipped, due to false condition; ('@(ClCompile)'!='' and '$(WindowsAppContainer)'=='true' and '$(UseCrtSDKReference)' != 'false') was evaluated as ('converter.cpp;message.cpp;tcp_client.cpp'!='' and 'false'=='true' and '' != 'false').
+       Target "ComputeCrtSDKReference" skipped, due to false condition; ('@(ClCompile)'!='' and '$(WindowsAppContainer)'=='true' and '$(UseCrtSDKReference)' != 'false') was evaluated as ('dissector.cpp;converter.cpp;message.cpp;...'!='' and 'false'=='true' and '' != 'false').
        Target "GetInstalledSDKLocations" skipped, due to false condition; ('@(SDKReference)' != '') was evaluated as ('' != '').
      1>Target "ResolveSDKReferences" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "ResolveAssemblyReferences" depends on it):
        Task "ResolveSDKReference" skipped, due to false condition; ('@(SDKReference)'!='') was evaluated as (''!='').
@@ -1220,8 +1144,10 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
        Target "PrepareForBuild" skipped. Previously built successfully.
        Target "PrepareForBuild" skipped. Previously built successfully.
      1>Target "InitializeBuildStatus" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Build" depends on it):
+       Using "ReadLinesFromFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
        Task "ReadLinesFromFile"
        Done executing task "ReadLinesFromFile".
+       Using "WriteLinesToFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
        Task "WriteLinesToFile"
        Done executing task "WriteLinesToFile".
        Using "Touch" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
@@ -1322,8 +1248,10 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
        Task "Message" skipped, due to false condition; ('$(_REFERENCE_DEBUG)'=='true') was evaluated as (''=='true').
      1>Done building target "ComputeReferenceCLInput" in project "SPV.vcxproj".
      1>Target "WarnCompileDuplicatedFilename" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "_ClCompile" depends on it):
+       Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'dissector.cpp' != 'dissector.cpp' and 'Debug\' == 'Debug\').
        Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'converter.cpp' != 'converter.cpp' and 'Debug\' == 'Debug\').
        Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'message.cpp' != 'message.cpp' and 'Debug\' == 'Debug\').
+       Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'pow.cpp' != 'pow.cpp' and 'Debug\' == 'Debug\').
        Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'tcp_client.cpp' != 'tcp_client.cpp' and 'Debug\' == 'Debug\').
      1>Done building target "WarnCompileDuplicatedFilename" in project "SPV.vcxproj".
      1>Target "FixupCLCompileOptions" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "_ClCompile" depends on it):
@@ -1344,7 +1272,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
      1>Target "SelectClCompile" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "ClCompile" depends on it):
      1>Done building target "SelectClCompile" in project "SPV.vcxproj".
        Target "SelectAnalysisManifest" skipped, due to false condition; ('$(RunMsvcAnalysis)'=='true' and '$(SelectedFiles)'!='') was evaluated as ('false'=='true' and ''!='').
-       Target "ManagedIncrementalBuildPreProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('converter.cpp;message.cpp;tcp_client.cpp' != '' and 'false' == 'True').
+       Target "ManagedIncrementalBuildPreProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('dissector.cpp;converter.cpp;message.cpp;...' != '' and 'false' == 'True').
      1>Target "VcpkgTripletSelection" in file "D:\vcpkg\scripts\buildsystems\msbuild\vcpkg.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "ClCompile" depends on it):
        Task "Message"
          Using triplet "x86-windows" from "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\"
@@ -1358,43 +1286,39 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
        Task "Message" skipped, due to false condition; ('$(VcpkgEnableManifest)' != 'true' and '$(VcpkgManifestRoot)' != '') was evaluated as ('false' != 'true' and '' != '').
      1>Done building target "VcpkgCheckManifestRoot" in project "SPV.vcxproj".
      1>Target "ClCompile" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "_ClCompile" depends on it):
-       Task "Delete"
-       Done executing task "Delete".
+       Task "Delete" skipped, due to false condition; ('%(ClCompile.DebugInformationFormat)' != '' and '%(ClCompile.DebugInformationFormat)' != 'None' and '%(ClCompile.DebugInformationFormat)' != 'OldStyle' and '%(ClCompile.ProgramDataBaseFileName)' != '' and !Exists(%(ClCompile.ProgramDataBaseFileName))) was evaluated as ('EditAndContinue' != '' and 'EditAndContinue' != 'None' and 'EditAndContinue' != 'OldStyle' and 'D:\SPV_TCP\SPV\Debug\SPV.pdb' != '' and !Exists(D:\SPV_TCP\SPV\Debug\SPV.pdb)).
        Task "MultiToolTask" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(ClCompile.CompilerIteration)' == 'Modules') was evaluated as ('' != 'true' and '' == 'Modules').
        Task "MultiToolTask" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(ClCompile.CompilerIteration)' == '' and '$(MultiProcCL)' == 'true') was evaluated as ('' != 'true' and '' == '' and 'false' == 'true').
        Task "CL" skipped, due to false condition; ('%(ClCompile.PrecompiledHeader)' == 'Create' and '%(ClCompile.ExcludedFromBuild)'!='true' and '%(ClCompile.CompilerIteration)' == '' and '$(MultiProcCL)' != 'true') was evaluated as ('NotUsing' == 'Create' and ''!='true' and '' == '' and 'false' != 'true').
        Using "CL" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
        Task "CL"
-         Forcing recompile of all source files due to missing PDB "D:\SPV_TCP\SPV\Debug\SPV.pdb".
+         Read Tracking Logs:
+         	Debug\SPV.tlog\CL.read.1.tlog
+         Outputs for D:\SPV_TCP\SPV\SPV\CONVERTER.CPP|D:\SPV_TCP\SPV\SPV\DISSECTOR.CPP|D:\SPV_TCP\SPV\SPV\MESSAGE.CPP|D:\SPV_TCP\SPV\SPV\POW.CPP|D:\SPV_TCP\SPV\SPV\TCP_CLIENT.CPP:
+         	D:\SPV_TCP\SPV\SPV\DEBUG\DISSECTOR.OBJ
+         	D:\SPV_TCP\SPV\SPV\DEBUG\CONVERTER.OBJ
+         	D:\SPV_TCP\SPV\SPV\DEBUG\MESSAGE.OBJ
+         	D:\SPV_TCP\SPV\SPV\DEBUG\POW.OBJ
+         	D:\SPV_TCP\SPV\SPV\DEBUG\TCP_CLIENT.OBJ
+         dissector.cpp will be compiled because D:\SPV_TCP\SPV\SPV\dissector.cpp was modified at 10/12/2021 3:52:51 PM.
+         Outputs for D:\SPV_TCP\SPV\SPV\DISSECTOR.CPP:
+         	D:\SPV_TCP\SPV\SPV\DEBUG\DISSECTOR.OBJ
+         Write Tracking Logs:
+         	Debug\SPV.tlog\CL.write.1.tlog
          Environment Variables passed to tool:
-           VS_UNICODE_OUTPUT=836
-         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\CL.exe /c /ID:\SPV_TCP\SPV\..\libs\boost /I"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\include" /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D SPV_EXPORTS /D _WINDOWS /D _USRDLL /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"D:\SPV_TCP\SPV\Debug\SPV.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TP /analyze- /FC /errorReport:prompt converter.cpp message.cpp tcp_client.cpp
+           VS_UNICODE_OUTPUT=1812
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\CL.exe /c /ID:\SPV_TCP\SPV\..\libs\protobuf /ID:\SPV_TCP\SPV\..\libs\protobuf\include /ID:\SPV_TCP\SPV\..\libs\boost /I"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\include" /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D SPV_EXPORTS /D _WINDOWS /D _USRDLL /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"D:\SPV_TCP\SPV\Debug\SPV.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TP /analyze- /FC /errorReport:prompt dissector.cpp
          Tracking command:
-         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i D:\SPV_TCP\SPV\SPV\Debug\SPV.tlog /r "D:\SPV_TCP\SPV\SPV\CONVERTER.CPP|D:\SPV_TCP\SPV\SPV\MESSAGE.CPP|D:\SPV_TCP\SPV\SPV\TCP_CLIENT.CPP" /b MSBuildConsole_CancelEvent764eaa3d2a754622b158380fd810a69f  /c "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\CL.exe"  /c /ID:\SPV_TCP\SPV\..\libs\boost /I"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\include" /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D SPV_EXPORTS /D _WINDOWS /D _USRDLL /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"D:\SPV_TCP\SPV\Debug\SPV.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TP /analyze- /FC /errorReport:prompt converter.cpp message.cpp tcp_client.cpp
-         converter.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i D:\SPV_TCP\SPV\SPV\Debug\SPV.tlog /r D:\SPV_TCP\SPV\SPV\DISSECTOR.CPP /b MSBuildConsole_CancelEventec75e1945c4a441aa8a032df2e0593b8  /c "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\CL.exe"  /c /ID:\SPV_TCP\SPV\..\libs\protobuf /ID:\SPV_TCP\SPV\..\libs\protobuf\include /ID:\SPV_TCP\SPV\..\libs\boost /I"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\include" /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D SPV_EXPORTS /D _WINDOWS /D _USRDLL /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"D:\SPV_TCP\SPV\Debug\SPV.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TP /analyze- /FC /errorReport:prompt dissector.cpp
+         dissector.cpp
          Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
          - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
          - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
          Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-     1>D:\SPV_TCP\SPV\SPV\converter.cpp(72,41): warning C4018: '<': signed/unsigned mismatch
-         message.cpp
-         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-         - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-         - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-         Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-         tcp_client.cpp
-         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-         - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-         - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-         Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-     1>D:\SPV_TCP\SPV\SPV\tcp_client.cpp(47,27): warning C4018: '<': signed/unsigned mismatch
-     1>D:\SPV_TCP\SPV\SPV\tcp_client.cpp(86,21): warning C4018: '<': signed/unsigned mismatch
-         Generating Code...
-     1>D:\SPV_TCP\SPV\SPV\tcp_client.cpp(133): warning C4715: 'tcp::tcp_client::getheaders': not all control paths return a value
        Done executing task "CL".
      1>Done building target "ClCompile" in project "SPV.vcxproj".
        Target "RunSelectedFileNativeCodeAnalysis" skipped, due to false condition; ('$(RunMsvcAnalysis)'=='true' and '$(SelectedFiles)'!='') was evaluated as ('false'=='true' and ''!='').
-       Target "ManagedIncrementalBuildPostProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('converter.cpp;message.cpp;tcp_client.cpp' != '' and 'false' == 'True').
+       Target "ManagedIncrementalBuildPostProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('dissector.cpp;converter.cpp;message.cpp;...' != '' and 'false' == 'True').
        Target "NoAnalysisToolEnabledWarning" skipped, due to false condition; ('$(RunCppAnalysis)'=='true' AND '$(EnableMicrosoftCodeAnalysis)'=='false' AND '$(EnableClangTidyCodeAnalysis)'=='false') was evaluated as ('false'=='true' AND 'true'=='false' AND 'false'=='false').
        Target "RunSelectedFileClangTidy" skipped, due to false condition; ('$(RunClangCppAnalysis)'=='true' AND '$(SelectedFiles)'!='') was evaluated as ('false'=='true' AND ''!='').
        Target "MicrosoftAnalysisIncompatiableWithClangCl" skipped, due to false condition; ('$(RunCppAnalysis)'=='true' AND '$(EnableMicrosoftCodeAnalysis)'=='true' AND '$(UseClangCl)'=='true') was evaluated as ('false'=='true' AND 'true'=='true' AND ''=='true').
@@ -1454,15 +1378,33 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
      1>Target "Lib" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "_Lib" depends on it):
        Using "LIB" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
        Task "LIB"
-         All source files are not up-to-date: missing command TLog "D:\SPV_TCP\SPV\SPV\Debug\SPV.tlog\Lib.command.1.tlog".
+         Write Tracking Logs:
+         	Debug\SPV.tlog\Lib-link.write.1.tlog
+         Read Tracking Logs:
+         	Debug\SPV.tlog\Lib-link.read.1.tlog
+         Outputs for D:\SPV_TCP\SPV\SPV\DEBUG\CONVERTER.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\DISSECTOR.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\MESSAGE.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\POW.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\TCP_CLIENT.OBJ:
+         	D:\SPV_TCP\SPV\DEBUG\SPV.LIB
+         Inputs for D:\SPV_TCP\SPV\SPV\DEBUG\CONVERTER.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\DISSECTOR.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\MESSAGE.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\POW.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\TCP_CLIENT.OBJ:
+         	D:\SPV_TCP\SPV\SPV\DEBUG\DISSECTOR.OBJ
+         	C:\WINDOWS\SYSTEM32\TZRES.DLL
+         	D:\SPV_TCP\SPV\SPV\DEBUG\CONVERTER.OBJ
+         	D:\SPV_TCP\SPV\SPV\DEBUG\MESSAGE.OBJ
+         	D:\SPV_TCP\SPV\SPV\DEBUG\POW.OBJ
+         	D:\SPV_TCP\SPV\SPV\DEBUG\TCP_CLIENT.OBJ
+         	C:\WINDOWS\GLOBALIZATION\SORTING\SORTDEFAULT.NLS
+         Source compilation required: input D:\SPV_TCP\SPV\SPV\DEBUG\DISSECTOR.OBJ is newer than output D:\SPV_TCP\SPV\DEBUG\SPV.LIB.
          Environment Variables passed to tool:
-           VS_UNICODE_OUTPUT=1372
-         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\Lib.exe /OUT:"D:\SPV_TCP\SPV\Debug\SPV.lib" /NOLOGO /MACHINE:X86 Debug\converter.obj
+           VS_UNICODE_OUTPUT=2088
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\Lib.exe /OUT:"D:\SPV_TCP\SPV\Debug\SPV.lib" /NOLOGO /MACHINE:X86 Debug\dissector.obj
+         Debug\converter.obj
          Debug\message.obj
+         Debug\pow.obj
          Debug\tcp_client.obj
          Tracking command:
-         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i D:\SPV_TCP\SPV\SPV\Debug\SPV.tlog /r "D:\SPV_TCP\SPV\SPV\DEBUG\CONVERTER.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\MESSAGE.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\TCP_CLIENT.OBJ" /b MSBuildConsole_CancelEvent3dca2593774b41e69fe09869b606cf83  /c "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\Lib.exe"  /OUT:"D:\SPV_TCP\SPV\Debug\SPV.lib" /NOLOGO /MACHINE:X86 Debug\converter.obj
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i D:\SPV_TCP\SPV\SPV\Debug\SPV.tlog /r "D:\SPV_TCP\SPV\SPV\DEBUG\CONVERTER.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\DISSECTOR.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\MESSAGE.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\POW.OBJ|D:\SPV_TCP\SPV\SPV\DEBUG\TCP_CLIENT.OBJ" /b MSBuildConsole_CancelEvent63889a66a266403f890c8868dc7d956c  /c "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\Lib.exe"  /OUT:"D:\SPV_TCP\SPV\Debug\SPV.lib" /NOLOGO /MACHINE:X86 Debug\dissector.obj
+         Debug\converter.obj
          Debug\message.obj
+         Debug\pow.obj
          Debug\tcp_client.obj
        Done executing task "LIB".
        Task "Copy" skipped, due to false condition; ('%(ClCompile.ProgramDatabaseFileName)' != '$(OutDir)$(TargetName).pdb' and
@@ -1515,7 +1457,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
          [vcpkg] Failed to run applocal.ps1 using pwsh, falling back to system PowerShell.
        Done executing task "Message".
        Task "Exec"
-         "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\vcpkg\scripts\buildsystems\msbuild\applocal.ps1" "D:\SPV_TCP\SPV\Debug\SPV.lib" "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\bin" "Debug\SPV.tlog\SPV.write.1u.tlog" "Debug\vcpkg.applocal.log"
+         "C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\vcpkg\scripts\buildsystems\msbuild\applocal.ps1" "D:\SPV_TCP\SPV\Debug\SPV.lib" "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\bin" "Debug\SPV.tlog\SPV.write.1u.tlog" "Debug\vcpkg.applocal.log"
        Done executing task "Exec".
        Task "Warning" skipped, due to false condition; ($(_VcpkgAppLocalExitCode) != 0) was evaluated as (0 != 0).
        Task "ReadLinesFromFile"
@@ -1585,7 +1527,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
      1>Done building target "CreateCustomManifestResourceNames" in project "SPV.vcxproj".
      1>Target "PrepareResourceNames" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "SatelliteDllsProjectOutputGroup" depends on it):
      1>Done building target "PrepareResourceNames" in project "SPV.vcxproj".
-     1>Target "SatelliteDllsProjectOutputGroup" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "CreateRecipeFile" depends on it):
+     1>Target "SatelliteDllsProjectOutputGroup" in file "C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "CreateRecipeFile" depends on it):
        Task "CreateItem" skipped, due to false condition; ('@(ResxWithCulture)' != '') was evaluated as ('' != '').
        Task "CreateItem" skipped, due to false condition; ('$(UICulture)' != '') was evaluated as ('' != '').
        Task "CreateItem" skipped, due to false condition; ('@(NonResxWithCulture)' != '') was evaluated as ('' != '').
@@ -1634,7 +1576,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
        Target "_GetProjectReferenceTargetFrameworkProperties" skipped. Previously built successfully.
      1>Target "_PopulateCommonStateForGetCopyToOutputDirectoryItems" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
      1>Done building target "_PopulateCommonStateForGetCopyToOutputDirectoryItems" in project "SPV.vcxproj".
-     1>Target "GetCopyToOutputDirectoryXamlAppDefs" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
+     1>Target "GetCopyToOutputDirectoryXamlAppDefs" in file "C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
        Task "AssignTargetPath"
        Done executing task "AssignTargetPath".
      1>Done building target "GetCopyToOutputDirectoryXamlAppDefs" in project "SPV.vcxproj".
@@ -1701,6 +1643,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
        Using "ConvertToAbsolutePath" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
        Task "ConvertToAbsolutePath"
        Done executing task "ConvertToAbsolutePath".
+       Using "FindUnderPath" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
        Task "FindUnderPath"
          Comparison path is "D:\SPV_TCP\SPV\SPV".
        Done executing task "FindUnderPath".
@@ -1710,6 +1653,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
        Task "FindUnderPath"
          Comparison path is "Debug\".
        Done executing task "FindUnderPath".
+       Using "RemoveDuplicates" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
        Task "RemoveDuplicates"
        Done executing task "RemoveDuplicates".
      1>Done building target "_CleanGetCurrentAndPriorFileWrites" in project "SPV.vcxproj".
@@ -1720,6 +1664,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
        Task "FindUnderPath"
          Comparison path is "Debug\".
        Done executing task "FindUnderPath".
+       Using "Delete" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
        Task "Delete"
        Done executing task "Delete".
        Task "RemoveDuplicates"
@@ -1734,25 +1679,14 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV\SPV.vcx
          Touching "Debug\SPV.tlog\SPV.lastbuildstate".
        Done executing task "Touch".
      1>Done building target "FinalizeBuildStatus" in project "SPV.vcxproj".
-     1>Target "Build" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Rebuild" depends on it):
-     1>Done building target "Build" in project "SPV.vcxproj".
-     1>Target "AfterRebuild" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "Rebuild" depends on it):
-     1>Done building target "AfterRebuild" in project "SPV.vcxproj".
        Target "_CheckForInvalidConfigurationAndPlatform" skipped. Previously built successfully.
-     1>Target "Rebuild" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (entry point):
-     1>Done building target "Rebuild" in project "SPV.vcxproj".
-     1>Done Building Project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (Rebuild target(s)).
+       Target "_CheckForInvalidConfigurationAndPlatform" skipped. Previously built successfully.
+     1>Target "Build" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (entry point):
+     1>Done building target "Build" in project "SPV.vcxproj".
+     1>Done Building Project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (Build target(s)).
 
 Build succeeded.
-
-       "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (Rebuild target) (1) ->
-       (ClCompile target) -> 
-         D:\SPV_TCP\SPV\SPV\converter.cpp(72,41): warning C4018: '<': signed/unsigned mismatch
-         D:\SPV_TCP\SPV\SPV\tcp_client.cpp(47,27): warning C4018: '<': signed/unsigned mismatch
-         D:\SPV_TCP\SPV\SPV\tcp_client.cpp(86,21): warning C4018: '<': signed/unsigned mismatch
-         D:\SPV_TCP\SPV\SPV\tcp_client.cpp(133): warning C4715: 'tcp::tcp_client::getheaders': not all control paths return a value
-
-    4 Warning(s)
+    0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:11.51
+Time Elapsed 00:00:10.32

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -152,13 +152,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="models.h" />
     <ClInclude Include="SHA256.h" />
     <ClInclude Include="spv.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dissector.cpp" />
     <ClCompile Include="converter.cpp" />
     <ClCompile Include="message.cpp" />
+    <ClCompile Include="pow.cpp" />
     <ClCompile Include="tcp_client.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

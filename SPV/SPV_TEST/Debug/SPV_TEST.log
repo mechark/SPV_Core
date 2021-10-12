@@ -95,7 +95,7 @@
              SplitResourcesByCulture;
              CreateManifestResourceNames;
              CreateCustomManifestResourceNames
-           ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (97,7)
+           ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (97,7)
        Property reassignment: $(PrepareResourcesDependsOn)="
                        MarkupCompilePass1;
                        AfterMarkupCompilePass1;
@@ -113,7 +113,7 @@
              PrepareResourceNames;
              ResGen;
              CompileLicxFiles
-           ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (108,7)
+           ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (108,7)
        Property reassignment: $(CompileDependsOn)="
                
              ResolveReferences;
@@ -141,7 +141,7 @@
              CoreCompile;
              _TimeStampAfterCompile;
              AfterCompile;
-           ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (184,5)
+           ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (184,5)
        Property reassignment: $(PublishBuildDependsOn)="
                    BuildOnlySettings;
                    PrepareForBuild;
@@ -159,7 +159,7 @@
              ResolveKeySource;
              GenerateSerializationAssemblies;
              CreateSatelliteAssemblies;
-           ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (813,9)
+           ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (813,9)
        Property reassignment: $(BuildDependsOn)="
              EntityDeploy;
              
@@ -171,7 +171,7 @@
              BeforeBuild;
              CoreBuild;
              AfterBuild
-           ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets (35,5)
+           ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets (35,5)
        Property reassignment: $(CleanDependsOn)="
              
              BeforeClean;
@@ -189,7 +189,7 @@
              CleanReferencedProjects;
              CleanPublishFolder;
              AfterClean
-           ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets (42,5)
+           ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets (42,5)
        Search paths being used for $(MSBuildExtensionsPath) are C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
        Property reassignment: $(PrepareResourcesDependsOn)="
              XamlMarkupCompilePass1;
@@ -219,7 +219,7 @@
              ResGen;
              CompileLicxFiles
            
-             ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets (35,5)
+             ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets (35,5)
        Property reassignment: $(CoreCompileDependsOn)="
                DesignTimeXamlMarkupCompilation;
                
@@ -229,7 +229,7 @@
            " (previous value: "
                  DesignTimeMarkupCompilation;
                  
-             ") at C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets (76,5)
+             ") at C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets (76,5)
        Property reassignment: $(ResolveReferencesDependsOn)="
              
              
@@ -916,7 +916,7 @@
            ;
            ") at C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets (541,5)
        Overriding target "GetFrameworkPaths" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetFrameworkPaths" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets".
-       Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets".
+       Overriding target "SatelliteDllsProjectOutputGroup" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "SatelliteDllsProjectOutputGroup" from project "C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets".
        Overriding target "GenerateTargetFrameworkMonikerAttribute" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GenerateTargetFrameworkMonikerAttribute" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets".
        Overriding target "Build" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "Build" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets".
        Overriding target "Rebuild" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "Rebuild" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets".
@@ -956,7 +956,7 @@
        Overriding target "GetNativeManifest" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetNativeManifest" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets".
        Overriding target "GetTargetPathWithTargetPlatformMoniker" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPathWithTargetPlatformMoniker" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets".
        The target "CopyLocalFilesOutputGroup" listed in a BeforeTargets attribute at "D:\vcpkg\scripts\buildsystems\msbuild\vcpkg.targets (117,82)" does not exist in the project, and will be ignored.
-Build started 9/26/2021 9:45:21 PM.
+Build started 10/12/2021 3:53:40 PM.
 Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" on node 2 (Build target(s)).
      1>Building with tools version "Current".
        Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
@@ -979,10 +979,10 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
      1>Target "SetTelemetryEnvironmentVariables" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Build" depends on it):
        Using "SetEnv" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
        Task "SetEnv"
-         VSTEL_SolutionSessionID={E195F331-2FC5-4C77-992A-4C6EB4270064}
+         VSTEL_SolutionSessionID={2A7D9EB8-D290-4AEF-8C48-3DCA6ED496BC}
        Done executing task "SetEnv".
        Task "SetEnv"
-         VSTEL_CurrentSolutionBuildID=594340189
+         VSTEL_CurrentSolutionBuildID=1955635656
        Done executing task "SetEnv".
        Task "SetEnv"
          VSTEL_ProjectID={f001527e-6ec0-43bb-999d-15b819c3057b}
@@ -1075,7 +1075,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
      1>Done building target "AddExternalIncludDirectoriesToPaths" in project "SPV_TEST.vcxproj".
      1>Target "SetBuildDefaultEnvironmentVariables" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.Current.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "PrepareForBuild" depends on it):
        Task "SetEnv"
-         PATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86;C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86;;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\tools;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ide;C:\Program Files (x86)\HTML Help Workshop;;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin;C:\Windows\Microsoft.NET\Framework\v4.0.30319\;;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\php;C:\composer;C:\Program Files\Git\cmd;C:\Program Files (x86)\dotnet\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Go\bin;C:\Program Files\cURL\bin;C:\Users\forru\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\forru\AppData\Local\Programs\Python\Python39\;C:\Users\forru\AppData\Local\Microsoft\WindowsApps;C:\Users\forru\AppData\Roaming\npm;C:\Users\forru\AppData\Roaming\Composer\vendor\bin;C:\Users\forru\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\forru\AppData\Local\Programs\Fiddler;C:\Users\forru\.dotnet\tools;C:\Users\forru\AppData\Local\GitHubDesktop\bin;C:\Program Files\Azure Data Studio\bin;C:\Users\forru\go\bin;C:\Program Files\CMake\bin;
+         PATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86;C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86;;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\tools;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ide;C:\Program Files (x86)\HTML Help Workshop;;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin;C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\;;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\php;C:\composer;C:\Program Files\Git\cmd;C:\Program Files (x86)\dotnet\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Go\bin;C:\Program Files\cURL\bin;C:\Users\forru\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\forru\AppData\Local\Programs\Python\Python39\;C:\Users\forru\AppData\Local\Microsoft\WindowsApps;C:\Users\forru\AppData\Roaming\npm;C:\Users\forru\AppData\Roaming\Composer\vendor\bin;C:\Users\forru\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\forru\AppData\Local\Programs\Fiddler;C:\Users\forru\.dotnet\tools;C:\Users\forru\AppData\Local\GitHubDesktop\bin;C:\Program Files\Azure Data Studio\bin;C:\Users\forru\go\bin;C:\Program Files\CMake\bin;C:\Users\forru\AppData\Local\Microsoft\WindowsApps;;
        Done executing task "SetEnv".
        Task "SetEnv"
          LIB=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\lib\x86;;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\atlmfc\lib\x86;;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\VS\lib\x86;;C:\Program Files (x86)\Windows Kits\10\lib\10.0.19041.0\ucrt\x86;;;C:\Program Files (x86)\Windows Kits\10\lib\10.0.19041.0\um\x86;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\lib\um\x86;
@@ -1487,18 +1487,8 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
          	D:\SPV_TCP\SPV\SPV_TEST\DEBUG\SPV_TEST.ILK
          	D:\SPV_TCP\SPV\DEBUG\SPV_TEST.PDB
          Inputs for D:\SPV_TCP\SPV\DEBUG\SPV.LIB|D:\SPV_TCP\SPV\SPV_TEST\DEBUG\SPV_TEST.OBJ:
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\KERNEL32.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\USER32.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\GDI32.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\WINSPOOL.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\COMDLG32.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\ADVAPI32.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\SHELL32.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\OLE32.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\OLEAUT32.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\UUID.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\ODBC32.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\ODBCCP32.LIB
+         	D:\SPV_TCP\LIBS\PROTOBUF\LIB\LIBPROTOBUF.LIB
+         	D:\SPV_TCP\LIBS\PROTOBUF\LIB\LIBPROTOC.LIB
          	D:\SPV_TCP\SPV\SPV_TEST\DEBUG\SPV_TEST.OBJ
          	D:\SPV_TCP\SPV\DEBUG\SPV.LIB
          	C:\WINDOWS\SYSTEM32\TZRES.DLL
@@ -1508,17 +1498,17 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
          	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\MSWSOCK.LIB
          	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X86\MSVCRTD.LIB
          	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X86\OLDNAMES.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\KERNEL32.LIB
          	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X86\VCRUNTIMED.LIB
          	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UCRT\X86\UCRTD.LIB
-         	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\BIN\HOSTX86\X86\CVTRES.EXE
          	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\BIN\HOSTX86\X86\MSPDBSRV.EXE
-         Source compilation required: input D:\SPV_TCP\SPV\DEBUG\SPV.LIB is newer than output D:\SPV_TCP\SPV\DEBUG\SPV_TEST.EXE.
+         Source compilation required: input D:\SPV_TCP\SPV\DEBUG\SPV.LIB is newer than output D:\SPV_TCP\SPV\DEBUG\SPV_TEST.PDB.
          Environment Variables passed to tool:
-           VS_UNICODE_OUTPUT=2832
-         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\link.exe /ERRORREPORT:PROMPT /OUT:"D:\SPV_TCP\SPV\Debug\SPV_TEST.exe" /INCREMENTAL /ILK:"Debug\SPV_TEST.ilk" /NOLOGO /LIBPATH:D:\SPV_TCP\SPV\..\libs\boost\libs /LIBPATH:"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib" /LIBPATH:"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\SPV_TCP\SPV\Debug\SPV_TEST.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\SPV_TCP\SPV\Debug\SPV_TEST.lib" /MACHINE:X86 Debug\SPV_TEST.obj
+           VS_UNICODE_OUTPUT=2284
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\link.exe /ERRORREPORT:PROMPT /OUT:"D:\SPV_TCP\SPV\Debug\SPV_TEST.exe" /INCREMENTAL /ILK:"Debug\SPV_TEST.ilk" /NOLOGO /LIBPATH:D:\SPV_TCP\SPV\..\libs\protobuf\lib /LIBPATH:"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib" /LIBPATH:"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib\manual-link" libprotobuf.lib libprotoc.lib "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\SPV_TCP\SPV\Debug\SPV_TEST.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\SPV_TCP\SPV\Debug\SPV_TEST.lib" /MACHINE:X86 Debug\SPV_TEST.obj
          D:\SPV_TCP\SPV\Debug\SPV.lib
          Tracking command:
-         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /a /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i D:\SPV_TCP\SPV\SPV_TEST\Debug\SPV_TEST.tlog /r "D:\SPV_TCP\SPV\DEBUG\SPV.LIB|D:\SPV_TCP\SPV\SPV_TEST\DEBUG\SPV_TEST.OBJ" /b MSBuildConsole_CancelEvent37f0b84e42f54d3fb80a1d2c7b77c193  /c "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\link.exe"  /ERRORREPORT:PROMPT /OUT:"D:\SPV_TCP\SPV\Debug\SPV_TEST.exe" /INCREMENTAL /ILK:"Debug\SPV_TEST.ilk" /NOLOGO /LIBPATH:D:\SPV_TCP\SPV\..\libs\boost\libs /LIBPATH:"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib" /LIBPATH:"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\SPV_TCP\SPV\Debug\SPV_TEST.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\SPV_TCP\SPV\Debug\SPV_TEST.lib" /MACHINE:X86 Debug\SPV_TEST.obj
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /a /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i D:\SPV_TCP\SPV\SPV_TEST\Debug\SPV_TEST.tlog /r "D:\SPV_TCP\SPV\DEBUG\SPV.LIB|D:\SPV_TCP\SPV\SPV_TEST\DEBUG\SPV_TEST.OBJ" /b MSBuildConsole_CancelEvent038b3d6895754091901e581c33e75297  /c "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\link.exe"  /ERRORREPORT:PROMPT /OUT:"D:\SPV_TCP\SPV\Debug\SPV_TEST.exe" /INCREMENTAL /ILK:"Debug\SPV_TEST.ilk" /NOLOGO /LIBPATH:D:\SPV_TCP\SPV\..\libs\protobuf\lib /LIBPATH:"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib" /LIBPATH:"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib\manual-link" libprotobuf.lib libprotoc.lib "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\SPV_TCP\SPV\Debug\SPV_TEST.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\SPV_TCP\SPV\Debug\SPV_TEST.lib" /MACHINE:X86 Debug\SPV_TEST.obj
          D:\SPV_TCP\SPV\Debug\SPV.lib
        Done executing task "Link".
        Task "Message"
@@ -1561,7 +1551,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
          [vcpkg] Failed to run applocal.ps1 using pwsh, falling back to system PowerShell.
        Done executing task "Message".
        Task "Exec"
-         "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\vcpkg\scripts\buildsystems\msbuild\applocal.ps1" "D:\SPV_TCP\SPV\Debug\SPV_TEST.exe" "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\bin" "Debug\SPV_TEST.tlog\SPV_TEST.write.1u.tlog" "Debug\vcpkg.applocal.log"
+         "C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\vcpkg\scripts\buildsystems\msbuild\applocal.ps1" "D:\SPV_TCP\SPV\Debug\SPV_TEST.exe" "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\bin" "Debug\SPV_TEST.tlog\SPV_TEST.write.1u.tlog" "Debug\vcpkg.applocal.log"
        Done executing task "Exec".
        Task "Warning" skipped, due to false condition; ($(_VcpkgAppLocalExitCode) != 0) was evaluated as (0 != 0).
        Task "ReadLinesFromFile"
@@ -1604,7 +1594,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
      1>Target "BuiltProjectOutputGroup" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CreateRecipeFile" depends on it):
      1>Done building target "BuiltProjectOutputGroup" in project "SPV_TEST.vcxproj".
        Target "PrepareResourceNames" skipped. Previously built successfully.
-     1>Target "SatelliteDllsProjectOutputGroup" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CreateRecipeFile" depends on it):
+     1>Target "SatelliteDllsProjectOutputGroup" in file "C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CreateRecipeFile" depends on it):
        Task "CreateItem" skipped, due to false condition; ('@(ResxWithCulture)' != '') was evaluated as ('' != '').
        Task "CreateItem" skipped, due to false condition; ('$(UICulture)' != '') was evaluated as ('' != '').
        Task "CreateItem" skipped, due to false condition; ('@(NonResxWithCulture)' != '') was evaluated as ('' != '').
@@ -1652,7 +1642,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
        Target "_GetProjectReferenceTargetFrameworkProperties" skipped. Previously built successfully.
      1>Target "_PopulateCommonStateForGetCopyToOutputDirectoryItems" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
      1>Done building target "_PopulateCommonStateForGetCopyToOutputDirectoryItems" in project "SPV_TEST.vcxproj".
-     1>Target "GetCopyToOutputDirectoryXamlAppDefs" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
+     1>Target "GetCopyToOutputDirectoryXamlAppDefs" in file "C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
        Task "AssignTargetPath"
        Done executing task "AssignTargetPath".
      1>Done building target "GetCopyToOutputDirectoryXamlAppDefs" in project "SPV_TEST.vcxproj".
@@ -1770,4 +1760,4 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.81
+Time Elapsed 00:00:02.08
