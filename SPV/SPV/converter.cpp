@@ -3,6 +3,7 @@
 #include <sstream>
 #include <vector>
 #include <boost/dynamic_bitset.hpp>
+#include <boost/multiprecision/cpp_int.hpp>
 #include "SHA256.h"
 #include "spv.h"
 
@@ -39,9 +40,36 @@ namespace tcp
 		checksum = hex_hash.substr(0, 8);
 	}
 
+	string converter::hex_str_tosha256(string hex_str)
+	{
+		string hex = hex_str_to_binary(hex_str);
+		vector<unsigned char> hex_bytes;
+
+		picosha2::hash256(hex_str.begin(), hex_str.end(), hex_bytes.begin(), hex_bytes.end());
+		string hex_hash = picosha2::hash256_hex_string(hex);
+
+		return hex_hash;
+	}
+
 	int converter::hex_str_toi(string hex_str, bool is_little_endian)
 	{
-		unsigned int res = 0;
+		int res = 0;
+
+		std::stringstream sstream;
+
+		if (is_little_endian)
+			hex_str = hex_str_to_little_endian(hex_str);
+
+		sstream << std::hex << hex_str;
+		sstream >> res;
+
+		return res;
+	}
+
+	// Converting hexadecimal string to extra large number
+	boost::multiprecision::int1024_t converter::hex_str_toeln(string hex_str, bool is_little_endian)
+	{
+		boost::multiprecision::int1024_t res = 0;
 
 		std::stringstream sstream;
 
@@ -61,7 +89,11 @@ namespace tcp
 		try
 		{
 			cout << hex_str << endl;
-			if (hex_str.size() % 2 != 0) return "";
+			if (hex_str.size() % 2 != 0)
+			{
+				cout << "String length is not even";
+				terminate();
+			}
 			binary_str.reserve(hex_str.length() / 2);
 			for (std::string::const_iterator pos = hex_str.begin(); pos < hex_str.end(); pos += 2)
 			{
@@ -71,7 +103,7 @@ namespace tcp
 		}
 		catch (const std::exception& e)
 		{
-			std::cerr << "e.what() = " << e.what();
+			cout << "e.what() = " << e.what();
 			throw - 1;
 		}
 
@@ -84,7 +116,11 @@ namespace tcp
 
 		try
 		{
-			if (hex_str.length() % 2 != 0) throw exception("String does not even");
+			if (hex_str.length() % 2 != 0) 
+			{
+				cout << "String length is not even";
+				terminate();
+			}
 			for (int i = hex_str.length() - 1; i < hex_str.length(); --i)
 			{
 				if (i % 2 == 0)
@@ -96,7 +132,8 @@ namespace tcp
 		}
 		catch (exception ex)
 		{
-			throw exception("exception has thrown in hex_str_to_little_endian method");
+			cout << "exception has thrown in hex_str_to_little_endian method";
+			terminate();
 		}
 
 		return les;

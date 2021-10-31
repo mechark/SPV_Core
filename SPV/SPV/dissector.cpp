@@ -7,7 +7,7 @@
 namespace header_chain
 {
 	std::vector<models::header> 
-	dissector::dissect(std::string& raw_headers, const int header_length)
+	dissector::dissect(std::string& raw_headers, std::string& last_header_hash, const int header_length)
 	{
 		tcp::converter conv;
 		if (raw_headers.size() > 0)
@@ -16,10 +16,12 @@ namespace header_chain
 			raw_headers.replace(0, 4, "");
 			std::vector<models::header> headers(headers_number);
 
-			for (int i = 0; i < headers_number; ++i)
+			if ((raw_headers.size() % header_length) == 0)
 			{
-				if ((raw_headers.size() % header_length) == 0)
+				for (int i = 0; i < headers_number; ++i)
 				{
+					headers[i].header_bytes = raw_headers.substr(0, 162);
+
 					// Version
 					string _version = raw_headers.substr(0, 8);
 					int version = conv.hex_str_toi(_version, true);
@@ -39,9 +41,12 @@ namespace header_chain
 					headers[i].timestamp = static_cast<uint32_t>(timestamp);
 
 					// Bits (difficulty target)
-					string _difficulty = raw_headers.substr(144, 8);
-					int bits = conv.hex_str_toi(_difficulty, true);
+					string _difficulty = conv.hex_str_to_little_endian(raw_headers.substr(144, 8));
+					unsigned long long bits = conv.hex_str_toi(_difficulty);
 					headers[i].bits = static_cast<uint32_t>(bits);
+
+					// Hex bits
+					headers[i].hex_bits = _difficulty;
 
 					// Nonce
 					string _nonce = raw_headers.substr(152, 8);
@@ -50,19 +55,14 @@ namespace header_chain
 
 					raw_headers.replace(0, 162, "");
 				}
-				else
-				{
-					throw exception("error in header_chain::dissector::dissect method. Incorrect amount of headers bytes. It doesn't divide by 81.");
-				}
 			}
-		return headers;
+			for (char ch : headers[headers.size() - 1].prev_block) last_header_hash += ch;
+			return headers;
 		}
 		else
 		{
-			throw exception("error in header_chain::dissector::dissect method.");
+			cout << "error in header_chain::dissector::dissect method.Incorrect number of headers bytes.";
+			terminate();
 		}
-
-		vector<models::header> empty_headers;
-		return empty_headers;
 	}
 }

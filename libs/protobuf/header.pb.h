@@ -53,20 +53,20 @@ struct TableStruct_header_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_header_2eproto;
-namespace tcp {
+namespace spv {
 class Header;
 struct HeaderDefaultTypeInternal;
 extern HeaderDefaultTypeInternal _Header_default_instance_;
-}  // namespace tcp
+}  // namespace spv
 PROTOBUF_NAMESPACE_OPEN
-template<> ::tcp::Header* Arena::CreateMaybeMessage<::tcp::Header>(Arena*);
+template<> ::spv::Header* Arena::CreateMaybeMessage<::spv::Header>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace tcp {
+namespace spv {
 
 // ===================================================================
 
 class Header final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:tcp.Header) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:spv.Header) */ {
  public:
   inline Header() : Header(nullptr) {}
   ~Header() override;
@@ -164,7 +164,7 @@ class Header final :
   void InternalSwap(Header* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "tcp.Header";
+    return "spv.Header";
   }
   protected:
   explicit Header(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -184,14 +184,28 @@ class Header final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kMerkleRootFieldNumber = 1,
-    kBlockFieldNumber = 500000,
-    kTimestampFieldNumber = 2,
-    kBitsFieldNumber = 3,
-    kNonceFieldNumber = 4,
-    kVersionFieldNumber = 70016,
+    kPrevBlockFieldNumber = 2,
+    kMerkleRootFieldNumber = 3,
+    kVersionFieldNumber = 1,
+    kTimestampFieldNumber = 4,
+    kBitsFieldNumber = 5,
+    kNonceFieldNumber = 6,
   };
-  // string merkle_root = 1;
+  // string prev_block = 2;
+  void clear_prev_block();
+  const std::string& prev_block() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_prev_block(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_prev_block();
+  PROTOBUF_MUST_USE_RESULT std::string* release_prev_block();
+  void set_allocated_prev_block(std::string* prev_block);
+  private:
+  const std::string& _internal_prev_block() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_prev_block(const std::string& value);
+  std::string* _internal_mutable_prev_block();
+  public:
+
+  // string merkle_root = 3;
   void clear_merkle_root();
   const std::string& merkle_root() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -205,48 +219,7 @@ class Header final :
   std::string* _internal_mutable_merkle_root();
   public:
 
-  // string block = 500000;
-  void clear_block();
-  const std::string& block() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_block(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_block();
-  PROTOBUF_MUST_USE_RESULT std::string* release_block();
-  void set_allocated_block(std::string* block);
-  private:
-  const std::string& _internal_block() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_block(const std::string& value);
-  std::string* _internal_mutable_block();
-  public:
-
-  // uint32 timestamp = 2;
-  void clear_timestamp();
-  ::PROTOBUF_NAMESPACE_ID::uint32 timestamp() const;
-  void set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_timestamp() const;
-  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // uint32 bits = 3;
-  void clear_bits();
-  ::PROTOBUF_NAMESPACE_ID::uint32 bits() const;
-  void set_bits(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_bits() const;
-  void _internal_set_bits(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // uint32 nonce = 4;
-  void clear_nonce();
-  ::PROTOBUF_NAMESPACE_ID::uint32 nonce() const;
-  void set_nonce(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_nonce() const;
-  void _internal_set_nonce(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // int32 version = 70016;
+  // int32 version = 1;
   void clear_version();
   ::PROTOBUF_NAMESPACE_ID::int32 version() const;
   void set_version(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -255,19 +228,46 @@ class Header final :
   void _internal_set_version(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:tcp.Header)
+  // uint32 timestamp = 4;
+  void clear_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::uint32 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 bits = 5;
+  void clear_bits();
+  ::PROTOBUF_NAMESPACE_ID::uint32 bits() const;
+  void set_bits(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_bits() const;
+  void _internal_set_bits(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 nonce = 6;
+  void clear_nonce();
+  ::PROTOBUF_NAMESPACE_ID::uint32 nonce() const;
+  void set_nonce(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_nonce() const;
+  void _internal_set_nonce(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:spv.Header)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr prev_block_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr merkle_root_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr block_;
+  ::PROTOBUF_NAMESPACE_ID::int32 version_;
   ::PROTOBUF_NAMESPACE_ID::uint32 timestamp_;
   ::PROTOBUF_NAMESPACE_ID::uint32 bits_;
   ::PROTOBUF_NAMESPACE_ID::uint32 nonce_;
-  ::PROTOBUF_NAMESPACE_ID::int32 version_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_header_2eproto;
 };
@@ -282,7 +282,7 @@ class Header final :
 #endif  // __GNUC__
 // Header
 
-// int32 version = 70016;
+// int32 version = 1;
 inline void Header::clear_version() {
   version_ = 0;
 }
@@ -290,7 +290,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 Header::_internal_version() const {
   return version_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 Header::version() const {
-  // @@protoc_insertion_point(field_get:tcp.Header.version)
+  // @@protoc_insertion_point(field_get:spv.Header.version)
   return _internal_version();
 }
 inline void Header::_internal_set_version(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -299,61 +299,61 @@ inline void Header::_internal_set_version(::PROTOBUF_NAMESPACE_ID::int32 value) 
 }
 inline void Header::set_version(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_version(value);
-  // @@protoc_insertion_point(field_set:tcp.Header.version)
+  // @@protoc_insertion_point(field_set:spv.Header.version)
 }
 
-// string block = 500000;
-inline void Header::clear_block() {
-  block_.ClearToEmpty();
+// string prev_block = 2;
+inline void Header::clear_prev_block() {
+  prev_block_.ClearToEmpty();
 }
-inline const std::string& Header::block() const {
-  // @@protoc_insertion_point(field_get:tcp.Header.block)
-  return _internal_block();
+inline const std::string& Header::prev_block() const {
+  // @@protoc_insertion_point(field_get:spv.Header.prev_block)
+  return _internal_prev_block();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void Header::set_block(ArgT0&& arg0, ArgT... args) {
+void Header::set_prev_block(ArgT0&& arg0, ArgT... args) {
  
- block_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:tcp.Header.block)
+ prev_block_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:spv.Header.prev_block)
 }
-inline std::string* Header::mutable_block() {
-  std::string* _s = _internal_mutable_block();
-  // @@protoc_insertion_point(field_mutable:tcp.Header.block)
+inline std::string* Header::mutable_prev_block() {
+  std::string* _s = _internal_mutable_prev_block();
+  // @@protoc_insertion_point(field_mutable:spv.Header.prev_block)
   return _s;
 }
-inline const std::string& Header::_internal_block() const {
-  return block_.Get();
+inline const std::string& Header::_internal_prev_block() const {
+  return prev_block_.Get();
 }
-inline void Header::_internal_set_block(const std::string& value) {
+inline void Header::_internal_set_prev_block(const std::string& value) {
   
-  block_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  prev_block_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* Header::_internal_mutable_block() {
+inline std::string* Header::_internal_mutable_prev_block() {
   
-  return block_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+  return prev_block_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* Header::release_block() {
-  // @@protoc_insertion_point(field_release:tcp.Header.block)
-  return block_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+inline std::string* Header::release_prev_block() {
+  // @@protoc_insertion_point(field_release:spv.Header.prev_block)
+  return prev_block_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline void Header::set_allocated_block(std::string* block) {
-  if (block != nullptr) {
+inline void Header::set_allocated_prev_block(std::string* prev_block) {
+  if (prev_block != nullptr) {
     
   } else {
     
   }
-  block_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), block,
+  prev_block_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), prev_block,
       GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:tcp.Header.block)
+  // @@protoc_insertion_point(field_set_allocated:spv.Header.prev_block)
 }
 
-// string merkle_root = 1;
+// string merkle_root = 3;
 inline void Header::clear_merkle_root() {
   merkle_root_.ClearToEmpty();
 }
 inline const std::string& Header::merkle_root() const {
-  // @@protoc_insertion_point(field_get:tcp.Header.merkle_root)
+  // @@protoc_insertion_point(field_get:spv.Header.merkle_root)
   return _internal_merkle_root();
 }
 template <typename ArgT0, typename... ArgT>
@@ -361,11 +361,11 @@ inline PROTOBUF_ALWAYS_INLINE
 void Header::set_merkle_root(ArgT0&& arg0, ArgT... args) {
  
  merkle_root_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:tcp.Header.merkle_root)
+  // @@protoc_insertion_point(field_set:spv.Header.merkle_root)
 }
 inline std::string* Header::mutable_merkle_root() {
   std::string* _s = _internal_mutable_merkle_root();
-  // @@protoc_insertion_point(field_mutable:tcp.Header.merkle_root)
+  // @@protoc_insertion_point(field_mutable:spv.Header.merkle_root)
   return _s;
 }
 inline const std::string& Header::_internal_merkle_root() const {
@@ -380,7 +380,7 @@ inline std::string* Header::_internal_mutable_merkle_root() {
   return merkle_root_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* Header::release_merkle_root() {
-  // @@protoc_insertion_point(field_release:tcp.Header.merkle_root)
+  // @@protoc_insertion_point(field_release:spv.Header.merkle_root)
   return merkle_root_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
 inline void Header::set_allocated_merkle_root(std::string* merkle_root) {
@@ -391,10 +391,10 @@ inline void Header::set_allocated_merkle_root(std::string* merkle_root) {
   }
   merkle_root_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), merkle_root,
       GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:tcp.Header.merkle_root)
+  // @@protoc_insertion_point(field_set_allocated:spv.Header.merkle_root)
 }
 
-// uint32 timestamp = 2;
+// uint32 timestamp = 4;
 inline void Header::clear_timestamp() {
   timestamp_ = 0u;
 }
@@ -402,7 +402,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 Header::_internal_timestamp() const {
   return timestamp_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 Header::timestamp() const {
-  // @@protoc_insertion_point(field_get:tcp.Header.timestamp)
+  // @@protoc_insertion_point(field_get:spv.Header.timestamp)
   return _internal_timestamp();
 }
 inline void Header::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -411,10 +411,10 @@ inline void Header::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 valu
 }
 inline void Header::set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_timestamp(value);
-  // @@protoc_insertion_point(field_set:tcp.Header.timestamp)
+  // @@protoc_insertion_point(field_set:spv.Header.timestamp)
 }
 
-// uint32 bits = 3;
+// uint32 bits = 5;
 inline void Header::clear_bits() {
   bits_ = 0u;
 }
@@ -422,7 +422,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 Header::_internal_bits() const {
   return bits_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 Header::bits() const {
-  // @@protoc_insertion_point(field_get:tcp.Header.bits)
+  // @@protoc_insertion_point(field_get:spv.Header.bits)
   return _internal_bits();
 }
 inline void Header::_internal_set_bits(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -431,10 +431,10 @@ inline void Header::_internal_set_bits(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 }
 inline void Header::set_bits(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_bits(value);
-  // @@protoc_insertion_point(field_set:tcp.Header.bits)
+  // @@protoc_insertion_point(field_set:spv.Header.bits)
 }
 
-// uint32 nonce = 4;
+// uint32 nonce = 6;
 inline void Header::clear_nonce() {
   nonce_ = 0u;
 }
@@ -442,7 +442,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 Header::_internal_nonce() const {
   return nonce_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 Header::nonce() const {
-  // @@protoc_insertion_point(field_get:tcp.Header.nonce)
+  // @@protoc_insertion_point(field_get:spv.Header.nonce)
   return _internal_nonce();
 }
 inline void Header::_internal_set_nonce(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -451,7 +451,7 @@ inline void Header::_internal_set_nonce(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 }
 inline void Header::set_nonce(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_nonce(value);
-  // @@protoc_insertion_point(field_set:tcp.Header.nonce)
+  // @@protoc_insertion_point(field_set:spv.Header.nonce)
 }
 
 #ifdef __GNUC__
@@ -460,7 +460,7 @@ inline void Header::set_nonce(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace tcp
+}  // namespace spv
 
 // @@protoc_insertion_point(global_scope)
 

@@ -3,17 +3,17 @@
 	<ItemDefinitionGroup>
 		<ClCompile>
 			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\protobuf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\protobuf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<AdditionalIncludeDirectories>$(SolutionDir)protobuf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+		<!--	<AdditionalIncludeDirectories>$(SolutionDir)..\libs\protobuf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\protobuf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories> -->
 		</ClCompile>
 
 		<Link>
 			<AdditionalLibraryDirectories>$(SolutionDir)..\libs\boost\libs;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
-			<AdditionalLibraryDirectories>$(SolutionDir)..\libs\protobuf\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
+		<!--	<AdditionalLibraryDirectories>$(SolutionDir)..\libs\protobuf\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
 
-			<AdditionalDependencies>libprotobuf.lib;libprotoc.lib;</AdditionalDependencies>
+			<AdditionalDependencies>libprotobuf.lib;libprotoc.lib;</AdditionalDependencies> -->
 		</Link>
-
 		
 	</ItemDefinitionGroup>
 </Project>

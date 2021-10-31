@@ -11,9 +11,9 @@
        Property reassignment: $(PlatformToolset)="v100" (previous value: "") at C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Platforms\Win32\Platform.Default.props (29,5)
        The "LangID" property is a global property, and cannot be modified.
        The "SolutionDir" property is a global property, and cannot be modified.
-       Property reassignment: $(UseDebugLibraries)="true" (previous value: "false") at D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj (31,5)
-       Property reassignment: $(PlatformToolset)="v142" (previous value: "v100") at D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj (32,5)
-       Property reassignment: $(CharacterSet)="Unicode" (previous value: "NotSet") at D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj (33,5)
+       Property reassignment: $(UseDebugLibraries)="true" (previous value: "false") at D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj (30,5)
+       Property reassignment: $(PlatformToolset)="v142" (previous value: "v100") at D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj (31,5)
+       Property reassignment: $(CharacterSet)="Unicode" (previous value: "NotSet") at D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj (32,5)
        Property reassignment: $(WindowsSDK_ExecutablePath_x86)="C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86;;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools" (previous value: "C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86;") at C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.WindowsSDK.props (199,5)
        Property reassignment: $(WindowsSDK_ExecutablePath_x64)="C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64;;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\x64" (previous value: "C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64;") at C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.WindowsSDK.props (200,5)
        Property reassignment: $(TargetExt)=".exe" (previous value: "") at C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.Common.props (28,5)
@@ -956,13 +956,14 @@
        Overriding target "GetNativeManifest" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetNativeManifest" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets".
        Overriding target "GetTargetPathWithTargetPlatformMoniker" in project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPathWithTargetPlatformMoniker" from project "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets".
        The target "CopyLocalFilesOutputGroup" listed in a BeforeTargets attribute at "D:\vcpkg\scripts\buildsystems\msbuild\vcpkg.targets (117,82)" does not exist in the project, and will be ignored.
-Build started 10/12/2021 3:53:40 PM.
-Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" on node 2 (Build target(s)).
+Build started 10/31/2021 5:21:38 PM.
+Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" on node 2 (Rebuild target(s)).
      1>Building with tools version "Current".
        Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
      1>Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "SetTelemetryEnvironmentVariables" depends on it):
        Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
        Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
+       Using "Message" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
        Task "Message"
          Configuration=Debug
        Done executing task "Message".
@@ -976,18 +977,117 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
        Task "Warning" skipped, due to false condition; ( '$(EnableBaseIntermediateOutputPathMismatchWarning)' == 'true' And '$(_InitialBaseIntermediateOutputPath)' != '$(BaseIntermediateOutputPath)' And '$(BaseIntermediateOutputPath)' != '$(MSBuildProjectExtensionsPath)' ) was evaluated as ( '' == 'true' And 'obj\' != 'obj\' And 'obj\' != 'D:\SPV_TCP\SPV\SPV_TEST\obj\' ).
      1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "SPV_TEST.vcxproj".
        Target "_CheckForInvalidConfigurationAndPlatform" skipped. Previously built successfully.
-     1>Target "SetTelemetryEnvironmentVariables" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Build" depends on it):
+     1>Target "SetTelemetryEnvironmentVariables" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Rebuild" depends on it):
        Using "SetEnv" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
        Task "SetEnv"
-         VSTEL_SolutionSessionID={2A7D9EB8-D290-4AEF-8C48-3DCA6ED496BC}
+         VSTEL_SolutionSessionID={68C49836-0779-473F-AD78-3833FB44B2DF}
        Done executing task "SetEnv".
        Task "SetEnv"
-         VSTEL_CurrentSolutionBuildID=1955635656
+         VSTEL_CurrentSolutionBuildID=3602525003
        Done executing task "SetEnv".
        Task "SetEnv"
          VSTEL_ProjectID={f001527e-6ec0-43bb-999d-15b819c3057b}
        Done executing task "SetEnv".
      1>Done building target "SetTelemetryEnvironmentVariables" in project "SPV_TEST.vcxproj".
+     1>Target "_PrepareForRebuild" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Rebuild" depends on it):
+     1>Done building target "_PrepareForRebuild" in project "SPV_TEST.vcxproj".
+     1>Target "BeforeRebuild" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Rebuild" depends on it):
+     1>Done building target "BeforeRebuild" in project "SPV_TEST.vcxproj".
+     1>Target "_PrepareForClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Clean" depends on it):
+       Using "Delete" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "Delete"
+         Deleting file "Debug\SPV_TEST.tlog\SPV_TEST.lastbuildstate".
+       Done executing task "Delete".
+     1>Done building target "_PrepareForClean" in project "SPV_TEST.vcxproj".
+     1>Target "BeforeClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Clean" depends on it):
+     1>Done building target "BeforeClean" in project "SPV_TEST.vcxproj".
+       Target "UnmanagedUnregistration" skipped, due to false condition; ((('$(_AssemblyTimestampBeforeCompile)' != '$(_AssemblyTimestampAfterCompile)' or '$(RegisterForComInterop)' != 'true' or '$(OutputType)' != 'library') or
+                           ('$(_AssemblyTimestampBeforeCompile)' == '')) and
+                          Exists('@(_UnmanagedRegistrationCache)')) was evaluated as ((('' != '' or '' != 'true' or 'exe' != 'library') or
+                           ('' == '')) and
+                          Exists('obj\SPV_TEST.vcxproj.UnmanagedRegistration.cache')).
+     1>Target "CoreClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Clean" depends on it):
+       Task "Delete"
+         File "Debug\\TempCA\SPV_TEST.pdb" doesn't exist. Skipping.
+         File "Debug\\TempCA\SPV_TEST.exe" doesn't exist. Skipping.
+       Done executing task "Delete".
+       Using "ReadLinesFromFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "ReadLinesFromFile"
+       Done executing task "ReadLinesFromFile".
+       Using "FindUnderPath" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "FindUnderPath"
+         Comparison path is "D:\SPV_TCP\SPV\Debug\".
+       Done executing task "FindUnderPath".
+       Task "FindUnderPath"
+         Comparison path is "Debug\".
+       Done executing task "FindUnderPath".
+       Task "Delete"
+       Done executing task "Delete".
+       Using "RemoveDuplicates" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "RemoveDuplicates"
+       Done executing task "RemoveDuplicates".
+       Using "MakeDir" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "MakeDir"
+       Done executing task "MakeDir".
+       Using "WriteLinesToFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "WriteLinesToFile"
+       Done executing task "WriteLinesToFile".
+     1>Done building target "CoreClean" in project "SPV_TEST.vcxproj".
+       Target "_CleanMdbFiles" skipped, due to false condition; (Exists('$(TargetPath).mdb')) was evaluated as (Exists('D:\SPV_TCP\SPV\Debug\SPV_TEST.exe.mdb')).
+     1>Target "AssignProjectConfiguration" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "PrepareProjectReferences" depends on it):
+       Using "AssignProjectConfiguration" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "AssignProjectConfiguration"
+       Done executing task "AssignProjectConfiguration".
+     1>Done building target "AssignProjectConfiguration" in project "SPV_TEST.vcxproj".
+     1>Target "_SplitProjectReferencesByFileExistence" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "PrepareProjectReferences" depends on it):
+       Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as ('true'=='true' and ''!='').
+     1>Done building target "_SplitProjectReferencesByFileExistence" in project "SPV_TEST.vcxproj".
+     1>Target "_AddOutputPathToGlobalPropertiesToRemove" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_GetProjectReferenceTargetFrameworkProperties" depends on it):
+     1>Done building target "_AddOutputPathToGlobalPropertiesToRemove" in project "SPV_TEST.vcxproj".
+     1>Target "_GetProjectReferenceTargetFrameworkProperties" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "PrepareProjectReferences" depends on it):
+       Using "MSBuild" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "MSBuild"
+       Done executing task "MSBuild".
+       Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities->Count())' != '0' and '$(ReferringTargetFrameworkForProjectReferences)' != ''
+                                                               And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' == 'true') was evaluated as ('0' != '0' and '.NETFramework,Version=v4.0' != ''
+                                                               And 'true' == 'true').
+       Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities->Count())' != '0' and '$(ReferringTargetFrameworkForProjectReferences)' != ''
+                                                               And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' != 'true') was evaluated as ('0' != '0' and '.NETFramework,Version=v4.0' != ''
+                                                               And 'true' != 'true').
+     1>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "SPV_TEST.vcxproj".
+     1>Target "PrepareProjectReferences" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CleanReferencedProjects" depends on it):
+     1>Done building target "PrepareProjectReferences" in project "SPV_TEST.vcxproj".
+     1>Target "CleanReferencedProjects" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Clean" depends on it):
+       Task "MSBuild" skipped, due to false condition; ('$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('true' != 'true' and 'true' == 'true' and '' != '').
+     1>Done building target "CleanReferencedProjects" in project "SPV_TEST.vcxproj".
+     1>Target "CleanPublishFolder" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Clean" depends on it):
+       Task "RemoveDir" skipped, due to false condition; ('$(PublishDir)'=='$(OutputPath)app.publish\' and Exists('$(PublishDir)')) was evaluated as ('D:\SPV_TCP\SPV\Debug\app.publish\'=='D:\SPV_TCP\SPV\Debug\app.publish\' and Exists('D:\SPV_TCP\SPV\Debug\app.publish\')).
+     1>Done building target "CleanPublishFolder" in project "SPV_TEST.vcxproj".
+     1>Target "AfterClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Clean" depends on it):
+     1>Done building target "AfterClean" in project "SPV_TEST.vcxproj".
+       Target "EntityClean" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').
+     1>Target "BeforeCppClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppClean.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CppClean" depends on it):
+     1>Done building target "BeforeCppClean" in project "SPV_TEST.vcxproj".
+     1>Target "CoreCppClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppClean.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CppClean" depends on it):
+       Task "MakeDir"
+       Done executing task "MakeDir".
+       Using "CppClean" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
+       Task "CppClean"
+       Done executing task "CppClean".
+       Task "WriteLinesToFile"
+       Done executing task "WriteLinesToFile".
+     1>Done building target "CoreCppClean" in project "SPV_TEST.vcxproj".
+     1>Target "AfterCppClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppClean.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CppClean" depends on it):
+     1>Done building target "AfterCppClean" in project "SPV_TEST.vcxproj".
+     1>Target "PGInstrumentedClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppClean.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CppClean" depends on it):
+       Task "Delete"
+       Done executing task "Delete".
+     1>Done building target "PGInstrumentedClean" in project "SPV_TEST.vcxproj".
+     1>Target "CppClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppClean.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Clean" depends on it):
+     1>Done building target "CppClean" in project "SPV_TEST.vcxproj".
+     1>Target "Clean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Rebuild" depends on it):
+     1>Done building target "Clean" in project "SPV_TEST.vcxproj".
+       Target "SetTelemetryEnvironmentVariables" skipped. Previously built successfully.
      1>Target "_PrepareForBuild" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Build" depends on it):
        Task "CreateItem" skipped, due to false condition; ('%(CustomBuild.IncludeFileToTool)'!='') was evaluated as (''!='').
      1>Done building target "_PrepareForBuild" in project "SPV_TEST.vcxproj".
@@ -997,66 +1097,14 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
        Target "ComputeCrtSDKReference" skipped, due to false condition; ('@(ClCompile)'!='' and '$(WindowsAppContainer)'=='true' and '$(UseCrtSDKReference)' != 'false') was evaluated as ('SPV_TEST.cpp'!='' and 'false'=='true' and '' != 'false').
      1>Target "BeforeResolveReferences" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "ResolveReferences" depends on it):
      1>Done building target "BeforeResolveReferences" in project "SPV_TEST.vcxproj".
-     1>Target "AssignProjectConfiguration" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "ResolveReferences" depends on it):
-       Task "AssignProjectConfiguration"
-         Project reference "..\SPV\SPV.vcxproj" has been assigned the "Debug|Win32" configuration.
-       Done executing task "AssignProjectConfiguration".
-     1>Done building target "AssignProjectConfiguration" in project "SPV_TEST.vcxproj".
        Target "AssignProjectConfiguration" skipped. Previously built successfully.
-     1>Target "_SplitProjectReferencesByFileExistence" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "PrepareProjectReferences" depends on it):
-       Using "ResolveNonMSBuildProjectOutput" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-       Task "ResolveNonMSBuildProjectOutput"
-         Resolving project reference "..\SPV\SPV.vcxproj".
-         Project reference "..\SPV\SPV.vcxproj" has not been resolved.
-       Done executing task "ResolveNonMSBuildProjectOutput".
-     1>Done building target "_SplitProjectReferencesByFileExistence" in project "SPV_TEST.vcxproj".
-     1>Target "_AddOutputPathToGlobalPropertiesToRemove" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_GetProjectReferenceTargetFrameworkProperties" depends on it):
-     1>Done building target "_AddOutputPathToGlobalPropertiesToRemove" in project "SPV_TEST.vcxproj".
-     1>Target "_GetProjectReferenceTargetFrameworkProperties" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "PrepareProjectReferences" depends on it):
-       Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.SkipGetTargetFrameworkProperties)' != 'true') was evaluated as ('true' != 'true').
-       Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities->Count())' != '0' and '$(ReferringTargetFrameworkForProjectReferences)' != ''
-                                                               And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' == 'true') was evaluated as ('0' != '0' and '.NETFramework,Version=v4.0' != ''
-                                                               And 'true' == 'true').
-       Task "GetReferenceNearestTargetFrameworkTask" skipped, due to false condition; ('@(_ProjectReferenceTargetFrameworkPossibilities->Count())' != '0' and '$(ReferringTargetFrameworkForProjectReferences)' != ''
-                                                               And '$(GetReferenceNearestTargetFrameworkTaskSupportsTargetPlatformParameter)' != 'true') was evaluated as ('0' != '0' and '.NETFramework,Version=v4.0' != ''
-                                                               And 'true' != 'true').
-     1>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "SPV_TEST.vcxproj".
-     1>Target "PrepareProjectReferences" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "ResolveProjectReferences" depends on it):
-     1>Done building target "PrepareProjectReferences" in project "SPV_TEST.vcxproj".
-     1>Target "_RemoveNameMetadataFromProjectReferenceItems" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "ResolveProjectReferences" depends on it):
-     1>Done building target "_RemoveNameMetadataFromProjectReferenceItems" in project "SPV_TEST.vcxproj".
+       Target "PrepareProjectReferences" skipped. Previously built successfully.
+       Target "_RemoveNameMetadataFromProjectReferenceItems" skipped, due to false condition; ('@(ProjectReference)'!='') was evaluated as (''!='').
      1>Target "ResolveProjectReferences" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "ResolveReferences" depends on it):
-       Task "MSBuild"
-         Global Properties:
-           Configuration=Debug
-           Platform=Win32
-         Removing Properties for project "..\SPV\SPV.vcxproj":
-           TargetFramework
-     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (1) is building "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (2) on node 2 (GetTargetPath target(s)).
-     2>Building with tools version "Current".
-       Target "_PrepareForReferenceResolution" skipped. Previously built successfully.
-       Target "GetResolvedWinMD" skipped. Previously built successfully.
-     2>Target "GetTargetPathWithTargetPlatformMoniker" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "GetTargetPath" depends on it):
-       Task "Message" skipped, due to false condition; ('$(_REFERENCE_DEBUG)' ==  'true') was evaluated as ('' ==  'true').
-     2>Done building target "GetTargetPathWithTargetPlatformMoniker" in project "SPV.vcxproj".
-     2>Target "GetTargetPath" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (entry point):
-     2>Done building target "GetTargetPath" in project "SPV.vcxproj".
-     2>Done Building Project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (GetTargetPath target(s)).
-     1>Done executing task "MSBuild".
-       Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('true' == 'true' and '..\SPV\SPV.vcxproj' != '' and 'true' != 'true' and 'true' == 'true' and '..\SPV\SPV.vcxproj' != '').
-       Task "MSBuild"
-         Global Properties:
-           Configuration=Debug
-           Platform=Win32
-         Removing Properties for project "..\SPV\SPV.vcxproj":
-           TargetFramework
-     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (1) is building "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (2:2) on node 2 (GetNativeManifest target(s)).
-   2:2>Building with tools version "Current".
-   2:2>Target "GetNativeManifest" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (entry point):
-   2:2>Done building target "GetNativeManifest" in project "SPV.vcxproj".
-   2:2>Done Building Project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (GetNativeManifest target(s)).
-     1>Done executing task "MSBuild".
-       Task "Warning" skipped, due to false condition; ('@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceNonexistent)' != '') was evaluated as ('..\SPV\SPV.vcxproj' != '' and '' != '').
+       Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' != '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and ('true' == 'true' or 'true' != 'true') and '16.0' != '10.0' and '' != '').
+       Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'true' != 'true' and 'true' == 'true' and '' != '').
+       Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingProject)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'true' == 'true' and '' != '').
+       Task "Warning" skipped, due to false condition; ('@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceNonexistent)' != '') was evaluated as ('' != '' and '' != '').
      1>Done building target "ResolveProjectReferences" in project "SPV_TEST.vcxproj".
        Target "FindInvalidProjectReferences" skipped, due to false condition; ('$(FindInvalidProjectReferences)' == 'true') was evaluated as ('' == 'true').
        Target "ResolveNativeReferences" skipped, due to false condition; ('@(NativeReference)'!='') was evaluated as (''!='').
@@ -1177,13 +1225,14 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
        Done executing task "ReadLinesFromFile".
        Task "WriteLinesToFile"
        Done executing task "WriteLinesToFile".
+       Using "Touch" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
        Task "Touch"
          Creating "Debug\SPV_TEST.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
        Done executing task "Touch".
      1>Done building target "InitializeBuildStatus" in project "SPV_TEST.vcxproj".
        Target "PrepareProjectReferences" skipped. Previously built successfully.
      1>Target "BuildGenerateSourcesTraverse" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "BuildGenerateSources" depends on it):
-       Task "MSBuild" skipped, due to false condition; ('$(BuildPassReferences)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != '' and '%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true') was evaluated as ('' == 'true' and '..\SPV\SPV.vcxproj' != '' and '..\SPV\SPV.vcxproj' != '' and 'true' == 'true').
+       Task "MSBuild" skipped, due to false condition; ('$(BuildPassReferences)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != '' and '%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true') was evaluated as ('' == 'true' and '' != '' and '' != '' and '' == 'true').
      1>Done building target "BuildGenerateSourcesTraverse" in project "SPV_TEST.vcxproj".
        Target "PrepareForBuild" skipped. Previously built successfully.
        Target "ResolveReferences" skipped. Previously built successfully.
@@ -1250,7 +1299,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
      1>Done building target "BuildGenerateSources" in project "SPV_TEST.vcxproj".
        Target "PrepareProjectReferences" skipped. Previously built successfully.
      1>Target "BuildCompileTraverse" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "BuildCompile" depends on it):
-       Task "MSBuild" skipped, due to false condition; ('$(BuildPassReferences)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != ''  and '%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true') was evaluated as ('' == 'true' and '..\SPV\SPV.vcxproj' != '' and '..\SPV\SPV.vcxproj' != ''  and 'true' == 'true').
+       Task "MSBuild" skipped, due to false condition; ('$(BuildPassReferences)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != ''  and '%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true') was evaluated as ('' == 'true' and '' != '' and '' != ''  and '' == 'true').
      1>Done building target "BuildCompileTraverse" in project "SPV_TEST.vcxproj".
        Target "PrepareForBuild" skipped. Previously built successfully.
        Target "ResolveReferences" skipped. Previously built successfully.
@@ -1266,46 +1315,7 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
        Target "PrepareForBuild" skipped. Previously built successfully.
        Target "ResolveReferences" skipped. Previously built successfully.
      1>Target "GetReferencedVCProjectsInfo" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "ComputeReferenceCLInput" depends on it):
-       Task "MSBuild"
-         Global Properties:
-           Configuration=Debug
-           Platform=Win32
-         Removing Properties for project "..\SPV\SPV.vcxproj":
-           TargetFramework
-     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (1) is building "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (2:3) on node 2 (GetProjectInfoForReference target(s)).
-   2:3>Building with tools version "Current".
-   2:3>Target "GetPublicIncludeDirectories" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "AddPublicIncludeDirectoriesToProjectsInfoForReference" depends on it):
-   2:3>Done building target "GetPublicIncludeDirectories" in project "SPV.vcxproj".
-   2:3>Target "AddPublicIncludeDirectoriesToProjectsInfoForReference" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "GetProjectInfoForReference" depends on it):
-   2:3>Done building target "AddPublicIncludeDirectoriesToProjectsInfoForReference" in project "SPV.vcxproj".
-       Target "GenerateTargetFrameworkMonikerAttribute" skipped, due to false condition; ('$(GenerateTargetFrameworkAttribute)' == 'true') was evaluated as ('false' == 'true').
-       Target "ComputeMIDLGeneratedCompileInputs" skipped. Previously built successfully.
-       Target "ComputeCLInputPDBName" skipped. Previously built successfully.
-       Target "ComputeReferenceCLInput" skipped. Previously built successfully.
-       Target "WarnCompileDuplicatedFilename" skipped. Previously built successfully.
-       Target "FixupCLCompileOptions" skipped. Previously built successfully.
-       Target "SetModuleDependencies" skipped, due to false condition; ('$(DesignTimeBuild)' != 'true' and '$(EnableCppModules)' == 'true') was evaluated as ('' != 'true' and '' == 'true').
-       Target "GetPublicIncludeDirectories" skipped. Previously built successfully.
-   2:3>Target "AddPublicBMIsToProjectsInfoForReference" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "GetProjectInfoForReference" depends on it):
-       Task "GetOutputFileNameItems" skipped, due to false condition; ('@(_Modules)' != '') was evaluated as ('' != '').
-       Task "GetOutputFileNameItems" skipped, due to false condition; ('@(_HeaderUnits)' != '') was evaluated as ('' != '').
-   2:3>Done building target "AddPublicBMIsToProjectsInfoForReference" in project "SPV.vcxproj".
-   2:3>Target "AddDeployRecipeFileToProjectsInfoForReference" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "GetProjectInfoForReference" depends on it):
-   2:3>Done building target "AddDeployRecipeFileToProjectsInfoForReference" in project "SPV.vcxproj".
-       Target "PrepareForBuild" skipped. Previously built successfully.
-       Target "ResolveReferences" skipped. Previously built successfully.
-       Target "GetReferencedVCProjectsInfo" skipped. Previously built successfully.
-   2:3>Target "ResolvedLinkLib" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "GetResolvedLinkLibs" depends on it):
-   2:3>Done building target "ResolvedLinkLib" in project "SPV.vcxproj".
-   2:3>Target "GetResolvedLinkLibs" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "AddLibrariesToProjectsInfoForReference" depends on it):
-       Task "Message" skipped, due to false condition; ('$(_REFERENCE_DEBUG)'=='true') was evaluated as (''=='true').
-   2:3>Done building target "GetResolvedLinkLibs" in project "SPV.vcxproj".
-   2:3>Target "AddLibrariesToProjectsInfoForReference" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (target "GetProjectInfoForReference" depends on it):
-   2:3>Done building target "AddLibrariesToProjectsInfoForReference" in project "SPV.vcxproj".
-   2:3>Target "GetProjectInfoForReference" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (entry point):
-   2:3>Done building target "GetProjectInfoForReference" in project "SPV.vcxproj".
-   2:3>Done Building Project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (GetProjectInfoForReference target(s)).
-     1>Done executing task "MSBuild".
+       Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.Extension)' == '.vcxproj' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == '.vcxproj' and '' != '' and '' != '').
      1>Done building target "GetReferencedVCProjectsInfo" in project "SPV_TEST.vcxproj".
      1>Target "ComputeReferenceCLInput" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_ClCompile" depends on it):
        Task "WriteLinesToFile" skipped, due to false condition; ('@(_ReferenceOutputsToCopyLocally)'!='' and '$(DesignTimeBuild)' != 'true' and '$(TrackFileAccess)' == 'true') was evaluated as (''!='' and '' != 'true' and 'true' == 'true').
@@ -1347,417 +1357,37 @@ Logging verbosity is set to: Detailed.     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SP
        Task "Message" skipped, due to false condition; ('$(VcpkgEnableManifest)' != 'true' and '$(VcpkgManifestRoot)' != '') was evaluated as ('false' != 'true' and '' != '').
      1>Done building target "VcpkgCheckManifestRoot" in project "SPV_TEST.vcxproj".
      1>Target "ClCompile" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_ClCompile" depends on it):
-       Task "Delete" skipped, due to false condition; ('%(ClCompile.DebugInformationFormat)' != '' and '%(ClCompile.DebugInformationFormat)' != 'None' and '%(ClCompile.DebugInformationFormat)' != 'OldStyle' and '%(ClCompile.ProgramDataBaseFileName)' != '' and !Exists(%(ClCompile.ProgramDataBaseFileName))) was evaluated as ('EditAndContinue' != '' and 'EditAndContinue' != 'None' and 'EditAndContinue' != 'OldStyle' and 'Debug\vc142.pdb' != '' and !Exists(Debug\vc142.pdb)).
+       Task "Delete"
+       Done executing task "Delete".
        Task "MultiToolTask" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(ClCompile.CompilerIteration)' == 'Modules') was evaluated as ('' != 'true' and '' == 'Modules').
        Task "MultiToolTask" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(ClCompile.CompilerIteration)' == '' and '$(MultiProcCL)' == 'true') was evaluated as ('' != 'true' and '' == '' and 'false' == 'true').
        Task "CL" skipped, due to false condition; ('%(ClCompile.PrecompiledHeader)' == 'Create' and '%(ClCompile.ExcludedFromBuild)'!='true' and '%(ClCompile.CompilerIteration)' == '' and '$(MultiProcCL)' != 'true') was evaluated as ('NotUsing' == 'Create' and ''!='true' and '' == '' and 'false' != 'true').
        Using "CL" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
        Task "CL"
-         Using cached input dependency table built from:
-         	D:\SPV_TCP\SPV\SPV_TEST\Debug\SPV_TEST.tlog\CL.read.1.tlog
-         Outputs for D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.CPP:
-         	D:\SPV_TCP\SPV\SPV_TEST\DEBUG\SPV_TEST.OBJ
-         All outputs are up-to-date.
-       Done executing task "CL".
-     1>Done building target "ClCompile" in project "SPV_TEST.vcxproj".
-       Target "RunSelectedFileNativeCodeAnalysis" skipped, due to false condition; ('$(RunMsvcAnalysis)'=='true' and '$(SelectedFiles)'!='') was evaluated as ('false'=='true' and ''!='').
-       Target "ManagedIncrementalBuildPostProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('SPV_TEST.cpp' != '' and 'false' == 'True').
-       Target "NoAnalysisToolEnabledWarning" skipped, due to false condition; ('$(RunCppAnalysis)'=='true' AND '$(EnableMicrosoftCodeAnalysis)'=='false' AND '$(EnableClangTidyCodeAnalysis)'=='false') was evaluated as ('false'=='true' AND 'true'=='false' AND 'false'=='false').
-       Target "RunSelectedFileClangTidy" skipped, due to false condition; ('$(RunClangCppAnalysis)'=='true' AND '$(SelectedFiles)'!='') was evaluated as ('false'=='true' AND ''!='').
-       Target "MicrosoftAnalysisIncompatiableWithClangCl" skipped, due to false condition; ('$(RunCppAnalysis)'=='true' AND '$(EnableMicrosoftCodeAnalysis)'=='true' AND '$(UseClangCl)'=='true') was evaluated as ('false'=='true' AND 'true'=='true' AND ''=='true').
-     1>Target "AfterClCompile" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_ClCompile" depends on it):
-     1>Done building target "AfterClCompile" in project "SPV_TEST.vcxproj".
-     1>Target "_ClCompile" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildCompileAction" depends on it):
-     1>Done building target "_ClCompile" in project "SPV_TEST.vcxproj".
-       Target "_ResGen" skipped, due to false condition; ('@(EmbeddedResource)'!='') was evaluated as (''!='').
-     1>Target "BeforeResourceCompile" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_ResourceCompile" depends on it):
-     1>Done building target "BeforeResourceCompile" in project "SPV_TEST.vcxproj".
-     1>Target "MakeDirsForResourceCompile" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_ResourceCompile" depends on it):
-       Task "MakeDir"
-       Done executing task "MakeDir".
-     1>Done building target "MakeDirsForResourceCompile" in project "SPV_TEST.vcxproj".
-       Target "ResourceCompile" skipped, due to false condition; ('@(ResourceCompile)' != '') was evaluated as ('' != '').
-     1>Target "AfterResourceCompile" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_ResourceCompile" depends on it):
-     1>Done building target "AfterResourceCompile" in project "SPV_TEST.vcxproj".
-     1>Target "_ResourceCompile" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildCompileAction" depends on it):
-     1>Done building target "_ResourceCompile" in project "SPV_TEST.vcxproj".
-       Target "_ImpLib" skipped, due to false condition; ('$(ImpLibCompiled)' == 'true') was evaluated as ('' == 'true').
-       Target "_Lib" skipped, due to false condition; ('$(LibCompiled)' == 'true') was evaluated as ('' == 'true').
-     1>Target "AfterBuildCompileEvent" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildCompileAction" depends on it):
-     1>Done building target "AfterBuildCompileEvent" in project "SPV_TEST.vcxproj".
-     1>Target "_BuildCompileAction" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "BuildCompile" depends on it):
-     1>Done building target "_BuildCompileAction" in project "SPV_TEST.vcxproj".
-     1>Target "BuildCompile" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Build" depends on it):
-     1>Done building target "BuildCompile" in project "SPV_TEST.vcxproj".
-       Target "PrepareProjectReferences" skipped. Previously built successfully.
-     1>Target "BuildLinkTraverse" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "BuildLink" depends on it):
-       Task "MSBuild" skipped, due to false condition; ('$(BuildPassReferences)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != ''  and '%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true') was evaluated as ('' == 'true' and '..\SPV\SPV.vcxproj' != '' and '..\SPV\SPV.vcxproj' != ''  and 'true' == 'true').
-     1>Done building target "BuildLinkTraverse" in project "SPV_TEST.vcxproj".
-       Target "PrepareForBuild" skipped. Previously built successfully.
-       Target "ResolveReferences" skipped. Previously built successfully.
-     1>Target "ComputeLegacyManifestEmbedding" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-       Task "VCMessage" skipped, due to false condition; ('$(RevertManifestEmbedding)' == 'true' and '$(_LegacyManifestEmbeddingDebug)' == 'true') was evaluated as ('' == 'true' and '' == 'true').
-     1>Done building target "ComputeLegacyManifestEmbedding" in project "SPV_TEST.vcxproj".
-     1>Target "BeforeLink" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-     1>Done building target "BeforeLink" in project "SPV_TEST.vcxproj".
-     1>Target "ComputeRCOutputs" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "ComputeRCGeneratedLinkInputs" depends on it):
-     1>Done building target "ComputeRCOutputs" in project "SPV_TEST.vcxproj".
-     1>Target "ComputeRCGeneratedLinkInputs" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-     1>Done building target "ComputeRCGeneratedLinkInputs" in project "SPV_TEST.vcxproj".
-     1>Target "ComputeManifestGeneratedLinkerInputs" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-     1>Done building target "ComputeManifestGeneratedLinkerInputs" in project "SPV_TEST.vcxproj".
-       Target "ComputeCustomBuildOutput" skipped. Previously built successfully.
-       Target "GenerateTargetFrameworkMonikerAttribute" skipped, due to false condition; ('$(GenerateTargetFrameworkAttribute)' == 'true') was evaluated as ('false' == 'true').
-       Target "ComputeMIDLGeneratedCompileInputs" skipped. Previously built successfully.
-       Target "ComputeCLInputPDBName" skipped. Previously built successfully.
-       Target "ComputeReferenceCLInput" skipped. Previously built successfully.
-       Target "WarnCompileDuplicatedFilename" skipped. Previously built successfully.
-       Target "FixupCLCompileOptions" skipped. Previously built successfully.
-     1>Target "ComputeCLOutputs" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "ComputeCLGeneratedLinkInputs" depends on it):
-     1>Done building target "ComputeCLOutputs" in project "SPV_TEST.vcxproj".
-     1>Target "ComputeCLGeneratedLinkInputs" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-     1>Done building target "ComputeCLGeneratedLinkInputs" in project "SPV_TEST.vcxproj".
-     1>Target "ComputeLinkInputsFromProject" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-     1>Done building target "ComputeLinkInputsFromProject" in project "SPV_TEST.vcxproj".
-       Target "GetReferencedVCProjectsInfo" skipped. Previously built successfully.
-     1>Target "ResolvedLinkLib" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "ComputeReferenceLinkInputs" depends on it):
-     1>Done building target "ResolvedLinkLib" in project "SPV_TEST.vcxproj".
-     1>Target "ComputeResolveLinkObj" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "ComputeReferenceLinkInputs" depends on it):
-       Task "CallTarget" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.UseLibraryDependencyInputs)'=='true') was evaluated as ('false'=='true').
-     1>Done building target "ComputeResolveLinkObj" in project "SPV_TEST.vcxproj".
-     1>Target "ComputeReferenceLinkInputs" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-       Task "VCMessage" skipped, due to false condition; ('%(ProjectReferenceToLink.ProjectType)' == 'DynamicLibrary' and '$(WindowsAppContainer)' == 'true' and '%(ProjectReferenceToLink.WindowsAppContainer)' != 'true') was evaluated as ('StaticLibrary' == 'DynamicLibrary' and 'false' == 'true' and '' != 'true').
-       Task "Message" skipped, due to false condition; ('$(_REFERENCE_DEBUG)'=='true') was evaluated as (''=='true').
-     1>Done building target "ComputeReferenceLinkInputs" in project "SPV_TEST.vcxproj".
-     1>Target "ComputeManifestInputsTargets" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-     1>Done building target "ComputeManifestInputsTargets" in project "SPV_TEST.vcxproj".
-       Target "ManifestResourceCompile" skipped, due to false condition; ('$(EmbedManifestBy)' == 'LINK' and '@(Manifest)' != '') was evaluated as ('LINK' == 'LINK' and '' != '').
-       Target "AssignWinFXEmbeddedResource" skipped, due to false condition; ('@(WinFXEmbeddedResource)' != '') was evaluated as ('' != '').
-     1>Target "AssignTargetPaths" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "PrepareResourceNames" depends on it):
-       Task "AssignTargetPath"
-       Done executing task "AssignTargetPath".
-       Task "AssignTargetPath"
-       Done executing task "AssignTargetPath".
-       Task "AssignTargetPath"
-       Done executing task "AssignTargetPath".
-       Task "AssignTargetPath"
-       Done executing task "AssignTargetPath".
-       Task "AssignTargetPath" skipped, due to false condition; ('@(_DeploymentBaseManifestWithTargetPath)'=='' and '%(None.Extension)'=='.manifest') was evaluated as (''=='' and ''=='.manifest').
-     1>Done building target "AssignTargetPaths" in project "SPV_TEST.vcxproj".
-       Target "AssignTargetPaths" skipped. Previously built successfully.
-     1>Target "SplitResourcesByCulture" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "PrepareResourceNames" depends on it):
-       Task "Warning" skipped, due to false condition; ('@(ResxWithNoCulture)'!='') was evaluated as (''!='').
-       Task "Warning" skipped, due to false condition; ('@(ResxWithCulture)'!='') was evaluated as (''!='').
-       Task "Warning" skipped, due to false condition; ('@(NonResxWithCulture)'!='') was evaluated as (''!='').
-       Task "Warning" skipped, due to false condition; ('@(NonResxWithNoCulture)'!='') was evaluated as (''!='').
-       Task "AssignCulture"
-       Done executing task "AssignCulture".
-     1>Done building target "SplitResourcesByCulture" in project "SPV_TEST.vcxproj".
-       Target "CreateManifestResourceNames" skipped, due to false condition; ('@(EmbeddedResource)' != '') was evaluated as ('' != '').
-     1>Target "CreateCustomManifestResourceNames" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "PrepareResourceNames" depends on it):
-     1>Done building target "CreateCustomManifestResourceNames" in project "SPV_TEST.vcxproj".
-     1>Target "PrepareResourceNames" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-     1>Done building target "PrepareResourceNames" in project "SPV_TEST.vcxproj".
-     1>Target "MakeDirsForLink" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-       Task "MakeDir"
-       Done executing task "MakeDir".
-     1>Done building target "MakeDirsForLink" in project "SPV_TEST.vcxproj".
-     1>Target "DoLinkOutputFilesMatch" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-       Task "VCMessage" skipped, due to false condition; ('@(_OutputFileFromLink)' == '') was evaluated as ('D:\SPV_TCP\SPV\Debug\SPV_TEST.exe' == '').
-       Task "VCMessage" skipped, due to false condition; ('@(_OutputFileFromLink)' != '' and '%(_OutputFileFromLink.FullPath)' != '$([System.IO.Path]::GetFullPath($(TargetPath)))') was evaluated as ('D:\SPV_TCP\SPV\Debug\SPV_TEST.exe' != '' and 'D:\SPV_TCP\SPV\Debug\SPV_TEST.exe' != 'D:\SPV_TCP\SPV\Debug\SPV_TEST.exe').
-       Task "VCMessage" skipped, due to false condition; ('@(_OutputFileFromLink)' != '' and '%(_OutputFileFromLink.Extension)' != '' and '%(_OutputFileFromLink.Extension)' != '$(TargetExt)') was evaluated as ('D:\SPV_TCP\SPV\Debug\SPV_TEST.exe' != '' and '.exe' != '' and '.exe' != '.exe').
-       Task "VCMessage" skipped, due to false condition; ('@(_OutputFileFromLink)' != '' and '%(_OutputFileFromLink.Filename)' != '' and '%(_OutputFileFromLink.Filename)' != '$(TargetName)') was evaluated as ('D:\SPV_TCP\SPV\Debug\SPV_TEST.exe' != '' and 'SPV_TEST' != '' and 'SPV_TEST' != 'SPV_TEST').
-       Task "VCMessage" skipped, due to false condition; ('%(Link.MinimumRequiredVersion)' != '' and ('%(Link.Subsystem)' == '' or '%(Link.Subsystem)' == 'NotSet')) was evaluated as ('' != '' and ('Console' == '' or 'Console' == 'NotSet')).
-     1>Done building target "DoLinkOutputFilesMatch" in project "SPV_TEST.vcxproj".
-     1>Target "PreLinkEvent" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-       Task "Message" skipped, due to false condition; ('%(PreLinkEvent.Message)' != '' and '%(PreLinkEvent.Command)' != '') was evaluated as ('' != '' and '' != '').
-       Task "Exec" skipped, due to false condition; ('%(PreLinkEvent.Command)' != '') was evaluated as ('' != '').
-     1>Done building target "PreLinkEvent" in project "SPV_TEST.vcxproj".
-     1>Target "ComputeLinkSwitches" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Link" depends on it):
-     1>Done building target "ComputeLinkSwitches" in project "SPV_TEST.vcxproj".
-     1>Target "Link" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-       Using "Link" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
-       Task "Link"
-         Write Tracking Logs:
-         	Debug\SPV_TEST.tlog\link.write.1.tlog
-         Read Tracking Logs:
-         	Debug\SPV_TEST.tlog\link.read.1.tlog
-         Outputs for D:\SPV_TCP\SPV\DEBUG\SPV.LIB|D:\SPV_TCP\SPV\SPV_TEST\DEBUG\SPV_TEST.OBJ:
-         	D:\SPV_TCP\SPV\DEBUG\SPV_TEST.EXE
-         	D:\SPV_TCP\SPV\SPV_TEST\DEBUG\SPV_TEST.ILK
-         	D:\SPV_TCP\SPV\DEBUG\SPV_TEST.PDB
-         Inputs for D:\SPV_TCP\SPV\DEBUG\SPV.LIB|D:\SPV_TCP\SPV\SPV_TEST\DEBUG\SPV_TEST.OBJ:
-         	D:\SPV_TCP\LIBS\PROTOBUF\LIB\LIBPROTOBUF.LIB
-         	D:\SPV_TCP\LIBS\PROTOBUF\LIB\LIBPROTOC.LIB
-         	D:\SPV_TCP\SPV\SPV_TEST\DEBUG\SPV_TEST.OBJ
-         	D:\SPV_TCP\SPV\DEBUG\SPV.LIB
-         	C:\WINDOWS\SYSTEM32\TZRES.DLL
-         	C:\WINDOWS\GLOBALIZATION\SORTING\SORTDEFAULT.NLS
-         	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X86\MSVCPRTD.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\WS2_32.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\MSWSOCK.LIB
-         	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X86\MSVCRTD.LIB
-         	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X86\OLDNAMES.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X86\KERNEL32.LIB
-         	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X86\VCRUNTIMED.LIB
-         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UCRT\X86\UCRTD.LIB
-         	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\BIN\HOSTX86\X86\MSPDBSRV.EXE
-         Source compilation required: input D:\SPV_TCP\SPV\DEBUG\SPV.LIB is newer than output D:\SPV_TCP\SPV\DEBUG\SPV_TEST.PDB.
+         Forcing recompile of all source files due to missing PDB "Debug\vc142.pdb".
          Environment Variables passed to tool:
-           VS_UNICODE_OUTPUT=2284
-         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\link.exe /ERRORREPORT:PROMPT /OUT:"D:\SPV_TCP\SPV\Debug\SPV_TEST.exe" /INCREMENTAL /ILK:"Debug\SPV_TEST.ilk" /NOLOGO /LIBPATH:D:\SPV_TCP\SPV\..\libs\protobuf\lib /LIBPATH:"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib" /LIBPATH:"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib\manual-link" libprotobuf.lib libprotoc.lib "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\SPV_TCP\SPV\Debug\SPV_TEST.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\SPV_TCP\SPV\Debug\SPV_TEST.lib" /MACHINE:X86 Debug\SPV_TEST.obj
-         D:\SPV_TCP\SPV\Debug\SPV.lib
+           VS_UNICODE_OUTPUT=1096
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\CL.exe /c /ID:\SPV_TCP\SPV\\Debug /ID:\SPV_TCP\SPV\SPV /ID:\SPV_TCP\SPV\protobuf /ID:\SPV_TCP\SPV\..\libs\boost /I"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\include" /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc142.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TP /analyze- /FC /errorReport:prompt SPV_TEST.cpp
          Tracking command:
-         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /a /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i D:\SPV_TCP\SPV\SPV_TEST\Debug\SPV_TEST.tlog /r "D:\SPV_TCP\SPV\DEBUG\SPV.LIB|D:\SPV_TCP\SPV\SPV_TEST\DEBUG\SPV_TEST.OBJ" /b MSBuildConsole_CancelEvent038b3d6895754091901e581c33e75297  /c "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\link.exe"  /ERRORREPORT:PROMPT /OUT:"D:\SPV_TCP\SPV\Debug\SPV_TEST.exe" /INCREMENTAL /ILK:"Debug\SPV_TEST.ilk" /NOLOGO /LIBPATH:D:\SPV_TCP\SPV\..\libs\protobuf\lib /LIBPATH:"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib" /LIBPATH:"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib\manual-link" libprotobuf.lib libprotoc.lib "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\lib\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\SPV_TCP\SPV\Debug\SPV_TEST.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\SPV_TCP\SPV\Debug\SPV_TEST.lib" /MACHINE:X86 Debug\SPV_TEST.obj
-         D:\SPV_TCP\SPV\Debug\SPV.lib
-       Done executing task "Link".
-       Task "Message"
-         SPV_TEST.vcxproj -> D:\SPV_TCP\SPV\Debug\SPV_TEST.exe
-       Done executing task "Message".
-       Task "VCMessage" skipped, due to false condition; (('$(EmbedManifestBy)' != 'LINK' or '$(LegacyManifestEmbedding)' != 'true' or '$(LinkSkippedExecution)' == 'true') and
-                    %(Link.GenerateDebugInformation) == 'DebugFastLink' and %(Link.ProgramDataBaseFileName) != '') was evaluated as (('LINK' != 'LINK' or '' != 'true' or 'False' == 'true') and
-                    true == 'DebugFastLink' and  != '').
-       Task "VCMessage" skipped, due to false condition; (('$(EmbedManifestBy)' != 'LINK' or '$(LegacyManifestEmbedding)' != 'true' or '$(LinkSkippedExecution)' == 'true') and
-                    %(Link.GenerateDebugInformation) == 'true' and %(Link.ProgramDataBaseFileName) != '') was evaluated as (('LINK' != 'LINK' or '' != 'true' or 'False' == 'true') and
-                    true == 'true' and  != '').
-     1>Done building target "Link" in project "SPV_TEST.vcxproj".
-       Target "MetaGenInputsOutputs" skipped, due to false condition; ('$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('false' == 'True').
-       Target "ComputeMetaGenInputs" skipped, due to false condition; ('$(CLRSupport)'!='' and '$(CLRSupport)'!='false' and '$(CLRSupport)'!='NetCore') was evaluated as ('false'!='' and 'false'!='false' and 'false'!='NetCore').
-       Target "MetaGen" skipped, due to false condition; ('@(MetaGen)' != '') was evaluated as ('' != '').
-     1>Target "ComputeLinkImportLibraryOutputsForClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-       Task "WriteLinesToFile" skipped, due to false condition; ('@(_LinkSecondaryOutput)' != '') was evaluated as ('' != '').
-     1>Done building target "ComputeLinkImportLibraryOutputsForClean" in project "SPV_TEST.vcxproj".
-     1>Target "AfterLink" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_Link" depends on it):
-     1>Done building target "AfterLink" in project "SPV_TEST.vcxproj".
-     1>Target "_Link" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-     1>Done building target "_Link" in project "SPV_TEST.vcxproj".
-     1>Target "_ALink" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-     1>Done building target "_ALink" in project "SPV_TEST.vcxproj".
-       Target "ComputeLegacyManifestEmbedding" skipped. Previously built successfully.
-     1>Target "_Manifest" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-       Task "CallTarget" skipped, due to false condition; ('$(LegacyManifestEmbedding)' == 'true') was evaluated as ('' == 'true').
-     1>Done building target "_Manifest" in project "SPV_TEST.vcxproj".
-     1>Target "AppLocalFromInstalled" in file "D:\vcpkg\scripts\buildsystems\msbuild\vcpkg.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "RegisterOutput" depends on it):
-       Task "Message"
-         [vcpkg] Starting VcpkgApplocalDeps
-       Done executing task "Message".
-       Task "Exec"
-         pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\vcpkg\scripts\buildsystems\msbuild\applocal.ps1" "D:\SPV_TCP\SPV\Debug\SPV_TEST.exe" "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\bin" "Debug\SPV_TEST.tlog\SPV_TEST.write.1u.tlog" "Debug\vcpkg.applocal.log"
-         'pwsh.exe' is not recognized as an internal or external command,
-         operable program or batch file.
-         The command "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\vcpkg\scripts\buildsystems\msbuild\applocal.ps1" "D:\SPV_TCP\SPV\Debug\SPV_TEST.exe" "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\bin" "Debug\SPV_TEST.tlog\SPV_TEST.write.1u.tlog" "Debug\vcpkg.applocal.log"" exited with code 9009.
-       Done executing task "Exec".
-       Task "Message"
-         [vcpkg] Failed to run applocal.ps1 using pwsh, falling back to system PowerShell.
-       Done executing task "Message".
-       Task "Exec"
-         "C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\vcpkg\scripts\buildsystems\msbuild\applocal.ps1" "D:\SPV_TCP\SPV\Debug\SPV_TEST.exe" "D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\debug\bin" "Debug\SPV_TEST.tlog\SPV_TEST.write.1u.tlog" "Debug\vcpkg.applocal.log"
-       Done executing task "Exec".
-       Task "Warning" skipped, due to false condition; ($(_VcpkgAppLocalExitCode) != 0) was evaluated as (0 != 0).
-       Task "ReadLinesFromFile"
-       Done executing task "ReadLinesFromFile".
-       Task "Message"
-       Done executing task "Message".
-     1>Done building target "AppLocalFromInstalled" in project "SPV_TEST.vcxproj".
-     1>Target "RegisterOutput" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-       Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='DynamicLibrary' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'!='true') was evaluated as ('Application'=='DynamicLibrary' and 'false'=='true' and 'false'!='true').
-       Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='DynamicLibrary' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'=='true') was evaluated as ('Application'=='DynamicLibrary' and 'false'=='true' and 'false'=='true').
-       Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='Application' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'!='true') was evaluated as ('Application'=='Application' and 'false'=='true' and 'false'!='true').
-       Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='Application' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'=='true') was evaluated as ('Application'=='Application' and 'false'=='true' and 'false'=='true').
-       Task "VCMessage" skipped, due to false condition; ('$(_RegisterOutputExitCode)' != '' and '$(_RegisterOutputExitCode)' != '0') was evaluated as ('' != '' and '' != '0').
-     1>Done building target "RegisterOutput" in project "SPV_TEST.vcxproj".
-       Target "PrepareForBuild" skipped. Previously built successfully.
-       Target "ResolveReferences" skipped. Previously built successfully.
-     1>Target "ResolvedXDCMake" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_XdcMake" depends on it):
-       Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.Extension)' == '.vcxproj' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != '' and '$(_ClCompileGenerateXMLDocumentationFiles)' == 'true') was evaluated as ('.vcxproj' == '.vcxproj' and '..\SPV\SPV.vcxproj' != '' and '..\SPV\SPV.vcxproj' != '' and '' == 'true').
-     1>Done building target "ResolvedXDCMake" in project "SPV_TEST.vcxproj".
-     1>Target "ComputeCLCompileGeneratedXDCFiles" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_XdcMake" depends on it):
-     1>Done building target "ComputeCLCompileGeneratedXDCFiles" in project "SPV_TEST.vcxproj".
-     1>Target "MakeDirsForXdcMake" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_XdcMake" depends on it):
-       Task "MakeDir"
-       Done executing task "MakeDir".
-     1>Done building target "MakeDirsForXdcMake" in project "SPV_TEST.vcxproj".
-       Target "XdcMake" skipped, due to false condition; ('@(XdcMake)' != '') was evaluated as ('' != '').
-     1>Target "_XdcMake" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-     1>Done building target "_XdcMake" in project "SPV_TEST.vcxproj".
-     1>Target "ComputeCLCompileGeneratedSbrFiles" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BscMake" depends on it):
-     1>Done building target "ComputeCLCompileGeneratedSbrFiles" in project "SPV_TEST.vcxproj".
-     1>Target "MakeDirsForBscMake" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BscMake" depends on it):
-       Task "MakeDir"
-       Done executing task "MakeDir".
-     1>Done building target "MakeDirsForBscMake" in project "SPV_TEST.vcxproj".
-       Target "BscMake" skipped, due to false condition; ('@(BscMake)' != '') was evaluated as ('' != '').
-       Target "CustomBuildStep" skipped, due to false condition; ('@(CustomBuildStep)' != '' and '$(SelectedFiles)'=='') was evaluated as ('' != '' and ''=='').
-     1>Target "_BscMake" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-     1>Done building target "_BscMake" in project "SPV_TEST.vcxproj".
-       Target "PrepareForBuild" skipped. Previously built successfully.
-     1>Target "BuiltProjectOutputGroup" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CreateRecipeFile" depends on it):
-     1>Done building target "BuiltProjectOutputGroup" in project "SPV_TEST.vcxproj".
-       Target "PrepareResourceNames" skipped. Previously built successfully.
-     1>Target "SatelliteDllsProjectOutputGroup" in file "C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CreateRecipeFile" depends on it):
-       Task "CreateItem" skipped, due to false condition; ('@(ResxWithCulture)' != '') was evaluated as ('' != '').
-       Task "CreateItem" skipped, due to false condition; ('$(UICulture)' != '') was evaluated as ('' != '').
-       Task "CreateItem" skipped, due to false condition; ('@(NonResxWithCulture)' != '') was evaluated as ('' != '').
-       Task "CreateItem"
-       Done executing task "CreateItem".
-       Task "CreateItem"
-       Done executing task "CreateItem".
-     1>Done building target "SatelliteDllsProjectOutputGroup" in project "SPV_TEST.vcxproj".
-       Target "PrepareForBuild" skipped. Previously built successfully.
-       Target "AssignTargetPaths" skipped. Previously built successfully.
-       Target "PrepareForBuild" skipped. Previously built successfully.
-       Target "AssignTargetPaths" skipped. Previously built successfully.
-     1>Target "MakeDirsForFxc" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "ContentFilesProjectOutputGroup" depends on it):
-       Task "MakeDir"
-       Done executing task "MakeDir".
-     1>Done building target "MakeDirsForFxc" in project "SPV_TEST.vcxproj".
-       Target "_CreateCopyFileItems" skipped, due to false condition; ('@(CopyFileToFolders)' != '') was evaluated as ('' != '').
-     1>Target "ContentFilesProjectOutputGroup" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CreateRecipeFile" depends on it):
-       Task "AssignTargetPath" skipped, due to false condition; ('@(ContentFilesProjectOutputGroupOutputFullPath)' != '' and '%(ContentFilesProjectOutputGroupOutputFullPath.RootFolder)' != '') was evaluated as ('' != '' and '' != '').
-       Task "AssignTargetPath" skipped, due to false condition; ('@(ContentFilesProjectOutputGroupOutputFullPath)' != '' and '%(ContentFilesProjectOutputGroupOutputFullPath.RootFolder)' == '') was evaluated as ('' != '' and '' == '').
-     1>Done building target "ContentFilesProjectOutputGroup" in project "SPV_TEST.vcxproj".
-       Target "GetReferencedVCProjectsInfo" skipped. Previously built successfully.
-     1>Target "CreateRecipeFile" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-       Using "GenerateDesktopDeployRecipe" task from assembly "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
-       Task "GenerateDesktopDeployRecipe"
-       Done executing task "GenerateDesktopDeployRecipe".
-     1>Done building target "CreateRecipeFile" in project "SPV_TEST.vcxproj".
-     1>Target "_GenerateSatelliteAssemblyInputs" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CreateSatelliteAssemblies" depends on it):
-       Task "Warning" skipped, due to false condition; ('@(ManifestResourceWithCulture)'!='' and '%(ManifestResourceWithCulture.EmittedForCompatibilityOnly)'=='') was evaluated as (''!='' and ''=='').
-       Task "Warning" skipped, due to false condition; ('@(ManifestNonResxWithCultureOnDisk)'!='' and '%(ManifestNonResxWithCultureOnDisk.EmittedForCompatibilityOnly)'=='') was evaluated as (''!='' and ''=='').
-     1>Done building target "_GenerateSatelliteAssemblyInputs" in project "SPV_TEST.vcxproj".
-       Target "ComputeIntermediateSatelliteAssemblies" skipped, due to false condition; (@(ReferenceSatellitePaths->'%(DestinationSubDirectory)') != '') was evaluated as ( != '').
-       Target "GenerateSatelliteAssemblies" skipped, due to false condition; ('@(_SatelliteAssemblyResourceInputs)' != '') was evaluated as ('' != '').
-     1>Target "CreateSatelliteAssemblies" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-     1>Done building target "CreateSatelliteAssemblies" in project "SPV_TEST.vcxproj".
-       Target "CopyLocalNativeReference" skipped, due to false condition; ('$(CopyLocalProjectReference)' == 'true') was evaluated as ('false' == 'true').
-     1>Target "_Appverifier" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-     1>Done building target "_Appverifier" in project "SPV_TEST.vcxproj".
-     1>Target "_Deploy" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-     1>Done building target "_Deploy" in project "SPV_TEST.vcxproj".
-       Target "ComputeIntermediateSatelliteAssemblies" skipped, due to false condition; (@(ReferenceSatellitePaths->'%(DestinationSubDirectory)') != '') was evaluated as ( != '').
-       Target "_CopyFilesMarkedCopyLocal" skipped, due to false condition; ('@(ReferenceCopyLocalPaths)' != '') was evaluated as ('' != '').
-       Target "AssignTargetPaths" skipped. Previously built successfully.
-       Target "_SplitProjectReferencesByFileExistence" skipped. Previously built successfully.
-       Target "_GetProjectReferenceTargetFrameworkProperties" skipped. Previously built successfully.
-     1>Target "_PopulateCommonStateForGetCopyToOutputDirectoryItems" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
-     1>Done building target "_PopulateCommonStateForGetCopyToOutputDirectoryItems" in project "SPV_TEST.vcxproj".
-     1>Target "GetCopyToOutputDirectoryXamlAppDefs" in file "C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
-       Task "AssignTargetPath"
-       Done executing task "AssignTargetPath".
-     1>Done building target "GetCopyToOutputDirectoryXamlAppDefs" in project "SPV_TEST.vcxproj".
-     1>Target "GetCopyToOutputDirectoryItems" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_CopySourceItemsToOutputDirectory" depends on it):
-       Task "CallTarget"
-       Target "_PopulateCommonStateForGetCopyToOutputDirectoryItems" skipped. Previously built successfully.
-       Target "_AddOutputPathToGlobalPropertiesToRemove" skipped. Previously built successfully.
-     1>Target "_GetCopyToOutputDirectoryItemsFromTransitiveProjectReferences" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
-       Task "MSBuild"
-         Global Properties:
-           Configuration=Debug
-           Platform=Win32
-         Removing Properties for project "..\SPV\SPV.vcxproj":
-           TargetFramework
-     1>Project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (1) is building "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (2:4) on node 2 (GetCopyToOutputDirectoryItems target(s)).
-   2:4>Building with tools version "Current".
-       Target "GetCopyToOutputDirectoryItems" skipped. Previously built successfully.
-   2:4>Done Building Project "D:\SPV_TCP\SPV\SPV\SPV.vcxproj" (GetCopyToOutputDirectoryItems target(s)).
-     1>Done executing task "MSBuild".
-       Task "AssignTargetPath"
-       Done executing task "AssignTargetPath".
-     1>Done building target "_GetCopyToOutputDirectoryItemsFromTransitiveProjectReferences" in project "SPV_TEST.vcxproj".
-       Done executing task "CallTarget".
-       Task "CallTarget"
-       Target "AssignTargetPaths" skipped. Previously built successfully.
-       Target "_PopulateCommonStateForGetCopyToOutputDirectoryItems" skipped. Previously built successfully.
-     1>Target "_GetCopyToOutputDirectoryItemsFromThisProject" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
-       Task "AssignTargetPath"
-       Done executing task "AssignTargetPath".
-     1>Done building target "_GetCopyToOutputDirectoryItemsFromThisProject" in project "SPV_TEST.vcxproj".
-       Done executing task "CallTarget".
-     1>Done building target "GetCopyToOutputDirectoryItems" in project "SPV_TEST.vcxproj".
-       Target "_CopyOutOfDateSourceItemsToOutputDirectory" skipped, due to false condition; ( '@(_SourceItemsToCopyToOutputDirectory)' != '' ) was evaluated as ( '' != '' ).
-       Target "_CopyOutOfDateSourceItemsToOutputDirectoryAlways" skipped, due to false condition; ( '@(_SourceItemsToCopyToOutputDirectoryAlways)' != '' ) was evaluated as ( '' != '' ).
-     1>Target "_CopySourceItemsToOutputDirectory" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CopyFilesToOutputDirectory" depends on it):
-     1>Done building target "_CopySourceItemsToOutputDirectory" in project "SPV_TEST.vcxproj".
-       Target "_CopyAppConfigFile" skipped, due to false condition; ( '@(AppConfigWithTargetPath)' != '' ) was evaluated as ( '' != '' ).
-       Target "_CopyManifestFiles" skipped, due to false condition; ( '$(_DeploymentCopyApplicationManifest)'=='true' or '$(GenerateClickOnceManifests)'=='true' ) was evaluated as ( ''=='true' or ''=='true' ).
-     1>Target "_CheckForCompileOutputs" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "CopyFilesToOutputDirectory" depends on it):
-     1>Done building target "_CheckForCompileOutputs" in project "SPV_TEST.vcxproj".
-       Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Off' == 'On' or (''!='' and 'Off' == 'Auto')).
-     1>Target "CopyFilesToOutputDirectory" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "PrepareForRun" depends on it):
-       Task "Copy" skipped, due to false condition; ('$(CopyBuildOutputToOutputDirectory)' == 'true' and '$(SkipCopyBuildProduct)' != 'true') was evaluated as ('true' == 'true' and 'true' != 'true').
-       Task "CopyRefAssembly" skipped, due to false condition; ('$(ProduceReferenceAssembly)' == 'true' and '$(CopyBuildOutputToOutputDirectory)' == 'true' and '$(SkipCopyBuildProduct)' != 'true') was evaluated as ('false' == 'true' and 'true' == 'true' and 'true' != 'true').
-       Task "Message" skipped, due to false condition; ('$(CopyBuildOutputToOutputDirectory)' == 'true' and '$(SkipCopyBuildProduct)'!='true') was evaluated as ('true' == 'true' and 'true'!='true').
-       Task "Copy" skipped, due to false condition; ('@(AddModules)' != '') was evaluated as ('' != '').
-       Task "Copy" skipped, due to false condition; ('$(_SGenDllCreated)'=='true') was evaluated as ('false'=='true').
-       Task "Copy" skipped, due to false condition; ('$(_DebugSymbolsProduced)'=='true' and '$(SkipCopyingSymbolsToOutputDirectory)' != 'true' and '$(CopyOutputSymbolsToOutputDirectory)'=='true') was evaluated as ('false'=='true' and '' != 'true' and 'true'=='true').
-       Task "Copy" skipped, due to false condition; ('$(_DocumentationFileProduced)'=='true' and '$(CopyDocumentationFileToOutputDirectory)'=='true') was evaluated as ('false'=='true' and 'true'=='true').
-       Task "Copy" skipped, due to false condition; ('@(IntermediateSatelliteAssembliesWithTargetPath)' != '') was evaluated as ('' != '').
-       Task "Copy" skipped, due to false condition; ('@(ReferenceComWrappersToCopyLocal)' != '' or '@(ResolvedIsolatedComModules)' != '' or '@(_DeploymentLooseManifestFile)' != '' or '@(NativeReferenceFile)' != '' ) was evaluated as ('' != '' or '' != '' or '' != '' or '' != '' ).
-       Task "Copy" skipped, due to false condition; ('$(SkipCopyWinMDArtifact)' != 'true' and '@(WinMDExpArtifacts)' != '') was evaluated as ('' != 'true' and '' != '').
-       Task "Message" skipped, due to false condition; ('$(SkipCopyWinMDArtifact)' != 'true' and '$(_WindowsMetadataOutputPath)' != '') was evaluated as ('' != 'true' and '' != '').
-     1>Done building target "CopyFilesToOutputDirectory" in project "SPV_TEST.vcxproj".
-     1>Target "PrepareForRun" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-     1>Done building target "PrepareForRun" in project "SPV_TEST.vcxproj".
-       Target "CustomBuildStep" skipped, due to false condition; ('@(CustomBuildStep)' != '' and '$(SelectedFiles)'=='') was evaluated as ('' != '' and ''=='').
-     1>Target "PostBuildEvent" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
-       Task "Message" skipped, due to false condition; ('%(PostBuildEvent.Message)' != '' and '%(PostBuildEvent.Command)' != '') was evaluated as ('' != '' and '' != '').
-       Task "Exec" skipped, due to false condition; ('%(PostBuildEvent.Command)' != '') was evaluated as ('' != '').
-     1>Done building target "PostBuildEvent" in project "SPV_TEST.vcxproj".
-     1>Target "_BuildLinkAction" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "BuildLink" depends on it):
-     1>Done building target "_BuildLinkAction" in project "SPV_TEST.vcxproj".
-     1>Target "BuildLink" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Build" depends on it):
-     1>Done building target "BuildLink" in project "SPV_TEST.vcxproj".
-     1>Target "AfterBuild" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Build" depends on it):
-     1>Done building target "AfterBuild" in project "SPV_TEST.vcxproj".
-       Target "_CheckForCompileOutputs" skipped. Previously built successfully.
-       Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Off' == 'On' or (''!='' and 'Off' == 'Auto')).
-     1>Target "_CleanGetCurrentAndPriorFileWrites" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "IncrementalClean" depends on it):
-       Task "ReadLinesFromFile"
-       Done executing task "ReadLinesFromFile".
-       Task "ConvertToAbsolutePath"
-       Done executing task "ConvertToAbsolutePath".
-       Task "FindUnderPath"
-         Comparison path is "D:\SPV_TCP\SPV\SPV_TEST".
-       Done executing task "FindUnderPath".
-       Task "FindUnderPath"
-         Comparison path is "D:\SPV_TCP\SPV\Debug\".
-       Done executing task "FindUnderPath".
-       Task "FindUnderPath"
-         Comparison path is "Debug\".
-       Done executing task "FindUnderPath".
-       Task "RemoveDuplicates"
-       Done executing task "RemoveDuplicates".
-     1>Done building target "_CleanGetCurrentAndPriorFileWrites" in project "SPV_TEST.vcxproj".
-     1>Target "IncrementalClean" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Build" depends on it):
-       Task "FindUnderPath"
-         Comparison path is "D:\SPV_TCP\SPV\Debug\".
-       Done executing task "FindUnderPath".
-       Task "FindUnderPath"
-         Comparison path is "Debug\".
-       Done executing task "FindUnderPath".
-       Task "Delete"
-       Done executing task "Delete".
-       Task "RemoveDuplicates"
-       Done executing task "RemoveDuplicates".
-       Task "WriteLinesToFile" skipped, due to false condition; ('@(_CleanUnfilteredPriorFileWrites)'!='@(_CleanUniqueRemainingFileWritesAfterIncrementalClean)') was evaluated as (''!='').
-     1>Done building target "IncrementalClean" in project "SPV_TEST.vcxproj".
-     1>Target "FinalizeBuildStatus" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (target "Build" depends on it):
-       Task "Delete"
-         Deleting file "Debug\SPV_TEST.tlog\unsuccessfulbuild".
-       Done executing task "Delete".
-       Task "Touch"
-         Touching "Debug\SPV_TEST.tlog\SPV_TEST.lastbuildstate".
-       Done executing task "Touch".
-     1>Done building target "FinalizeBuildStatus" in project "SPV_TEST.vcxproj".
-       Target "_CheckForInvalidConfigurationAndPlatform" skipped. Previously built successfully.
-       Target "_CheckForInvalidConfigurationAndPlatform" skipped. Previously built successfully.
-     1>Target "Build" in file "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets" from project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (entry point):
-     1>Done building target "Build" in project "SPV_TEST.vcxproj".
-     1>Done Building Project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i D:\SPV_TCP\SPV\SPV_TEST\Debug\SPV_TEST.tlog /r D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.CPP /b MSBuildConsole_CancelEvent8a75171cabe0409a80fea107e29c0fc9  /c "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x86\CL.exe"  /c /ID:\SPV_TCP\SPV\\Debug /ID:\SPV_TCP\SPV\SPV /ID:\SPV_TCP\SPV\protobuf /ID:\SPV_TCP\SPV\..\libs\boost /I"D:\vcpkg\scripts\buildsystems\msbuild\..\..\..\installed\x86-windows\include" /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc142.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TP /analyze- /FC /errorReport:prompt SPV_TEST.cpp
+         SPV_TEST.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+         - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+     1>D:\SPV_TCP\SPV\protobuf\header.pb.h(10,10): fatal error C1083: Cannot open include file: 'google/protobuf/port_def.inc': No such file or directory
+         The command exited with code 2.
+       Done executing task "CL" -- FAILED.
+     1>Done building target "ClCompile" in project "SPV_TEST.vcxproj" -- FAILED.
+     1>Done Building Project "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (Rebuild target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
+
+       "D:\SPV_TCP\SPV\SPV_TEST\SPV_TEST.vcxproj" (Rebuild target) (1) ->
+       (ClCompile target) -> 
+         D:\SPV_TCP\SPV\protobuf\header.pb.h(10,10): fatal error C1083: Cannot open include file: 'google/protobuf/port_def.inc': No such file or directory
+
     0 Warning(s)
-    0 Error(s)
+    1 Error(s)
 
-Time Elapsed 00:00:02.08
+Time Elapsed 00:00:03.89

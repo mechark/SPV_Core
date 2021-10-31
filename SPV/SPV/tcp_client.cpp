@@ -30,7 +30,7 @@ namespace tcp
 	void handle_resolve_query(const error_code& erc, ip::tcp::resolver::iterator iter)
 	{
 		if (erc) return;
-
+		
 		ip::tcp::resolver::iterator end;
 		for (; iter != end; ++iter)
 		{
@@ -43,6 +43,7 @@ namespace tcp
 	{
 		io_context ioc;
 		ip::tcp::resolver resolver(ioc);
+		ip::tcp::socket sock(ioc);
 
 		for (int seed = 0; seed < dns_seeds.size(); ++seed)
 		{
@@ -54,7 +55,13 @@ namespace tcp
 			if (!seeds_ips.empty()) break;
 		}
 
-		dns_ips_out = seeds_ips;
+		if (seeds_ips.size() != 0) dns_ips_out = seeds_ips;
+		else
+		{
+			cout << "error in tcp_client::get_ips method. Seed ips vector is empty";
+			terminate();
+		}
+			
 	}
 
 	int tcp_client::grab_payload_length(string message_header, int& headers_starts_at)
@@ -85,8 +92,6 @@ namespace tcp
 		for (int i = 0; i < ips.size(); ++i)
 		{
 			connect(socket, resolver.resolve(ips[i], "8333"), erc);
-			boost::asio::socket_base::keep_alive option(true);
-			socket.set_option(option);
 
 			if (erc) continue;
 			else
@@ -103,15 +108,13 @@ namespace tcp
 				socket.send(buffer(request));
 				socket.wait(socket.wait_write);
 
-				socket.non_blocking();
-
 				// Verack message
 				string verack_message = conv.hex_str_to_binary(msg.verack_message());
 				socket.send(buffer(verack_message));
 				socket.wait(socket.wait_read);
 
 				// GetHeaders message forming
-				std::string block_hash = "0000000000000000000bebffafa27a2e302cfe6bf61776bc5c55f85dc541b20c";
+				std::string block_hash = start_block_header;
 				std::string get_headers = msg.make_message(msg.getheaders_message_payload(block_hash), "getheaders");
 				get_headers = conv.hex_str_to_binary(get_headers);
 				if (get_headers.length() == 0) continue;
