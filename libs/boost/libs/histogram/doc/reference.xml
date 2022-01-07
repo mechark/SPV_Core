@@ -414,8 +414,8 @@
 <method name="operator==" cv="const noexcept"><type>bool</type><parameter name="rhs"><paramtype>const <classname>sum</classname> &amp;</paramtype></parameter></method>
 <method name="operator!=" cv="const noexcept"><type>bool</type><parameter name="rhs"><paramtype>const <classname>sum</classname> &amp;</paramtype></parameter></method>
 <method name="value" cv="const noexcept"><type>value_type</type><purpose>Return value of the sum. </purpose></method>
-<method name="large" cv="const noexcept"><type>const_reference</type><purpose>Return large part of the sum. </purpose></method>
-<method name="small" cv="const noexcept"><type>const_reference</type><purpose>Return small part of the sum. </purpose></method>
+<method name="large_part" cv="const noexcept"><type>const_reference</type><purpose>Return large part of the sum. </purpose></method>
+<method name="small_part" cv="const noexcept"><type>const_reference</type><purpose>Return small part of the sum. </purpose></method>
 <method name="conversion-operator" cv="const noexcept" specifiers="explicit"><type>value_type</type></method>
 <method name="serialize"><type>void</type><template>
           <template-type-parameter name="Archive"/>
@@ -428,13 +428,15 @@
 <method name="operator&gt;" cv="const noexcept"><type>bool</type><parameter name="rhs"><paramtype>const <classname>sum</classname> &amp;</paramtype></parameter></method>
 <method name="operator&lt;=" cv="const noexcept"><type>bool</type><parameter name="rhs"><paramtype>const <classname>sum</classname> &amp;</paramtype></parameter></method>
 <method name="operator&gt;=" cv="const noexcept"><type>bool</type><parameter name="rhs"><paramtype>const <classname>sum</classname> &amp;</paramtype></parameter></method>
+<method name="large" cv="const noexcept"><type>const_reference</type><purpose>Return large part of the sum. </purpose></method>
+<method name="small" cv="const noexcept"><type>const_reference</type><purpose>Return small part of the sum. </purpose></method>
 </method-group>
 <constructor cv="= default"/>
 <constructor cv="noexcept"><parameter name="value"><paramtype>const_reference</paramtype></parameter><purpose>Initialize sum to value and allow implicit conversion. </purpose></constructor>
 <constructor cv="noexcept"><template>
           <template-type-parameter name="T"/>
         </template><parameter name="s"><paramtype>const <classname>sum</classname>&lt; T &gt; &amp;</paramtype></parameter><purpose>Allow implicit conversion from sum&lt;T&gt; </purpose></constructor>
-<constructor cv="noexcept"><parameter name="large"><paramtype>const_reference</paramtype></parameter><parameter name="small"><paramtype>const_reference</paramtype></parameter><purpose>Initialize sum explicitly with large and small parts. </purpose></constructor>
+<constructor cv="noexcept"><parameter name="large_part"><paramtype>const_reference</paramtype></parameter><parameter name="small_part"><paramtype>const_reference</paramtype></parameter><purpose>Initialize sum explicitly with large and small parts. </purpose></constructor>
 </class></namespace>
 
 
@@ -1403,7 +1405,7 @@ The options <computeroutput>underflow</computeroutput> and <computeroutput>circu
 <namespace name="option">
 <struct name="bit"><template>
       <template-nontype-parameter name="Pos"><type>unsigned</type><purpose><para>position of the bit in the set. </para></purpose></template-nontype-parameter>
-    </template><inherit access="public">boost::histogram::axis::option::bitset&lt;(1&lt;&lt; Pos)&gt;</inherit><purpose>Single option flag. </purpose><description><para>
+    </template><purpose>Single option flag. </purpose><description><para>
 </para></description></struct><struct name="bitset"><template>
       <template-nontype-parameter name="Bits"><type>unsigned</type></template-nontype-parameter>
     </template><inherit access="public">std::integral_constant&lt; unsigned, Bits &gt;</inherit><purpose>Holder of axis options. </purpose><method-group name="public static functions">
@@ -1739,7 +1741,7 @@ The axis computes the number of bins as n = abs(stop - start) / step, rounded do
       <template-type-parameter name="Axis"/>
     </template><purpose>Whether axis is continuous or discrete. </purpose><description><para>Doxygen does not render this well. This is a meta-function (template alias), it accepts an axis type and returns a compile-time boolean.</para><para>If the boolean is true, the axis is continuous (covers a continuous range of values). Otherwise it is discrete (covers discrete values). </para></description></struct><struct name="is_inclusive"><template>
       <template-type-parameter name="Axis"><purpose><para>axis type </para></purpose></template-type-parameter>
-    </template><purpose>Meta-function to detect whether an axis is inclusive. </purpose><description><para>Doxygen does not render this well. This is a meta-function (template alias), it accepts an axis type and represents compile-time boolean which is true or false, depending on whether the axis is inclusive or not.</para><para>An axis with underflow and overflow bins is always inclusive, but an axis may be inclusive under other conditions. The meta-function checks for the method <computeroutput>constexpr static bool inclusive()</computeroutput>, and uses the result. If this method is not present, it uses get_options&lt;Axis&gt; and checks whether the underflow and overflow bits are present.</para><para>An inclusive axis has a bin for every possible input value. A histogram which consists only of inclusive axes can be filled more efficiently, since input values always end up in a valid cell and there is no need to keep track of input tuples that need to be discarded.</para><para>
+    </template><purpose>Meta-function to detect whether an axis is inclusive. </purpose><description><para>Doxygen does not render this well. This is a meta-function (template alias), it accepts an axis type and represents compile-time boolean which is true or false, depending on whether the axis is inclusive or not.</para><para>An inclusive axis has a bin for every possible input value. In other words, all possible input values always end up in a valid cell and there is no need to keep track of input tuples that need to be discarded. A histogram which consists entirely of inclusive axes can be filled more efficiently, which can be a factor 2 faster.</para><para>An axis with underflow and overflow bins is always inclusive, but an axis may be inclusive under other conditions. The meta-function checks for the method <computeroutput>constexpr static bool inclusive()</computeroutput>, and uses the result. If this method is not present, it uses get_options&lt;Axis&gt; and checks whether the underflow and overflow bits are present.</para><para>
 </para></description></struct><struct name="is_ordered"><template>
       <template-type-parameter name="Axis"><purpose><para>axis type </para></purpose></template-type-parameter>
     </template><purpose>Meta-function to detect whether an axis is ordered. </purpose><description><para>Doxygen does not render this well. This is a meta-function (template alias), it accepts an axis type and returns a compile-time boolean. If the boolean is true, the axis is ordered.</para><para>The meta-function checks for the method <computeroutput>constexpr static bool ordered()</computeroutput>, and uses the result. If this method is not present, it returns true if the value type of the Axis is arithmetic and false otherwise.</para><para>An ordered axis has a value type that is ordered, which means that indices i &lt; j &lt; k implies either value(i) &lt; value(j) &lt; value(k) or value(i) &gt; value(j) &gt; value(k) for all i,j,k. For example, the integer axis is ordered, but the category axis is not. Axis which are not ordered must not have underflow bins, because they only have an "other" category, which is identified with the overflow bin if it is available.</para><para>

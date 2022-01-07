@@ -35,7 +35,7 @@
             <span class="phrase"><a name="static_string.ref.boost__static_strings__basic_static_string.replace.overload3.synopsis"></a></span><a class="link" href="overload3.html#static_string.ref.boost__static_strings__basic_static_string.replace.overload3.synopsis">Synopsis</a>
           </h6>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
-    <span class="special">[</span><span class="identifier">role</span> <span class="identifier">red</span> <span class="identifier">error</span><span class="special">.</span><span class="identifier">param</span> <span class="identifier">neither</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">declname</span> <span class="identifier">nor</span> <span class="identifier">a</span> <span class="char">'class '</span> <span class="identifier">prefix</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">type</span><span class="special">][</span><span class="identifier">role</span> <span class="identifier">red</span> <span class="identifier">error</span><span class="special">.</span><span class="identifier">param</span> <span class="identifier">neither</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">declname</span> <span class="identifier">nor</span> <span class="identifier">a</span> <span class="char">'class '</span> <span class="identifier">prefix</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">type</span><span class="special">][</span><span class="identifier">role</span> <span class="identifier">red</span> <span class="identifier">error</span><span class="special">.</span><span class="identifier">param</span> <span class="identifier">neither</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">declname</span> <span class="identifier">nor</span> <span class="identifier">a</span> <span class="char">'class '</span> <span class="identifier">prefix</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">type</span><span class="special">][</span><span class="identifier">role</span> <span class="identifier">red</span> <span class="identifier">error</span><span class="special">.</span><span class="identifier">param</span> <span class="identifier">neither</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">declname</span> <span class="identifier">nor</span> <span class="identifier">a</span> <span class="char">'class '</span> <span class="identifier">prefix</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">type</span><span class="special">]&gt;</span>
+    <span class="keyword">typename</span> <span class="identifier">T</span><span class="special">&gt;</span>
 <span class="keyword">constexpr</span> <span class="identifier">basic_static_string</span><span class="special">&amp;</span>
 <span class="identifier">replace</span><span class="special">(</span>
     <span class="identifier">size_type</span> <span class="identifier">pos1</span><span class="special">,</span>
@@ -51,9 +51,7 @@
             object <code class="computeroutput"><span class="identifier">sv</span></code> from <code class="computeroutput"><span class="identifier">t</span></code>, and replaces <code class="computeroutput"><span class="identifier">rcount</span></code>
             characters starting at index <code class="computeroutput"><span class="identifier">pos1</span></code>
             with those of <code class="computeroutput"><span class="identifier">sv</span></code>, where
-            <code class="computeroutput"><span class="identifier">rcount</span></code> is std::min(n1,
-            <a class="link" href="../size.html" title="basic_static_string::size"><code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code></a>
-            - pos1) .
+            <code class="computeroutput"><span class="identifier">rcount</span></code> is <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">min</span><span class="special">(</span><span class="identifier">n1</span><span class="special">,</span> <span class="identifier">size</span><span class="special">()</span> <span class="special">-</span> <span class="identifier">pos1</span><span class="special">)</span></code>.
           </p>
 <h6>
 <a name="static_string.ref.boost__static_strings__basic_static_string.replace.overload3.h2"></a>
@@ -111,9 +109,9 @@
             <span class="phrase"><a name="static_string.ref.boost__static_strings__basic_static_string.replace.overload3.constraints"></a></span><a class="link" href="overload3.html#static_string.ref.boost__static_strings__basic_static_string.replace.overload3.constraints">Constraints</a>
           </h6>
 <p>
-            <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_convertible</span><span class="special">&lt;</span><span class="keyword">const</span> <span class="identifier">T</span><span class="special">&amp;,</span> <span class="identifier">string_view</span><span class="special">&gt;::</span><span class="identifier">value</span>
-            <span class="special">&amp;&amp;</span> <span class="special">!</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_convertible</span><span class="special">&lt;</span><span class="keyword">const</span> <span class="identifier">T</span><span class="special">&amp;,</span> <span class="keyword">const</span>
-            <span class="identifier">CharT</span><span class="special">*&gt;::</span><span class="identifier">value</span></code>.
+            <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_convertible</span><span class="special">&lt;</span><span class="keyword">const</span> <span class="identifier">T</span><span class="special">&amp;,</span> <span class="identifier">string_view</span><span class="special">&gt;</span><span class="identifier">value</span>
+            <span class="special">&amp;&amp;</span> <span class="special">!</span><span class="identifier">stdis_convertible</span><span class="special">&lt;</span><span class="keyword">const</span> <span class="identifier">T</span><span class="special">&amp;,</span> <span class="keyword">const</span>
+            <span class="identifier">CharT</span><span class="special">*&gt;</span><span class="identifier">value</span></code>.
           </p>
 <h6>
 <a name="static_string.ref.boost__static_strings__basic_static_string.replace.overload3.h6"></a>
@@ -213,8 +211,10 @@
                   </td>
 <td>
                     <p>
-                      <a class="link" href="../size.html" title="basic_static_string::size"><code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code></a>
-                      + (sv.size() - rcount) &gt; <a class="link" href="../max_size.html" title="basic_static_string::max_size"><code class="computeroutput"><span class="identifier">max_size</span><span class="special">()</span></code></a>
+                      <code class="computeroutput"><span class="identifier">size</span><span class="special">()</span>
+                      <span class="special">+</span> <span class="special">(</span><span class="identifier">sv</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span>
+                      <span class="special">-</span> <span class="identifier">rcount</span><span class="special">)</span> <span class="special">&gt;</span>
+                      <span class="identifier">max_size</span><span class="special">()</span></code>
                     </p>
                   </td>
 </tr>
@@ -226,7 +226,8 @@
                   </td>
 <td>
                     <p>
-                      pos1 &gt; <a class="link" href="../size.html" title="basic_static_string::size"><code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code></a>
+                      <code class="computeroutput"><span class="identifier">pos1</span> <span class="special">&gt;</span>
+                      <span class="identifier">size</span><span class="special">()</span></code>
                     </p>
                   </td>
 </tr>

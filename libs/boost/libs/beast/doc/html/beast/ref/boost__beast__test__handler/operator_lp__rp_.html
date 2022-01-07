@@ -6,7 +6,7 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../../../index.html" title="Chapter 1. Boost.Beast">
 <link rel="up" href="../boost__beast__test__handler.html" title="test::handler">
-<link rel="prev" href="_handler.html" title="test::handler::~handler">
+<link rel="prev" href="_dtor_handler.html" title="test::handler::~handler">
 <link rel="next" href="operator_lp__rp_/overload1.html" title="test::handler::operator() (1 of 3 overloads)">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -20,14 +20,14 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="_handler.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../boost__beast__test__handler.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="operator_lp__rp_/overload1.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="_dtor_handler.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../boost__beast__test__handler.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="operator_lp__rp_/overload1.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h5 class="title">
 <a name="beast.ref.boost__beast__test__handler.operator_lp__rp_"></a><a class="link" href="operator_lp__rp_.html" title="test::handler::operator()">test::handler::operator()</a>
 </h5></div></div></div>
 <p>
-          <a class="indexterm" name="idm45805088063872"></a>
+          <a class="indexterm" name="idm30468"></a>
         </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">&gt;</span>
@@ -44,7 +44,7 @@
 <span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <span class="identifier">Arg0</span><span class="special">,</span>
     <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">,</span>
-    <span class="special">[</span><span class="identifier">role</span> <span class="identifier">red</span> <span class="identifier">error</span><span class="special">.</span><span class="identifier">param</span> <span class="identifier">neither</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">declname</span> <span class="identifier">nor</span> <span class="identifier">a</span> <span class="char">'class '</span> <span class="identifier">prefix</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">type</span><span class="special">][</span><span class="identifier">role</span> <span class="identifier">red</span> <span class="identifier">error</span><span class="special">.</span><span class="identifier">param</span> <span class="identifier">neither</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">declname</span> <span class="identifier">nor</span> <span class="identifier">a</span> <span class="char">'class '</span> <span class="identifier">prefix</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">type</span><span class="special">][</span><span class="identifier">role</span> <span class="identifier">red</span> <span class="identifier">error</span><span class="special">.</span><span class="identifier">param</span> <span class="identifier">neither</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">declname</span> <span class="identifier">nor</span> <span class="identifier">a</span> <span class="char">'class '</span> <span class="identifier">prefix</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">type</span><span class="special">][</span><span class="identifier">role</span> <span class="identifier">red</span> <span class="identifier">error</span><span class="special">.</span><span class="identifier">param</span> <span class="identifier">neither</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">declname</span> <span class="identifier">nor</span> <span class="identifier">a</span> <span class="char">'class '</span> <span class="identifier">prefix</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">type</span><span class="special">]</span> <span class="special">=</span> <span class="keyword">typename</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">enable_if</span><span class="special">&lt;</span>            <span class="special">!</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">is_convertible</span><span class="special">&lt;</span><span class="identifier">Arg0</span><span class="special">,</span> <a class="link" href="../boost__beast__error_code.html" title="error_code">error_code</a><span class="special">&gt;::</span><span class="identifier">value</span><span class="special">&gt;::</span><span class="identifier">type</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="special">=</span> <span class="keyword">typename</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">enable_if</span><span class="special">&lt;</span>            <span class="special">!</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">is_convertible</span><span class="special">&lt;</span><span class="identifier">Arg0</span><span class="special">,</span> <a class="link" href="../boost__beast__error_code.html" title="error_code">error_code</a><span class="special">&gt;::</span><span class="identifier">value</span><span class="special">&gt;::</span><span class="identifier">type</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
 <a class="link" href="operator_lp__rp_/overload3.html" title="test::handler::operator() (3 of 3 overloads)">operator()</a><span class="special">(</span>
     <span class="identifier">Arg0</span><span class="special">&amp;&amp;,</span>
@@ -63,7 +63,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="_handler.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../boost__beast__test__handler.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="operator_lp__rp_/overload1.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="_dtor_handler.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../boost__beast__test__handler.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="operator_lp__rp_/overload1.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

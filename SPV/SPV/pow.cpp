@@ -19,7 +19,7 @@ namespace header_chain
 		return target;
 	}
 
-	bool POW::proof_of_work(std::vector<models::header> headers)
+	bool POW::proof_of_work(std::vector<models::header> headers, string hex_bits)
 	{
 		bool is_correct = false;
 
@@ -33,7 +33,7 @@ namespace header_chain
 			for (char ch : headers[i + 1].prev_block) header_hash += ch;
 
 			boost::multiprecision::int1024_t hash = conv.hex_str_toeln(conv.hex_str_to_little_endian(header_hash));
-			boost::multiprecision::int1024_t target = compute_target(headers[i].hex_bits);
+			boost::multiprecision::int1024_t target = compute_target(hex_bits);
 
 			string shash = hash.str();
 			string thash = target.str();

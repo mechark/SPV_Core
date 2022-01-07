@@ -9,11 +9,15 @@ Peter Dimov
 :toc: left
 :toclevels: 4
 :idprefix:
+:listing-caption: Code Example
 :docinfo: private-footer
+:source-highlighter: rouge
+:source-language: c++
 
 :leveloffset: +1
 
 include::lambda2/overview.adoc[]
+include::lambda2/changelog.adoc[]
 include::lambda2/reference.adoc[]
 include::lambda2/copyright.adoc[]
 

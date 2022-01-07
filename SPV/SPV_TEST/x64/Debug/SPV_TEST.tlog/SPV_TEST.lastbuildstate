@@ -1,2 +1,2 @@
-PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.29.30037:TargetPlatformVersion=10.0.19041.0:VcpkgTriplet=x64-windows:
-Debug|x64|D:\SPV_TCP\SPV\|
+PlatformToolSet=v142:VCToolArchitecture=Native64Bit:VCToolsVersion=14.29.30037:TargetPlatformVersion=10.0.19041.0:VcpkgTriplet=x64-windows:
+Debug|x64|D:\BitcoinWalletApp\SPV_CORE\SPV\|

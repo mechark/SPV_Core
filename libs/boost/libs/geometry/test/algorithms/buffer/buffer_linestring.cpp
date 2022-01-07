@@ -3,8 +3,8 @@
 
 // Copyright (c) 2012-2019 Barend Gehrels, Amsterdam, the Netherlands.
 
-// This file was modified by Oracle on 2016.
-// Modifications copyright (c) 2016, Oracle and/or its affiliates.
+// This file was modified by Oracle on 2016-2021.
+// Modifications copyright (c) 2016-2021, Oracle and/or its affiliates.
 // Contributed and/or modified by Adam Wulkiewicz, on behalf of Oracle
 
 // Use, modification and distribution is subject to the Boost Software License,
@@ -128,7 +128,7 @@ void test_all()
 
     ut_settings const settings;
     ut_settings const specific_settings
-            = BOOST_GEOMETRY_CONDITION((boost::is_same<coor_type, long double>::value))
+            = BOOST_GEOMETRY_CONDITION((std::is_same<coor_type, long double>::value))
               ? ut_settings(0.02) : settings;
 
     // Simplex (join-type is not relevant)
@@ -258,7 +258,7 @@ void test_all()
         test_one<linestring, polygon>("mysql_report_2015_04_01", mysql_report_2015_04_01, join_round(32), end_round(32), 632.234, d100);
     }
 
-    if (! BOOST_GEOMETRY_CONDITION((boost::is_same<coor_type, float>::value)))
+    if (! BOOST_GEOMETRY_CONDITION((std::is_same<coor_type, float>::value)))
     {
         ut_settings settings;
         settings.tolerance = 0.1;
@@ -313,7 +313,7 @@ void test_all()
             27862.733459829971,
             5.9518403867035365);
 
-    if (BOOST_GEOMETRY_CONDITION((boost::is_same<coor_type, double>::value)))
+    if (BOOST_GEOMETRY_CONDITION((std::is_same<coor_type, double>::value)))
     {
         test_one<linestring, polygon>("mysql_report_2015_09_08a", mysql_report_2015_09_08a, join_round32, end_round32, 0.0, 1.0);
         test_one<linestring, polygon>("mysql_report_2015_09_08b", mysql_report_2015_09_08b, join_round32, end_round32, 0.0, 1099511627778.0);
@@ -327,7 +327,10 @@ void test_all()
 
     // Test behaviour with different buffer sizes, generating internally turns on different locations
     test_one<linestring, polygon>("mysql_25662426a_05", mysql_25662426a, join_round32, end_round32, 27.6156, 0.5);
+#if defined(BOOST_GEOMETRY_USE_RESCALING) || defined(BOOST_GEOMETRY_TEST_FAILURES)
+    // Fails without rescaling
     test_one<linestring, polygon>("mysql_25662426a_1", mysql_25662426a, join_round32, end_round32, 54.9018, 1.0);
+#endif
     test_one<linestring, polygon>("mysql_25662426a_2", mysql_25662426a, join_round32, end_round32, 103.6072, 2.0);
     test_one<linestring, polygon>("mysql_25662426a_3", mysql_25662426a, join_round32, end_round32, 152.1163, 3.0);
     test_one<linestring, polygon>("mysql_25662426a_4", mysql_25662426a, join_round32, end_round32, 206.4831, 4.0);
@@ -354,7 +357,10 @@ void test_all()
 
     // Mostly right
     test_one<linestring, polygon>("mysql_25662426a_mostly_right_05", mysql_25662426a, join_round32, end_round32, 14.3419, 0.05, settings, 0.5);
+#if defined(BOOST_GEOMETRY_USE_RESCALING) || defined(BOOST_GEOMETRY_TEST_FAILURES)
+    // Fails without rescaling
     test_one<linestring, polygon>("mysql_25662426a_mostly_right_1", mysql_25662426a, join_round32, end_round32, 27.1955, 0.1, settings, 1.0);
+#endif
     test_one<linestring, polygon>("mysql_25662426a_mostly_right_2", mysql_25662426a, join_round32, end_round32, 43.1821, 0.2, settings, 2.0);
     test_one<linestring, polygon>("mysql_25662426a_mostly_right_3", mysql_25662426a, join_round32, end_round32, 54.4337, 0.3, settings, 3.0);
     test_one<linestring, polygon>("mysql_25662426a_mostly_right_4", mysql_25662426a, join_round32, end_round32, 75.6376, 0.4, settings, 4.0);
@@ -390,7 +396,7 @@ template <bool Clockwise, typename P>
 void test_invalid()
 {
     typedef typename bg::coordinate_type<P>::type coor_type;
-    if (! BOOST_GEOMETRY_CONDITION((boost::is_same<coor_type, double>::value)))
+    if (! BOOST_GEOMETRY_CONDITION((std::is_same<coor_type, double>::value)))
     {
         return;
     }
@@ -430,7 +436,7 @@ int test_main(int, char* [])
 #endif
 
 #if defined(BOOST_GEOMETRY_TEST_FAILURES)
-    BoostGeometryWriteExpectedFailures(2, 4, 9, 4);
+    BoostGeometryWriteExpectedFailures(2, 4, 11, 3);
 #endif
 
     return 0;

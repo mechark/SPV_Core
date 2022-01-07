@@ -321,19 +321,35 @@ void test_appends()
 
     x = "/foo";
     x /= path(""); // empty path
+#if BOOST_FILESYSTEM_VERSION == 3
     PATH_IS(x, L"/foo");
+#else
+    PATH_IS(x, L"/foo/");
+#endif
 
     x = "/foo";
     x /= path("/"); // slash path
+#if BOOST_FILESYSTEM_VERSION == 3
     PATH_IS(x, L"/foo/");
+#else
+    PATH_IS(x, L"/");
+#endif
 
     x = "/foo";
     x /= path("/boo"); // slash path
+#if BOOST_FILESYSTEM_VERSION == 3
     PATH_IS(x, L"/foo/boo");
+#else
+    PATH_IS(x, L"/boo");
+#endif
 
     x = "/foo";
     x /= x; // self-append
+#if BOOST_FILESYSTEM_VERSION == 3
     PATH_IS(x, L"/foo/foo");
+#else
+    PATH_IS(x, L"/foo");
+#endif
 
     x = "/foo";
     x /= path("yet another path"); // another path
@@ -348,12 +364,12 @@ void test_appends()
     PATH_IS(x, BOOST_FS_FOO L"wstring");
 
     x = "/foo";
-    x /= string("std::string"); // container char
-    PATH_IS(x, BOOST_FS_FOO L"std::string");
+    x /= string("std_string"); // container char
+    PATH_IS(x, BOOST_FS_FOO L"std_string");
 
     x = "/foo";
-    x /= wstring(L"std::wstring"); // container wchar_t
-    PATH_IS(x, BOOST_FS_FOO L"std::wstring");
+    x /= wstring(L"std_wstring"); // container wchar_t
+    PATH_IS(x, BOOST_FS_FOO L"std_wstring");
 
     x = "/foo";
     x /= "array char"; // array char
@@ -622,8 +638,13 @@ void test_other_non_members()
     CHECK(!path("a..").filename_is_dot_dot());
 
     // edge cases
+#if BOOST_FILESYSTEM_VERSION == 3
     CHECK(path("foo/").filename() == path("."));
     CHECK(path("foo/").filename_is_dot());
+#else
+    CHECK(path("foo/").filename() == path(""));
+    CHECK(!path("foo/").filename_is_dot());
+#endif
 #if BOOST_FILESYSTEM_VERSION == 3
     CHECK(path("/").filename() == path("/"));
 #else
@@ -639,12 +660,17 @@ void test_other_non_members()
     CHECK(path("c:/").filename() == path(""));
 #endif
     CHECK(!path("c:\\").filename_is_dot());
-#else
+#else // BOOST_WINDOWS_API
     CHECK(path("c:.").filename() == path("c:."));
     CHECK(!path("c:.").filename_is_dot());
+#if BOOST_FILESYSTEM_VERSION == 3
     CHECK(path("c:/").filename() == path("."));
     CHECK(path("c:/").filename_is_dot());
+#else
+    CHECK(path("c:/").filename() == path(""));
+    CHECK(!path("c:/").filename_is_dot());
 #endif
+#endif // BOOST_WINDOWS_API
 
     // check that the implementation code to make the edge cases above work right
     // doesn't cause some non-edge cases to fail

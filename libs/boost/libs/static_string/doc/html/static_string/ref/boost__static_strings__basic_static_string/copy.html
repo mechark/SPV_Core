@@ -27,7 +27,7 @@
 <a name="static_string.ref.boost__static_strings__basic_static_string.copy"></a><a class="link" href="copy.html" title="basic_static_string::copy">basic_static_string::copy</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="idm45942214325408"></a>
+          <a class="indexterm" name="idm11345"></a>
         </p>
 <p>
           Copy a substring to another string.
@@ -47,9 +47,7 @@
           <span class="phrase"><a name="static_string.ref.boost__static_strings__basic_static_string.copy.description"></a></span><a class="link" href="copy.html#static_string.ref.boost__static_strings__basic_static_string.copy.description">Description</a>
         </h6>
 <p>
-          Copies std::min(count, <a class="link" href="size.html" title="basic_static_string::size"><code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code></a>
-          - pos) characters starting at index <code class="computeroutput"><span class="identifier">pos</span></code>
-          to the string pointed to by <code class="computeroutput"><span class="identifier">dest</span></code>.
+          Copies <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">min</span><span class="special">(</span><span class="identifier">count</span><span class="special">,</span> <span class="identifier">size</span><span class="special">()</span> <span class="special">-</span> <span class="identifier">pos</span><span class="special">)</span></code> characters starting at index <code class="computeroutput"><span class="identifier">pos</span></code> to the string pointed to by <code class="computeroutput"><span class="identifier">dest</span></code>.
         </p>
 <h6>
 <a name="static_string.ref.boost__static_strings__basic_static_string.copy.h2"></a>
@@ -156,7 +154,8 @@
                 </td>
 <td>
                   <p>
-                    pos &gt; <a class="link" href="max_size.html" title="basic_static_string::max_size"><code class="computeroutput"><span class="identifier">max_size</span><span class="special">()</span></code></a>
+                    <code class="computeroutput"><span class="identifier">pos</span> <span class="special">&gt;</span>
+                    <span class="identifier">max_size</span><span class="special">()</span></code>
                   </p>
                 </td>
 </tr></tbody>

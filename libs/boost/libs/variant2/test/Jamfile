@@ -121,3 +121,7 @@ run variant_visit_r.cpp : : :
     ;
 
 compile variant_derived_construct.cpp ;
+
+run variant_visit_by_index.cpp ;
+
+run variant_ostream_insert.cpp ;

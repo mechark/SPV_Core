@@ -2915,7 +2915,9 @@
               </td>
 <td>
                 <p>
-                  The standard library does not provide header &lt;codecvt&gt;.
+                  The standard library does not provide header &lt;codecvt&gt;. Note
+                  that this header is deprecated post C++17, and therefore the macro
+                  may be set as a result of the feature being deliberately removed.
                 </p>
               </td>
 </tr>
@@ -4590,6 +4592,19 @@
                 </p>
               </td>
 </tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_NO_CXX11_HDR_CODECVT</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The standard library no longer supports <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">codecvt</span><span class="special">&gt;</span></code>,
+                  there is as yet no replacement.
+                </p>
+              </td>
+</tr>
 </tbody>
 </table></div>
 </div>
@@ -5472,6 +5487,29 @@
 <td>
                 <p>
                   Defined to 1 if the compiler is the Clang compiler.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_CLANG_VERSION</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">config</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Defined to the version of the Clang compiler, usually <code class="computeroutput"><span class="identifier">__clang_major__</span> <span class="special">*</span>
+                  <span class="number">10000</span> <span class="special">+</span>
+                  <span class="identifier">__clang_minor__</span> <span class="special">*</span>
+                  <span class="number">100</span> <span class="special">+</span>
+                  <span class="identifier">__clang_patchlevel__</span></code>.
+                  On Apple Clang, has a best-effort value reflecting the upstream
+                  version, rather than the Apple version.
                 </p>
               </td>
 </tr>

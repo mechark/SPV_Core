@@ -49,8 +49,7 @@
             Replaces <code class="computeroutput"><span class="identifier">rcount</span></code> characters
             starting at index <code class="computeroutput"><span class="identifier">pos</span></code>
             with <code class="computeroutput"><span class="identifier">n2</span></code> copies of <code class="computeroutput"><span class="identifier">c</span></code>, where <code class="computeroutput"><span class="identifier">rcount</span></code>
-            is std::min(n1, <a class="link" href="../size.html" title="basic_static_string::size"><code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code></a>
-            - pos) .
+            is <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">min</span><span class="special">(</span><span class="identifier">n1</span><span class="special">,</span> <span class="identifier">size</span><span class="special">()</span> <span class="special">-</span> <span class="identifier">pos</span><span class="special">)</span></code>.
           </p>
 <h6>
 <a name="static_string.ref.boost__static_strings__basic_static_string.replace.overload7.h2"></a>
@@ -178,8 +177,10 @@
                   </td>
 <td>
                     <p>
-                      <a class="link" href="../size.html" title="basic_static_string::size"><code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code></a>
-                      + (n2 - rcount) &gt; <a class="link" href="../max_size.html" title="basic_static_string::max_size"><code class="computeroutput"><span class="identifier">max_size</span><span class="special">()</span></code></a>
+                      <code class="computeroutput"><span class="identifier">size</span><span class="special">()</span>
+                      <span class="special">+</span> <span class="special">(</span><span class="identifier">n2</span> <span class="special">-</span>
+                      <span class="identifier">rcount</span><span class="special">)</span>
+                      <span class="special">&gt;</span> <span class="identifier">max_size</span><span class="special">()</span></code>
                     </p>
                   </td>
 </tr>
@@ -191,7 +192,8 @@
                   </td>
 <td>
                     <p>
-                      pos &gt; <a class="link" href="../size.html" title="basic_static_string::size"><code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code></a>
+                      <code class="computeroutput"><span class="identifier">pos</span> <span class="special">&gt;</span>
+                      <span class="identifier">size</span><span class="special">()</span></code>
                     </p>
                   </td>
 </tr>

@@ -206,13 +206,11 @@ endif
 if option_enable_examples
 
 	print_file_examples = [
-		'print_file_result',
-		'print_file_result_error_tags',
+		'print_file_result'
 	]
 	if option_exceptions
 		print_file_examples += [
-			'print_file_eh',
-			'print_file_eh_error_tags'
+			'print_file_eh'
 		]
 	endif
 	if option_boost
@@ -222,7 +220,7 @@ if option_enable_examples
 	endif
 
 	foreach e : print_file_examples
-		executable(e, 'examples/print_file/'+e+'.cpp', dependencies: [leaf, dep_thread, dep_boost] )
+		executable(e, 'example/print_file/'+e+'.cpp', dependencies: [leaf, dep_thread, dep_boost] )
 	endforeach
 
 endif
@@ -260,7 +258,7 @@ if option_enable_examples
 	endif
 
 	foreach e : examples
-		executable(e, 'examples/'+e+'.cpp', dependencies: [leaf, dep_thread, dep_boost, dep_lua] )
+		executable(e, 'example/'+e+'.cpp', dependencies: [leaf, dep_thread, dep_boost, dep_lua] )
 	endforeach
 
 endif

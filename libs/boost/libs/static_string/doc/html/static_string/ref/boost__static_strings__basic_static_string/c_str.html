@@ -27,7 +27,7 @@
 <a name="static_string.ref.boost__static_strings__basic_static_string.c_str"></a><a class="link" href="c_str.html" title="basic_static_string::c_str">basic_static_string::c_str</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="idm45942219540544"></a>
+          <a class="indexterm" name="idm4342"></a>
         </p>
 <p>
           Return a pointer to the string.
@@ -45,10 +45,8 @@
         </h6>
 <p>
           Returns a pointer to the underlying array serving as storage. The value
-          returned is such that the range {<a class="link" href="c_str.html" title="basic_static_string::c_str"><code class="computeroutput"><span class="identifier">c_str</span><span class="special">()</span></code></a>,
-          <a class="link" href="c_str.html" title="basic_static_string::c_str"><code class="computeroutput"><span class="identifier">c_str</span><span class="special">()</span></code></a>
-          + <a class="link" href="size.html" title="basic_static_string::size"><code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code></a>)
-          is always a valid range, even if the container is empty.
+          returned is such that the range <code class="computeroutput"><span class="special">{</span><span class="identifier">c_str</span><span class="special">(),</span> <span class="identifier">c_str</span><span class="special">()</span> <span class="special">+</span> <span class="identifier">size</span><span class="special">())</span></code> is always a valid range, even if the
+          container is empty.
         </p>
 <h6>
 <a name="static_string.ref.boost__static_strings__basic_static_string.c_str.h2"></a>

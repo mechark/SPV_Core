@@ -88,13 +88,15 @@ enum class E: Base { v1, v2, ..., vN };
 BOOST_DESCRIBE_ENUM(E, v1, v2, ..., vN)
 ```
 
-## <boost/describe/enumerators.hpp>
+## <boost/describe/{zwsp}enumerators{zwsp}.hpp>
 
 ```
 namespace boost {
 namespace describe {
 
 template<class E> using describe_enumerators = /*...*/;
+
+template<class E> using has_describe_enumerators = /*...*/;
 
 } }
 ```
@@ -115,6 +117,14 @@ struct Di
 };
 ```
 where `vi` is the i-th enumerator.
+
+If `E` is not a described enumeration type, `describe_enumerators<E>` causes
+a substitution failure.
+
+### has_describe_enumerators<E>
+
+`has_describe_enumerators<E>::value` is `true` when `E` is a described
+enumeration type, `false` otherwise.
 
 ## <boost/describe/class.hpp>
 
@@ -232,6 +242,8 @@ namespace describe {
 
 template<class T, unsigned M> using describe_bases = /*...*/;
 
+template<class T> using has_describe_bases = /*...*/;
+
 } }
 ```
 
@@ -257,6 +269,18 @@ where `type` is the type of the base class, and `modifiers` are a bitwise-or
 combination of `mod_public`, `mod_protected`, `mod_private`, and `mod_virtual`
 that reflects the properties of the base class.
 
+If `T` is not a described class type, `describe_bases<T, M>` causes a
+substitution failure.
+
+### has_describe_bases<T>
+
+`has_describe_bases<T>::value` is `true` when `T` is a described class type,
+`false` otherwise.
+
+Since the library does not provide a way to describe bases and members separately,
+`has_describe_bases` and `has_describe_members` are, in practice, synonyms. They
+are provided separately for consistency.
+
 ## <boost/describe/members.hpp>
 
 ```
@@ -264,6 +288,8 @@ namespace boost {
 namespace describe {
 
 template<class T, unsigned M> using describe_members = /*...*/;
+
+template<class T> using has_describe_members = /*...*/;
 
 } }
 ```
@@ -293,6 +319,189 @@ where `pointer` is a pointer to member (for nonstatic members) or a pointer
 member, and `modifiers` are a bitwise-or combination of `mod_public`,
 `mod_protected`, `mod_private`, `mod_static`, `mod_function`, `mod_inherited`,
 and `mod_hidden` that reflects the properties of the member.
+
+If `T` is not a described class type, `describe_members<T, M>` causes a
+substitution failure.
+
+### has_describe_members<T>
+
+`has_describe_members<T>::value` is `true` when `T` is a described class type,
+`false` otherwise.
+
+Since the library does not provide a way to describe bases and members separately,
+`has_describe_bases` and `has_describe_members` are, in practice, synonyms. They
+are provided separately for consistency.
+
+## <boost/describe/{zwsp}enum_to_string{zwsp}.hpp>
+
+```
+namespace boost {
+namespace describe {
+
+template<class E> char const * enum_to_string( E e, char const * def ) noexcept;
+
+} }
+```
+
+### enum_to_string
+
+The function `enum_to_string` returns the name of the enumerator `e`. `E` must
+be a described enumeration type. If `e` does not correspond to one of the described
+values, the function returns `def`.
+
+## <boost/describe/{zwsp}enum_from_string{zwsp}.hpp>
+
+```
+namespace boost {
+namespace describe {
+
+template<class E> bool enum_from_string( char const * name, E & e ) noexcept;
+
+} }
+```
+
+### enum_from_string
+
+The function `enum_from_string` assigns to `e` the enumerator value corresponding
+to `name` and returns `true`. `E` must be a described enumeration type. If `name`
+does not correspond to one of the described values, the function returns `false`.
+
+## <boost/describe/operators.hpp>
+
+```
+namespace boost {
+namespace describe {
+namespace operators {
+
+template<class T> bool operator==( T const& t1, T const& t2 );
+template<class T> bool operator!=( T const& t1, T const& t2 );
+template<class T> bool operator<( T const& t1, T const& t2 );
+template<class T> bool operator>( T const& t1, T const& t2 );
+template<class T> bool operator<=( T const& t1, T const& t2 );
+template<class T> bool operator>=( T const& t1, T const& t2 );
+
+template<class T, class Ch, class Tr>
+  std::basic_ostream<Ch, Tr>&
+    operator<<( std::basic_ostream<Ch, Tr>& os, T const& t );
+
+} } }
+```
+
+The header `<boost/describe/operators.hpp>` defines generic operators for
+described class types. They are used by bringing them into the namespace
+containing the described types via a using declaration, as in the example
+below:
+
+```
+namespace app
+{
+
+struct X
+{
+    int a = 1;
+};
+
+BOOST_DESCRIBE_STRUCT(X, (), (a))
+
+using boost::describe::operators::operator==;
+using boost::describe::operators::operator!=;
+using boost::describe::operators::operator<<;
+
+}
+```
+
+### operator==
+
+If all bases and members compare equal, returns `true`, otherwise `false`.
+
+### operator!=
+
+Returns the negation of `operator==`.
+
+### operator<
+
+Performs a lexicographical comparison over the bases and members in sequence
+using `operator<` and returns the result.
+
+### operator>
+
+Returns the result of `operator<` with the arguments reversed.
+
+### operator\<=
+
+Returns the negated result of `operator>`.
+
+### operator>=
+
+Returns the negated result of `operator<`.
+
+### operator<<
+
+Outputs a representation of `t` to `os` by recursively using `operator<<`
+to output all bases and then all members.
+
+## <boost/describe/{zwsp}descriptor_by_name{zwsp}.hpp>
+
+```
+namespace boost {
+namespace describe {
+
+#define BOOST_DESCRIBE_MAKE_NAME(s) /*...*/
+
+template<class L, class N> using descriptor_by_name = /*...*/;
+
+} }
+```
+
+### BOOST_DESCRIBE_MAKE_NAME
+
+The macro `BOOST_DESCRIBE_MAKE_NAME` creates a type that identifies the
+name given as an argument. It should be used as follows:
+
+```
+using N = BOOST_DESCRIBE_MAKE_NAME(some_member);
+```
+
+### descriptor_by_name
+
+`descriptor_by_name<L, N>` searches the descriptor list `L` for the member
+with the name identified by `N`. `N` should be a type created by
+`BOOST_DESCRIBE_MAKE_NAME` as in the above example. `L` is intended to be
+a list returned by `describe_members`, although since enumerator descriptors
+also have `::name`, a list returned by `describe_enumerators` will work as
+well.
+
+.Using descriptor_by_name
+```
+using L = describe_members<SomeType, mod_any_access>;
+using N = BOOST_DESCRIBE_MAKE_NAME(some_member);
+using D = descriptor_by_name<L, N>; // descriptor for SomeType::some_member
+```
+
+## <boost/describe/{zwsp}descriptor_by_pointer{zwsp}.hpp>
+
+```
+namespace boost {
+namespace describe {
+
+template<class L, auto Pm> using descriptor_by_pointer = /*...*/;
+
+} }
+```
+
+### descriptor_by_pointer
+
+`descriptor_by_pointer<L, Pm>` searches the descriptor list `L` for the member
+pointer `Pm`. `L` should be a list returned by `describe_members`.
+
+Since `auto` template parameters are a {cpp}17 feature, using
+`descriptor_by_pointer` requires {cpp}17.
+
+.Using descriptor_by_pointer
+```
+using L = describe_members<X, mod_any_access>;
+using D = descriptor_by_pointer<L, &X::a>; // descriptor for X::a
+```
 
 ## <boost/describe.hpp>
 

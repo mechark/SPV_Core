@@ -15,7 +15,7 @@ beast/ref/boost__beast__async_base/async_base.html
 beast/ref/boost__beast__async_base/async_base/overload1.html
 beast/ref/boost__beast__async_base/async_base/overload2.html
 beast/ref/boost__beast__async_base/async_base/overload3.html
-beast/ref/boost__beast__async_base/_async_base.html
+beast/ref/boost__beast__async_base/_dtor_async_base.html
 beast/ref/boost__beast__async_base/operator_eq_.html
 beast/ref/boost__beast__async_base/get_allocator.html
 beast/ref/boost__beast__async_base/get_executor.html
@@ -52,7 +52,7 @@ beast/ref/boost__beast__http__basic_fields/iterator.html
 beast/ref/boost__beast__http__basic_fields/swap.html
 beast/ref/boost__beast__http__basic_fields/swap/overload1.html
 beast/ref/boost__beast__http__basic_fields/swap/overload2.html
-beast/ref/boost__beast__http__basic_fields/_basic_fields.html
+beast/ref/boost__beast__http__basic_fields/_dtor_basic_fields.html
 beast/ref/boost__beast__http__basic_fields/basic_fields.html
 beast/ref/boost__beast__http__basic_fields/basic_fields/overload1.html
 beast/ref/boost__beast__http__basic_fields/basic_fields/overload2.html
@@ -124,7 +124,7 @@ beast/ref/boost__beast__basic_flat_buffer/allocator_type.html
 beast/ref/boost__beast__basic_flat_buffer/const_buffers_type.html
 beast/ref/boost__beast__basic_flat_buffer/mutable_buffers_type.html
 beast/ref/boost__beast__basic_flat_buffer/swap.html
-beast/ref/boost__beast__basic_flat_buffer/_basic_flat_buffer.html
+beast/ref/boost__beast__basic_flat_buffer/_dtor_basic_flat_buffer.html
 beast/ref/boost__beast__basic_flat_buffer/basic_flat_buffer.html
 beast/ref/boost__beast__basic_flat_buffer/basic_flat_buffer/overload1.html
 beast/ref/boost__beast__basic_flat_buffer/basic_flat_buffer/overload2.html
@@ -161,7 +161,7 @@ beast/ref/boost__beast__basic_multi_buffer/const_buffers_type.html
 beast/ref/boost__beast__basic_multi_buffer/mutable_buffers_type.html
 beast/ref/boost__beast__basic_multi_buffer/allocator_type.html
 beast/ref/boost__beast__basic_multi_buffer/swap.html
-beast/ref/boost__beast__basic_multi_buffer/_basic_multi_buffer.html
+beast/ref/boost__beast__basic_multi_buffer/_dtor_basic_multi_buffer.html
 beast/ref/boost__beast__basic_multi_buffer/basic_multi_buffer.html
 beast/ref/boost__beast__basic_multi_buffer/basic_multi_buffer/overload1.html
 beast/ref/boost__beast__basic_multi_buffer/basic_multi_buffer/overload2.html
@@ -211,7 +211,7 @@ beast/ref/boost__beast__http__basic_parser/on_body_impl.html
 beast/ref/boost__beast__http__basic_parser/on_chunk_header_impl.html
 beast/ref/boost__beast__http__basic_parser/on_chunk_body_impl.html
 beast/ref/boost__beast__http__basic_parser/on_finish_impl.html
-beast/ref/boost__beast__http__basic_parser/_basic_parser.html
+beast/ref/boost__beast__http__basic_parser/_dtor_basic_parser.html
 beast/ref/boost__beast__http__basic_parser/got_some.html
 beast/ref/boost__beast__http__basic_parser/is_done.html
 beast/ref/boost__beast__http__basic_parser/is_header_done.html
@@ -236,7 +236,7 @@ beast/ref/boost__beast__basic_stream/socket_type.html
 beast/ref/boost__beast__basic_stream/executor_type.html
 beast/ref/boost__beast__basic_stream/protocol_type.html
 beast/ref/boost__beast__basic_stream/endpoint_type.html
-beast/ref/boost__beast__basic_stream/_basic_stream.html
+beast/ref/boost__beast__basic_stream/_dtor_basic_stream.html
 beast/ref/boost__beast__basic_stream/basic_stream.html
 beast/ref/boost__beast__basic_stream/basic_stream/overload1.html
 beast/ref/boost__beast__basic_stream/basic_stream/overload2.html
@@ -283,7 +283,7 @@ beast/ref/boost__beast__basic_stream/async_write_some.html
 beast/ref/boost__beast__test__basic_stream.html
 beast/ref/boost__beast__test__basic_stream/executor_type.html
 beast/ref/boost__beast__test__basic_stream/buffer_type.html
-beast/ref/boost__beast__test__basic_stream/_basic_stream.html
+beast/ref/boost__beast__test__basic_stream/_dtor_basic_stream.html
 beast/ref/boost__beast__test__basic_stream/basic_stream.html
 beast/ref/boost__beast__test__basic_stream/basic_stream/overload1.html
 beast/ref/boost__beast__test__basic_stream/basic_stream/overload2.html
@@ -504,7 +504,7 @@ beast/ref/boost__beast__file/read.html
 beast/ref/boost__beast__file/write.html
 beast/ref/boost__beast__file_posix.html
 beast/ref/boost__beast__file_posix/native_handle_type.html
-beast/ref/boost__beast__file_posix/_file_posix.html
+beast/ref/boost__beast__file_posix/_dtor_file_posix.html
 beast/ref/boost__beast__file_posix/file_posix.html
 beast/ref/boost__beast__file_posix/file_posix/overload1.html
 beast/ref/boost__beast__file_posix/file_posix/overload2.html
@@ -522,7 +522,7 @@ beast/ref/boost__beast__file_posix/read.html
 beast/ref/boost__beast__file_posix/write.html
 beast/ref/boost__beast__file_stdio.html
 beast/ref/boost__beast__file_stdio/native_handle_type.html
-beast/ref/boost__beast__file_stdio/_file_stdio.html
+beast/ref/boost__beast__file_stdio/_dtor_file_stdio.html
 beast/ref/boost__beast__file_stdio/file_stdio.html
 beast/ref/boost__beast__file_stdio/file_stdio/overload1.html
 beast/ref/boost__beast__file_stdio/file_stdio/overload2.html
@@ -540,7 +540,7 @@ beast/ref/boost__beast__file_stdio/read.html
 beast/ref/boost__beast__file_stdio/write.html
 beast/ref/boost__beast__file_win32.html
 beast/ref/boost__beast__file_win32/native_handle_type.html
-beast/ref/boost__beast__file_win32/_file_win32.html
+beast/ref/boost__beast__file_win32/_dtor_file_win32.html
 beast/ref/boost__beast__file_win32/file_win32.html
 beast/ref/boost__beast__file_win32/file_win32/overload1.html
 beast/ref/boost__beast__file_win32/file_win32/overload2.html
@@ -606,7 +606,7 @@ beast/ref/boost__beast__flat_stream/flat_stream/overload3.html
 beast/ref/boost__beast__flat_stream/operator_eq_.html
 beast/ref/boost__beast__flat_stream/operator_eq_/overload1.html
 beast/ref/boost__beast__flat_stream/operator_eq_/overload2.html
-beast/ref/boost__beast__flat_stream/_flat_stream.html
+beast/ref/boost__beast__flat_stream/_dtor_flat_stream.html
 beast/ref/boost__beast__flat_stream/get_executor.html
 beast/ref/boost__beast__flat_stream/next_layer.html
 beast/ref/boost__beast__flat_stream/next_layer/overload1.html
@@ -625,7 +625,7 @@ beast/ref/boost__beast__test__handler/handler/overload1.html
 beast/ref/boost__beast__test__handler/handler/overload2.html
 beast/ref/boost__beast__test__handler/handler/overload3.html
 beast/ref/boost__beast__test__handler/handler/overload4.html
-beast/ref/boost__beast__test__handler/_handler.html
+beast/ref/boost__beast__test__handler/_dtor_handler.html
 beast/ref/boost__beast__test__handler/operator_lp__rp_.html
 beast/ref/boost__beast__test__handler/operator_lp__rp_/overload1.html
 beast/ref/boost__beast__test__handler/operator_lp__rp_/overload2.html
@@ -671,7 +671,7 @@ beast/ref/boost__beast__http__icy_stream/icy_stream/overload3.html
 beast/ref/boost__beast__http__icy_stream/operator_eq_.html
 beast/ref/boost__beast__http__icy_stream/operator_eq_/overload1.html
 beast/ref/boost__beast__http__icy_stream/operator_eq_/overload2.html
-beast/ref/boost__beast__http__icy_stream/_icy_stream.html
+beast/ref/boost__beast__http__icy_stream/_dtor_icy_stream.html
 beast/ref/boost__beast__http__icy_stream/get_executor.html
 beast/ref/boost__beast__http__icy_stream/next_layer.html
 beast/ref/boost__beast__http__icy_stream/next_layer/overload1.html
@@ -772,7 +772,7 @@ beast/ref/boost__beast__http__param_list/cend.html
 beast/ref/boost__beast__http__parser.html
 beast/ref/boost__beast__http__parser/value_type.html
 beast/ref/boost__beast__http__parser/is_request.html
-beast/ref/boost__beast__http__parser/_parser.html
+beast/ref/boost__beast__http__parser/_dtor_parser.html
 beast/ref/boost__beast__http__parser/parser.html
 beast/ref/boost__beast__http__parser/parser/overload1.html
 beast/ref/boost__beast__http__parser/parser/overload2.html
@@ -848,7 +848,7 @@ beast/ref/boost__beast__unit_test__runner.html
 beast/ref/boost__beast__unit_test__runner/runner.html
 beast/ref/boost__beast__unit_test__runner/runner/overload1.html
 beast/ref/boost__beast__unit_test__runner/runner/overload2.html
-beast/ref/boost__beast__unit_test__runner/_runner.html
+beast/ref/boost__beast__unit_test__runner/_dtor_runner.html
 beast/ref/boost__beast__unit_test__runner/operator_eq_.html
 beast/ref/boost__beast__unit_test__runner/arg.html
 beast/ref/boost__beast__unit_test__runner/arg/overload1.html
@@ -874,7 +874,7 @@ beast/ref/boost__beast__saved_handler/saved_handler/overload3.html
 beast/ref/boost__beast__saved_handler/operator_eq_.html
 beast/ref/boost__beast__saved_handler/operator_eq_/overload1.html
 beast/ref/boost__beast__saved_handler/operator_eq_/overload2.html
-beast/ref/boost__beast__saved_handler/_saved_handler.html
+beast/ref/boost__beast__saved_handler/_dtor_saved_handler.html
 beast/ref/boost__beast__saved_handler/has_value.html
 beast/ref/boost__beast__saved_handler/emplace.html
 beast/ref/boost__beast__saved_handler/emplace/overload1.html
@@ -884,7 +884,7 @@ beast/ref/boost__beast__saved_handler/invoke.html
 beast/ref/boost__beast__saved_handler/maybe_invoke.html
 beast/ref/boost__beast__unit_test__suite__scoped_testcase.html
 beast/ref/boost__beast__unit_test__suite__scoped_testcase/operator_eq_.html
-beast/ref/boost__beast__unit_test__suite__scoped_testcase/_scoped_testcase.html
+beast/ref/boost__beast__unit_test__suite__scoped_testcase/_dtor_scoped_testcase.html
 beast/ref/boost__beast__unit_test__suite__scoped_testcase/scoped_testcase.html
 beast/ref/boost__beast__unit_test__suite__scoped_testcase/scoped_testcase/overload1.html
 beast/ref/boost__beast__unit_test__suite__scoped_testcase/scoped_testcase/overload2.html
@@ -989,7 +989,7 @@ beast/ref/boost__beast__stable_async_base.html
 beast/ref/boost__beast__stable_async_base/stable_async_base.html
 beast/ref/boost__beast__stable_async_base/stable_async_base/overload1.html
 beast/ref/boost__beast__stable_async_base/stable_async_base/overload2.html
-beast/ref/boost__beast__stable_async_base/_stable_async_base.html
+beast/ref/boost__beast__stable_async_base/_dtor_stable_async_base.html
 beast/ref/boost__beast__stable_async_base/get_allocator.html
 beast/ref/boost__beast__stable_async_base/get_executor.html
 beast/ref/boost__beast__stable_async_base/handler.html
@@ -1179,7 +1179,7 @@ beast/ref/boost__beast__websocket__stream.html
 beast/ref/boost__beast__websocket__stream/is_deflate_supported.html
 beast/ref/boost__beast__websocket__stream/next_layer_type.html
 beast/ref/boost__beast__websocket__stream/executor_type.html
-beast/ref/boost__beast__websocket__stream/_stream.html
+beast/ref/boost__beast__websocket__stream/_dtor_stream.html
 beast/ref/boost__beast__websocket__stream/stream.html
 beast/ref/boost__beast__websocket__stream/stream/overload1.html
 beast/ref/boost__beast__websocket__stream/stream/overload2.html
@@ -1293,7 +1293,7 @@ beast/ref/boost__beast__unit_test__suite/this_suite.html
 beast/ref/boost__beast__unit_test__suite/suite.html
 beast/ref/boost__beast__unit_test__suite/suite/overload1.html
 beast/ref/boost__beast__unit_test__suite/suite/overload2.html
-beast/ref/boost__beast__unit_test__suite/_suite.html
+beast/ref/boost__beast__unit_test__suite/_dtor_suite.html
 beast/ref/boost__beast__unit_test__suite/operator_eq_.html
 beast/ref/boost__beast__unit_test__suite/operator_lp__rp_.html
 beast/ref/boost__beast__unit_test__suite/pass.html
@@ -1363,7 +1363,7 @@ beast/ref/boost__beast__http__buffer_body__value_type/size.html
 beast/ref/boost__beast__http__buffer_body__value_type/more.html
 beast/ref/boost__beast__http__empty_body__value_type.html
 beast/ref/boost__beast__http__basic_file_body__value_type.html
-beast/ref/boost__beast__http__basic_file_body__value_type/_value_type.html
+beast/ref/boost__beast__http__basic_file_body__value_type/_dtor_value_type.html
 beast/ref/boost__beast__http__basic_file_body__value_type/value_type.html
 beast/ref/boost__beast__http__basic_file_body__value_type/value_type/overload1.html
 beast/ref/boost__beast__http__basic_file_body__value_type/value_type/overload2.html

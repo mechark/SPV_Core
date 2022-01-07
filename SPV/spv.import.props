@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<ItemDefinitionGroup>
-		<ClCompile>
-			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<AdditionalIncludeDirectories>$(SolutionDir)protobuf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-		<!--	<AdditionalIncludeDirectories>$(SolutionDir)..\libs\protobuf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\protobuf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories> -->
-		</ClCompile>
-
-		<Link>
-			<AdditionalLibraryDirectories>$(SolutionDir)..\libs\boost\libs;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
-		<!--	<AdditionalLibraryDirectories>$(SolutionDir)..\libs\protobuf\lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
-
-			<AdditionalDependencies>libprotobuf.lib;libprotoc.lib;</AdditionalDependencies> -->
-		</Link>
 		
+		<ClCompile>
+			
+			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<AdditionalIncludeDirectories>$(SolutionDir)SPV;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+
+		</ClCompile>
+		
+		<Link Condition="'$(Configuration)' == 'Debug'">
+			
+			<AdditionalLibraryDirectories>$(SolutionDir)..\libs\libs\debug;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
+			<AdditionalDepedencies>libboost_serialization-vc143-mt-gd-x32-1_78.lib</AdditionalDepedencies>
+			
+		</Link>
+
+		<Link Condition="'$(Configuration)' == 'Release'">
+
+			<AdditionalLibraryDirectories>$(SolutionDir)..\libs\libs\release;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
+			<AdditionalDepedencies>libboost_serialization-vc143-mt-x32-1_78.lib</AdditionalDepedencies>
+
+		</Link>
+
 	</ItemDefinitionGroup>
+
+	
 </Project>

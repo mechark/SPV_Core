@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.8">
+<meta name="generator" content="Asciidoctor 2.0.16">
 <meta name="author" content="René Ferdinand Rivera Morell, Vladimir Prus, Steven Watanabe">
 <meta name="copyright" content="Copyright 2018-2021 René Ferdinand Rivera Morell; Copyright 2006, 2014 Vladimir Prus">
 <title>B2 User Manual</title>
@@ -955,17 +955,20 @@ a { color: inherit; }
 </li>
 <li><a href="#b2.history">13. History</a>
 <ul class="sectlevel2">
-<li><a href="#_version_4_6_1">13.1. Version 4.6.1</a></li>
-<li><a href="#_version_4_6_0">13.2. Version 4.6.0</a></li>
-<li><a href="#_version_4_5_0">13.3. Version 4.5.0</a></li>
-<li><a href="#_version_4_4_2">13.4. Version 4.4.2</a></li>
-<li><a href="#_version_4_4_1">13.5. Version 4.4.1</a></li>
-<li><a href="#_version_4_4_0">13.6. Version 4.4.0</a></li>
-<li><a href="#_version_4_3_0">13.7. Version 4.3.0</a></li>
-<li><a href="#_version_4_2_0">13.8. Version 4.2.0</a></li>
-<li><a href="#_version_4_1_0">13.9. Version 4.1.0</a></li>
-<li><a href="#_version_4_0_1">13.10. Version 4.0.1</a></li>
-<li><a href="#_version_4_0_0">13.11. Version 4.0.0</a></li>
+<li><a href="#_version_4_7_2">13.1. Version 4.7.2</a></li>
+<li><a href="#_version_4_7_1">13.2. Version 4.7.1</a></li>
+<li><a href="#_version_4_7_0">13.3. Version 4.7.0</a></li>
+<li><a href="#_version_4_6_1">13.4. Version 4.6.1</a></li>
+<li><a href="#_version_4_6_0">13.5. Version 4.6.0</a></li>
+<li><a href="#_version_4_5_0">13.6. Version 4.5.0</a></li>
+<li><a href="#_version_4_4_2">13.7. Version 4.4.2</a></li>
+<li><a href="#_version_4_4_1">13.8. Version 4.4.1</a></li>
+<li><a href="#_version_4_4_0">13.9. Version 4.4.0</a></li>
+<li><a href="#_version_4_3_0">13.10. Version 4.3.0</a></li>
+<li><a href="#_version_4_2_0">13.11. Version 4.2.0</a></li>
+<li><a href="#_version_4_1_0">13.12. Version 4.1.0</a></li>
+<li><a href="#_version_4_0_1">13.13. Version 4.0.1</a></li>
+<li><a href="#_version_4_0_0">13.14. Version 4.0.0</a></li>
 </ul>
 </li>
 </ul>
@@ -1170,7 +1173,7 @@ enabled:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>feature-name=feature-value</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">feature-name=feature-value</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4455,7 +4458,7 @@ is similar to functionality of configure script in <code>autotools</code> projec
 The function signature is:</p>
 <div class="listingblock">
 <div class="content">
-<pre>rule check-target-builds ( target message ? : true-properties * : false-properties * )</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">rule check-target-builds ( target message ? : true-properties * : false-properties * )</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4465,7 +4468,7 @@ link to a library if it&#8217;s available, one has use the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>exe app : app.cpp : [ check-target-builds has_foo "System has foo" : &lt;library&gt;foo : &lt;define&gt;FOO_MISSING=1 ] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">exe app : app.cpp : [ check-target-builds has_foo "System has foo" : &lt;library&gt;foo : &lt;define&gt;FOO_MISSING=1 ] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4475,7 +4478,7 @@ like so:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>alias foobar : : : : [ check-target-builds has_foo "System has foo" : &lt;library&gt;foo : &lt;library&gt;bar ] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">alias foobar : : : : [ check-target-builds has_foo "System has foo" : &lt;library&gt;foo : &lt;library&gt;bar ] ;</code></pre>
 </div>
 </div>
 </dd>
@@ -4496,7 +4499,7 @@ files in the project&#8217;s source directory that match the pattern. For
 example:</p>
 <div class="listingblock">
 <div class="content">
-<pre>lib tools : [ glob *.cpp ] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">lib tools : [ glob *.cpp ] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4507,7 +4510,7 @@ example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>lib tools : [ glob *.cpp : file_to_exclude.cpp bad*.cpp ] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">lib tools : [ glob *.cpp : file_to_exclude.cpp bad*.cpp ] ;</code></pre>
 </div>
 </div>
 </dd>
@@ -4517,7 +4520,7 @@ example:</p>
 recursively from the directory of the containing Jamfile. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre>ECHO [ glob-tree *.cpp : .svn ] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">ECHO [ glob-tree *.cpp : .svn ] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4551,9 +4554,9 @@ names. The targets produced by the named metatargets will be
 always considered out of date. Consider this example:</p>
 <div class="listingblock">
 <div class="content">
-<pre>exe hello : hello.cpp ;
+<pre class="highlight"><code class="language-jam" data-lang="jam">exe hello : hello.cpp ;
 exe bye : bye.cpp ;
-always hello ;</pre>
+always hello ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4569,7 +4572,7 @@ value and makes the specified variable name accessible in this Jamfile
 and any child Jamfiles. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre>constant VERSION : 1.34.0 ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">constant VERSION : 1.34.0 ;</code></pre>
 </div>
 </div>
 </dd>
@@ -4580,7 +4583,7 @@ to Jamfile location. For example, if <code>b2</code> is invoked in the current
 directory, and Jamfile in <code>helper</code> subdirectory has:</p>
 <div class="listingblock">
 <div class="content">
-<pre>path-constant DATA : data/a.txt ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">path-constant DATA : data/a.txt ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4640,9 +4643,9 @@ in usage requirement of the library.</p>
 </dd>
 <dt class="hdlist1"><a id="bbv2.builtin.features.architecture"></a><code>architecture</code></dt>
 <dd>
-<p><strong>Allowed values:</strong> <code>x86</code>, <code>ia64</code>, <code>sparc</code>, <code>power</code>, <code>mips1</code>, <code>mips2</code>,
+<p><strong>Allowed values:</strong> <code>x86</code>, <code>ia64</code>, <code>sparc</code>, <code>power</code>, <code>mips</code>, <code>mips1</code>, <code>mips2</code>,
 <code>mips3</code>, <code>mips4</code>, <code>mips32</code>, <code>mips32r2</code>, <code>mips64</code>, <code>parisc</code>, <code>arm</code>,
-<code>s390x</code>, <code>combined</code>, <code>combined-x86-power</code>.</p>
+<code>s390x</code>.</p>
 <div class="paragraph">
 <p>Specifies the general processor family to generate code for.</p>
 </div>
@@ -4687,7 +4690,7 @@ higher-level feature in B2.</p>
 form:</p>
 <div class="listingblock">
 <div class="content">
-<pre>@rulename</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">@rulename</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4695,7 +4698,7 @@ form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>rule rulename ( properties * )</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">rule rulename ( properties * )</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5364,7 +5367,7 @@ binaries.
 form:</p>
 <div class="listingblock">
 <div class="content">
-<pre>@rulename</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">@rulename</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5372,7 +5375,7 @@ form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>rule tag ( name : type ? : property-set )</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">rule tag ( name : type ? : property-set )</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5503,7 +5506,7 @@ request common build configurations.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>&lt;optimization&gt;off &lt;debug-symbols&gt;on &lt;inlining&gt;off &lt;runtime-debugging&gt;on</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">&lt;optimization&gt;off &lt;debug-symbols&gt;on &lt;inlining&gt;off &lt;runtime-debugging&gt;on</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5511,7 +5514,7 @@ request common build configurations.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>&lt;optimization&gt;speed &lt;debug-symbols&gt;off &lt;inlining&gt;full &lt;runtime-debugging&gt;off</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">&lt;optimization&gt;speed &lt;debug-symbols&gt;off &lt;inlining&gt;full &lt;runtime-debugging&gt;off</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5519,7 +5522,7 @@ request common build configurations.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>&lt;profiling&gt;on &lt;debug-symbols&gt;on</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">&lt;profiling&gt;on &lt;debug-symbols&gt;on</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5655,7 +5658,7 @@ warning.</p>
 form:</p>
 <div class="listingblock">
 <div class="content">
-<pre>@rulename</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">@rulename</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5663,7 +5666,7 @@ form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>rule rulename ( feature value : properties * : project-id : project-location )</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">rule rulename ( feature value : properties * : project-id : project-location )</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5784,7 +5787,7 @@ aC++ compiler</a> for the HP-UX operating system.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>using acc : [version] : [c++-compile-command] : [compiler options] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using acc : [version] : [c++-compile-command] : [compiler options] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5836,7 +5839,7 @@ compatible compiler bcc32c on later versions of C Builder.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>using borland : [version] : [c++-compile-command] : [compiler options] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using borland : [version] : [c++-compile-command] : [compiler options] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5892,7 +5895,7 @@ Windows respectively.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>using como : [version] : [c++-compile-command] : [compiler options] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using como : [version] : [c++-compile-command] : [compiler options] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5951,7 +5954,7 @@ any longer. The last version known to work is 9.4.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>using cw : [version] : [c++-compile-command] : [compiler options] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using cw : [version] : [c++-compile-command] : [compiler options] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6019,7 +6022,7 @@ C++ compiler.</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>using dmc : [version] : [c++-compile-command] : [compiler options] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using dmc : [version] : [c++-compile-command] : [compiler options] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6070,7 +6073,7 @@ Linux, a number of Unix-like system including SunOS and on Windows
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>using gcc : [version] : [c++-compile-command] : [compiler options] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using gcc : [version] : [c++-compile-command] : [compiler options] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6088,6 +6091,11 @@ not specified, the <code>g++</code> binary will be searched in PATH.</p>
 </div>
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><code>asmflags</code></dt>
+<dd>
+<p>Specifies additional compiler flags that will be used when compiling assembler
+sources.</p>
+</dd>
 <dt class="hdlist1"><code>cflags</code></dt>
 <dd>
 <p>Specifies additional compiler flags that will be used when compiling C
@@ -6098,10 +6106,25 @@ sources.</p>
 <p>Specifies additional compiler flags that will be used when compiling C++
 sources.</p>
 </dd>
+<dt class="hdlist1"><code>fflags</code></dt>
+<dd>
+<p>Specifies additional compiler flags that will be used when compiling Fortran
+sources.</p>
+</dd>
+<dt class="hdlist1"><code>mflags</code></dt>
+<dd>
+<p>Specifies additional compiler flags that will be used when compiling
+Objective-C sources.</p>
+</dd>
+<dt class="hdlist1"><code>mmflags</code></dt>
+<dd>
+<p>Specifies additional compiler flags that will be used when compiling
+Objective-C++ sources.</p>
+</dd>
 <dt class="hdlist1"><code>compileflags</code></dt>
 <dd>
-<p>Specifies additional compiler flags that will be used when compiling both C
-and C++ sources.</p>
+<p>Specifies additional compiler flags that will be used when compiling any
+language sources.</p>
 </dd>
 <dt class="hdlist1"><code>linkflags</code></dt>
 <dd>
@@ -6121,14 +6144,6 @@ libraries. Normally, it is autodetected using gcc <code>-print-prog-name</code>
 option or defaulted to <code>ar</code>, but in some cases you might want to
 override it, for example to explicitly use a system version instead of
 one included with gcc.</p>
-</dd>
-<dt class="hdlist1"><code>ranlib</code></dt>
-<dd>
-<p>Specifies the ranlib command that is used to generated symbol table
-for static libraries. Normally, it is autodetected using gcc
-<code>-print-prog-name</code> option or defaulted to <code>ranlib</code>, but in some cases
-you might want to override it, for example to explicitly use a system
-version instead of one included with gcc.</p>
 </dd>
 <dt class="hdlist1"><code>rc</code></dt>
 <dd>
@@ -6164,7 +6179,7 @@ for Tru64 Unix.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>using hp_cxx : [version] : [c++-compile-command] : [compiler options] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using hp_cxx : [version] : [c++-compile-command] : [compiler options] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6213,7 +6228,7 @@ and C++ sources.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>using intel : [version] : [c++-compile-command] : [compiler options] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using intel : [version] : [c++-compile-command] : [compiler options] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6317,7 +6332,7 @@ equal to <code>msvc-[version number]</code> for example to build with Visual Stu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>.\b2 toolset=msvc-14.2 target</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">.\b2 toolset=msvc-14.2 target</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6325,7 +6340,7 @@ equal to <code>msvc-[version number]</code> for example to build with Visual Stu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>using msvc : [version] : [c++-compile-command] : [compiler options] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using msvc : [version] : [c++-compile-command] : [compiler options] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6532,7 +6547,7 @@ ARM architecture:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>.\b2 toolset=msvc-12.0 windows-api=store architecture=arm</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">.\b2 toolset=msvc-12.0 windows-api=store architecture=arm</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6554,7 +6569,7 @@ for the Solaris OS.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>using sun : [version] : [c++-compile-command] : [compiler options] ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using sun : [version] : [c++-compile-command] : [compiler options] ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6572,7 +6587,7 @@ following options when initializing the <code>sun</code> module:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>-library=stlport4 -features=tmplife -features=tmplrefstatic</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">-library=stlport4 -features=tmplife -features=tmplrefstatic</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6623,7 +6638,7 @@ Visual Age</a> C++ Compiler, for the AIX operating system. Versions 7.1 and
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>using vacpp ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using vacpp ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6988,7 +7003,7 @@ such as boostbook, rather than directly by users.</p>
 <dd>
 <div class="listingblock">
 <div class="content">
-<pre>rule xslt ( target : source stylesheet : properties * )</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">rule xslt ( target : source stylesheet : properties * )</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6999,7 +7014,7 @@ such as boostbook, rather than directly by users.</p>
 <dd>
 <div class="listingblock">
 <div class="content">
-<pre>rule xslt-dir ( target : source stylesheet : properties * : dirname )</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">rule xslt-dir ( target : source stylesheet : properties * : dirname )</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7069,7 +7084,7 @@ common syntax.</p>
 <dd>
 <div class="listingblock">
 <div class="content">
-<pre>rule boostbook ( target-name : sources * : requirements * : default-build * )</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">rule boostbook ( target-name : sources * : requirements * : default-build * )</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7157,7 +7172,7 @@ common syntax.</p>
 <dd>
 <div class="listingblock">
 <div class="content">
-<pre>rule doxygen ( target : sources * : requirements * : default-build * : usage-requirements * )</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">rule doxygen ( target : sources * : requirements * : default-build * : usage-requirements * )</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8884,7 +8899,7 @@ several preprocessor symbols defined simultaneously:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>&lt;define&gt;NDEBUG=1 &lt;define&gt;HAS_CONFIG_H=1</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">&lt;define&gt;NDEBUG=1 &lt;define&gt;HAS_CONFIG_H=1</code></pre>
 </div>
 </div>
 </li>
@@ -10047,7 +10062,7 @@ be exported. It would be nice to use this file like this:</p>
 <p>Since the feature refers to a target, it must be "dependency".</p>
 <div class="listingblock">
 <div class="content">
-<pre>feature def-file : : free dependency ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">feature def-file : : free dependency ;</code></pre>
 </div>
 </div>
 </li>
@@ -10056,7 +10071,7 @@ be exported. It would be nice to use this file like this:</p>
 following line should be added to it.</p>
 <div class="listingblock">
 <div class="content">
-<pre>flags msvc.link DEF_FILE &lt;def-file&gt; ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">flags msvc.link DEF_FILE &lt;def-file&gt; ;</code></pre>
 </div>
 </div>
 </li>
@@ -10065,10 +10080,10 @@ following line should be added to it.</p>
 need to modify it to be:</p>
 <div class="listingblock">
 <div class="content">
-<pre>actions link bind DEF_FILE
+<pre class="highlight"><code class="language-jam" data-lang="jam">actions link bind DEF_FILE
 {
     $(.LD) .... /DEF:$(DEF_FILE) ....
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10082,10 +10097,10 @@ strange symbol that is not likely to make sense for the linker.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>rule link
+<pre class="highlight"><code class="language-jam" data-lang="jam">rule link
 {
     DEPENDS $(&lt;) : [ on $(&lt;) return $(DEF_FILE) ] ;
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10243,8 +10258,8 @@ installation path. First of all, this gives more control: it&#8217;s possible
 to specify</p>
 <div class="listingblock">
 <div class="content">
-<pre>/usr/bin/g++-snapshot
-time g++</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">/usr/bin/g++-snapshot
+time g++</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10263,9 +10278,9 @@ or never specified (in which case the tool is initialized only once). For
 example, if you allow:</p>
 <div class="listingblock">
 <div class="content">
-<pre>using yfc ;
+<pre class="highlight"><code class="language-jam" data-lang="jam">using yfc ;
 using yfc : 3.3 ;
-using yfc : 3.4 ;</pre>
+using yfc : 3.4 ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10281,7 +10296,7 @@ example, by looking for a tool in PATH or in common installation
 locations. Often this is possible and allows the user to simply write:</p>
 <div class="listingblock">
 <div class="content">
-<pre>using yfc ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using yfc ;</code></pre>
 </div>
 </div>
 </li>
@@ -11115,7 +11130,7 @@ usage requirements:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>mypackage =
+<pre class="highlight"><code class="language-jam" data-lang="jam">mypackage =
   [ pkg-config.import mypackage : usage-requirements &lt;conditional&gt;@define_ns
   ] ;
 
@@ -11125,7 +11140,7 @@ rule extra-props ( properties * )
     local prefix = [ $(mypackage).variable name_prefix : $(ps) ] ;
     prefix += [ $(mypackage).version $(ps) ] ;
     return &lt;define&gt;$(prefix:J=_) ;
-}</pre>
+}</code></pre>
 </div>
 </div>
 </div>
@@ -11828,7 +11843,7 @@ control the the build and custom compilers:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>build.sh [--option|--option=x] [toolset]</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">build.sh [--option|--option=x] [toolset]</code></pre>
 </div>
 </div>
 <div class="dlist">
@@ -13019,10 +13034,10 @@ a list substituting a variable reference. For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$(X) -&gt; a b c
+<pre class="highlight"><code class="language-jam" data-lang="jam">$(X) -&gt; a b c
 t$(X) -&gt; ta tb tc
 $(X)z -&gt; az bz cz
-$(X)-$(X) -&gt; a-a a-b a-c b-a b-b b-c c-a c-b c-c</pre>
+$(X)-$(X) -&gt; a-a a-b a-c b-a b-b b-c c-a c-b c-c</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13031,10 +13046,10 @@ reference, and this partakes of the product as well:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$(X) -&gt; a b c
+<pre class="highlight"><code class="language-jam" data-lang="jam">$(X) -&gt; a b c
 $(Y) -&gt; 1 2
 $(Z) -&gt; X Y
-$($(Z)) -&gt; a b c 1 2</pre>
+$($(Z)) -&gt; a b c 1 2</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13045,11 +13060,11 @@ elements:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$(X) -&gt; a ""
+<pre class="highlight"><code class="language-jam" data-lang="jam">$(X) -&gt; a ""
 $(Y) -&gt; "" 1
 $(Z) -&gt;
 -$(X)$(Y)- -&gt; -a- -a1- -- -1-
--$(X)$(Z)- -&gt;</pre>
+-$(X)$(Z)- -&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13137,7 +13152,7 @@ which case it refers to the element counting from the last leftward.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>x = "C:\\Program Files\\Borland" ; ECHO $(x:T) ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">x = "C:\\Program Files\\Borland" ; ECHO $(x:T) ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13156,7 +13171,7 @@ function. For example</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>x = "/cygdrive/c/Program Files/Borland" ; ECHO $(x:W) ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">x = "/cygdrive/c/Program Files/Borland" ; ECHO $(x:W) ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13170,7 +13185,7 @@ properly specify file paths in VMS-specific commands. For example</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>x = "subdir/filename.c" ; ECHO $(x:W) ;</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">x = "subdir/filename.c" ; ECHO $(x:W) ;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13908,7 +13923,7 @@ following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>warning: unknown rule X</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">warning: unknown rule X</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13917,7 +13932,7 @@ following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>using N temp target(s)</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">using N temp target(s)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13926,7 +13941,7 @@ found.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>updating N target(s)</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">updating N target(s)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13934,7 +13949,7 @@ found.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>can't find N target(s)</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">can't find N target(s)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13942,7 +13957,7 @@ found.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>can't make N target(s)</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">can't make N target(s)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13950,7 +13965,7 @@ found.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>warning: X depends on itself</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">warning: X depends on itself</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13958,7 +13973,7 @@ found.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>don't know how to make X</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">don't know how to make X</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13966,7 +13981,7 @@ found.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>X skipped for lack of Y</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">X skipped for lack of Y</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13974,7 +13989,7 @@ found.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>warning: using independent target X</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">warning: using independent target X</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13983,7 +13998,7 @@ referenced with <code>$(&lt;)</code> or <code>$(&gt;)</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>X removed</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">X removed</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14139,8 +14154,8 @@ the following allows a sensible non-empty default which can easily be
 overridden by the user:</p>
 <div class="listingblock">
 <div class="content">
-<pre>MESSAGE ?\= starting jam... ;
-if $(MESSAGE) { ECHO The message is: $(MESSAGE) ; }</pre>
+<pre class="highlight"><code class="language-jam" data-lang="jam">MESSAGE ?\= starting jam... ;
+if $(MESSAGE) { ECHO The message is: $(MESSAGE) ; }</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14175,7 +14190,95 @@ variants accepted as valid for an option:</p>
 <h2 id="b2.history"><a class="anchor" href="#b2.history"></a>13. History</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_version_4_6_1"><a class="anchor" href="#_version_4_6_1"></a>13.1. Version 4.6.1</h3>
+<h3 id="_version_4_7_2"><a class="anchor" href="#_version_4_7_2"></a>13.1. Version 4.7.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix errors configuring intel-linux toolset if icpx is not in the PATH but
+icpc is in the PATH.&#8201;&#8212;&#8201;<em>Mark E. Hamilton</em></p>
+</li>
+<li>
+<p>Add <code>cxxstd=20</code> to msvc toolset now that VS 2019 onward supports it.&#8201;&#8212;&#8201;<em>Peter Dimov</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_7_1"><a class="anchor" href="#_version_4_7_1"></a>13.2. Version 4.7.1</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix regression for linking with <code>clang-win</code> toolset.&#8201;&#8212;&#8201;<em>Peter Dimov</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_7_0"><a class="anchor" href="#_version_4_7_0"></a>13.3. Version 4.7.0</h3>
+<div class="paragraph">
+<p>Many, many fixes and internal cleanups in this release. But also adding
+auto-detection and bootstrap for VS 2022 preview toolset.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>New:</strong> Add vc143, aka VS2022, aka cl.exe 17.x toolset support. Includes
+building engine and automatic detection of the prerelease toolset.&#8201;&#8212;&#8201;<em>Sergei Krivonos</em></p>
+</li>
+<li>
+<p>Allow alias targets to continue even if <code>&lt;build&gt;no</code> is in the usage
+requirement. Which allows composition of alias targets that may contain
+optional targets, like tests.&#8201;&#8212;&#8201;<em>Dmitry Arkhipov</em></p>
+</li>
+<li>
+<p>Fix use of <code>JAMSHELL</code> in gcc toolset.&#8201;&#8212;&#8201;<em>René Ferdinand Rivera Morell</em></p>
+</li>
+<li>
+<p>Fix compiling b2 enging such that it works when run in cross-architecture
+emulation context. I.e. when running arm binaries in QEMU 64 bit host.&#8201;&#8212;&#8201;<em>René Ferdinand Rivera Morell</em></p>
+</li>
+<li>
+<p>Default to 64bit MSVC on 64 bit hosts.&#8201;&#8212;&#8201;<em>Matt Chambers</em></p>
+</li>
+<li>
+<p>Remove <code>/NOENTRY</code> option for resource only DLLs to allow correct linking.&#8201;&#8212;&#8201;<em>gnaggnoyil</em></p>
+</li>
+<li>
+<p>Fix redefinition error of <code>unix</code> when compiling engine on OpenBSD.&#8201;&#8212;&#8201;<em>Brad Smith</em></p>
+</li>
+<li>
+<p>Fix building with clang on iOS and AppleTV having extra unrecognized
+compiler options.&#8201;&#8212;&#8201;<em>Konstantin Ivlev</em></p>
+</li>
+<li>
+<p>Add missing Boost.JSON to <code>boost</code> support module.&#8201;&#8212;&#8201;<em>Dmitry Arkhipov</em></p>
+</li>
+<li>
+<p>Add arm/arm64 target support in clang-win toolset.&#8201;&#8212;&#8201;<em>Volo Zyko</em></p>
+</li>
+<li>
+<p>Avoid warnings about threading model for qt5.&#8201;&#8212;&#8201;<em>psandana</em></p>
+</li>
+<li>
+<p>Unify Clang and GCC PCH creation.&#8201;&#8212;&#8201;<em>Nikita Kniazev</em></p>
+</li>
+<li>
+<p>Move Objective-C support to GCC toolset.&#8201;&#8212;&#8201;<em>Nikita Kniazev</em></p>
+</li>
+<li>
+<p>Support values for instruction-set feature for Xilinx ZYNQ.&#8201;&#8212;&#8201;<em>Thomas Brown</em></p>
+</li>
+<li>
+<p>MIPS: add generic mips architecture.&#8201;&#8212;&#8201;<em>YunQiang Su</em></p>
+</li>
+<li>
+<p>Fix preprocessing on MSVC compiler.&#8201;&#8212;&#8201;<em>Nikita Kniazev</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_6_1"><a class="anchor" href="#_version_4_6_1"></a>13.4. Version 4.6.1</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -14188,7 +14291,7 @@ variants accepted as valid for an option:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_version_4_6_0"><a class="anchor" href="#_version_4_6_0"></a>13.2. Version 4.6.0</h3>
+<h3 id="_version_4_6_0"><a class="anchor" href="#_version_4_6_0"></a>13.5. Version 4.6.0</h3>
 <div class="paragraph">
 <p>This release wraps up a few new features that make using some toolsets easier
 (thanks to Nikita). It&#8217;s now also possible to specify empty flags features on
@@ -14251,7 +14354,7 @@ native method of getting the path to executables, like OpenBSD.&#8201;&#8212;&#8
 </div>
 </div>
 <div class="sect2">
-<h3 id="_version_4_5_0"><a class="anchor" href="#_version_4_5_0"></a>13.3. Version 4.5.0</h3>
+<h3 id="_version_4_5_0"><a class="anchor" href="#_version_4_5_0"></a>13.6. Version 4.5.0</h3>
 <div class="paragraph">
 <p>Some minor fixes to improve some old issues.</p>
 </div>
@@ -14273,7 +14376,7 @@ native method of getting the path to executables, like OpenBSD.&#8201;&#8212;&#8
 </div>
 </div>
 <div class="sect2">
-<h3 id="_version_4_4_2"><a class="anchor" href="#_version_4_4_2"></a>13.4. Version 4.4.2</h3>
+<h3 id="_version_4_4_2"><a class="anchor" href="#_version_4_4_2"></a>13.7. Version 4.4.2</h3>
 <div class="paragraph">
 <p>This release is the first of the new home for B2 at Build Frameworks Group.</p>
 </div>
@@ -14290,7 +14393,7 @@ at equivalent bfgroup resources.&#8201;&#8212;&#8201;<em>René Ferdinand Rivera 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_version_4_4_1"><a class="anchor" href="#_version_4_4_1"></a>13.5. Version 4.4.1</h3>
+<h3 id="_version_4_4_1"><a class="anchor" href="#_version_4_4_1"></a>13.8. Version 4.4.1</h3>
 <div class="paragraph">
 <p>Minor patch to correct missing fix for macOS default engine compiler.</p>
 </div>
@@ -14303,7 +14406,7 @@ at equivalent bfgroup resources.&#8201;&#8212;&#8201;<em>René Ferdinand Rivera 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_version_4_4_0"><a class="anchor" href="#_version_4_4_0"></a>13.6. Version 4.4.0</h3>
+<h3 id="_version_4_4_0"><a class="anchor" href="#_version_4_4_0"></a>13.9. Version 4.4.0</h3>
 <div class="paragraph">
 <p>Along with a variety of fixes this version introduces "dynamic" response file
 support for some toolsets. This means that under most circumstances, if
@@ -14394,7 +14497,7 @@ reasonably brief form.&#8201;&#8212;&#8201;<em>René Ferdinand Rivera Morell</em
 </div>
 </div>
 <div class="sect2">
-<h3 id="_version_4_3_0"><a class="anchor" href="#_version_4_3_0"></a>13.7. Version 4.3.0</h3>
+<h3 id="_version_4_3_0"><a class="anchor" href="#_version_4_3_0"></a>13.10. Version 4.3.0</h3>
 <div class="paragraph">
 <p>There are many invidual fixes in this release. Many thanks for the
 contributions. Special thanks to Nikita for the many improvements to msvc
@@ -14494,7 +14597,7 @@ original Jam bootstrap process.&#8201;&#8212;&#8201;<em>René Ferdinand Rivera M
 </div>
 </div>
 <div class="sect2">
-<h3 id="_version_4_2_0"><a class="anchor" href="#_version_4_2_0"></a>13.8. Version 4.2.0</h3>
+<h3 id="_version_4_2_0"><a class="anchor" href="#_version_4_2_0"></a>13.11. Version 4.2.0</h3>
 <div class="paragraph">
 <p>This release is predominantly minor fixes and cleanup of the engine. In
 particular the bootstrap/build process now clearly communicates C++11
@@ -14536,7 +14639,7 @@ error.&#8201;&#8212;&#8201;<em>Mateusz Loskot</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_version_4_1_0"><a class="anchor" href="#_version_4_1_0"></a>13.9. Version 4.1.0</h3>
+<h3 id="_version_4_1_0"><a class="anchor" href="#_version_4_1_0"></a>13.12. Version 4.1.0</h3>
 <div class="paragraph">
 <p>Many small bug fixes in this release. But there are some new features also.
 There&#8217;s now an <code>lto</code> feature to specify the use of LTO, and what kind. The
@@ -14618,7 +14721,7 @@ and sun toolsets.&#8201;&#8212;&#8201;<em>Dmitry Arkhipov</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_version_4_0_1"><a class="anchor" href="#_version_4_0_1"></a>13.10. Version 4.0.1</h3>
+<h3 id="_version_4_0_1"><a class="anchor" href="#_version_4_0_1"></a>13.13. Version 4.0.1</h3>
 <div class="paragraph">
 <p>This patch release fixes a minor issue when trying to configure toolsets that
 override the toolset version with a non-version tag. Currently this is only
@@ -14628,7 +14731,7 @@ Fix for this was provided Peter Dimov.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_version_4_0_0"><a class="anchor" href="#_version_4_0_0"></a>13.11. Version 4.0.0</h3>
+<h3 id="_version_4_0_0"><a class="anchor" href="#_version_4_0_0"></a>13.14. Version 4.0.0</h3>
 <div class="paragraph">
 <p>After even more years of development the landscape of build systems has changed
 considerably, and so has the landscape of compilers. This version marks the

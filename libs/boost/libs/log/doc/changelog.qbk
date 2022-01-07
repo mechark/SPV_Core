@@ -9,6 +9,21 @@
 
 [section:changelog Changelog]
 
+[heading 2.23, Boost 1.78]
+
+[*General changes:]
+
+* Updated detection of `std::codecvt` specializations for `char16_t` and `char32_t` for compatibility with C++17 and later. ([pull_request 159])
+* Added support for C++17 `std::byte` type to receive methods of the [link log.detailed.utilities.ipc.reliable_message_queue inter-process message queue].
+* On Windows, when building the library for Windows 8 or later, the library will use `nt62` tag in the version namespace to denote the target OS ABI. For example, the version namespace could be named as `v2_mt_nt62`. This name will be part of all symbols exported by the library. Use the `BOOST_USE_WINAPI_VERSION` macro consistenly when building Boost and your code to request the minimum target Windows version.
+* Improved performance of SSSE3 and AVX2 implementations of the [link log.detailed.utilities.manipulators.dump `dump`] stream manipulator.
+* Added support for CMake build system. Only library build is supported at this moment, Boost.Build is still used for running tests.
+
+[*Bug fixes:]
+
+* Fixed a race condition on POSIX systems in [link log.detailed.utilities.ipc.reliable_message_queue `reliable_message_queue::open_or_create`] or the equivalent constructor. Multiple threads or processes calling `open_or_create` concurrently with sending or receiving messages from the same queue could end up corrupting the queue contents and potentially crashing the process. ([github_issue 162])
+* Added a workaround for `b2 install` failing on Windows because of missing `boost_log_setup` library if `BOOST_LOG_WITHOUT_SETTINGS_PARSERS` is defined. ([github_issue 164])
+
 [heading 2.22, Boost 1.77]
 
 [*Bug fixes:]

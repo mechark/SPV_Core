@@ -27,11 +27,41 @@
 <a name="boost_asio.reference.experimental__coro.async_resume.overload1"></a><a class="link" href="overload1.html" title="experimental::coro::async_resume (1 of 2 overloads)">experimental::coro::async_resume
           (1 of 2 overloads)</a>
 </h5></div></div></div>
+<p>
+            Resume the coroutine.
+          </p>
 <pre class="programlisting">template&lt;
     typename CompletionToken&gt;
 requires std::is_void_v&lt; input_type &gt; auto async_resume(
     CompletionToken &amp;&amp; token);
 </pre>
+<h6>
+<a name="boost_asio.reference.experimental__coro.async_resume.overload1.h0"></a>
+            <span class="phrase"><a name="boost_asio.reference.experimental__coro.async_resume.overload1.parameters"></a></span><a class="link" href="overload1.html#boost_asio.reference.experimental__coro.async_resume.overload1.parameters">Parameters</a>
+          </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">token</span></dt>
+<dd><p>
+                  The completion token of the async resume.
+                </p></dd>
+</dl>
+</div>
+<h6>
+<a name="boost_asio.reference.experimental__coro.async_resume.overload1.h1"></a>
+            <span class="phrase"><a name="boost_asio.reference.experimental__coro.async_resume.overload1.attention"></a></span><a class="link" href="overload1.html#boost_asio.reference.experimental__coro.async_resume.overload1.attention">Attention</a>
+          </h6>
+<p>
+            Calling an invalid coroutine with a noexcept signature is undefined behaviour.
+          </p>
+<h6>
+<a name="boost_asio.reference.experimental__coro.async_resume.overload1.h2"></a>
+            <span class="phrase"><a name="boost_asio.reference.experimental__coro.async_resume.overload1.remarks"></a></span><a class="link" href="overload1.html#boost_asio.reference.experimental__coro.async_resume.overload1.remarks">Remarks</a>
+          </h6>
+<p>
+            This overload is only available for coroutines without an input value.
+          </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>

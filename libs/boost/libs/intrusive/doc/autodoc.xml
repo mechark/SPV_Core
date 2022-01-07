@@ -3614,6 +3614,7 @@ BOOST_STATIC_ASSERT(( is_incremental == true ));
 </struct><typedef name="element_type"><type>T</type></typedef>
 <typedef name="pointer"><type>T *</type></typedef>
 <typedef name="difference_type"><type>std::ptrdiff_t</type></typedef>
+<typedef name="size_type"><type>std::size_t</type></typedef>
 <typedef name="reference"><type>T &amp;</type></typedef>
 <typedef name="rebind"><description><programlisting>U *</programlisting><para>For portable code for C++03 and C++11, <programlisting>typename rebind_pointer&lt;U&gt;::type</programlisting> shall be used instead of rebind<underline> to obtain a pointer to U. </underline></para></description><type>U *</type></typedef>
 <method-group name="public static functions">

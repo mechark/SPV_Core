@@ -519,6 +519,79 @@
 </pre>
 <h5>
 <a name="json.dom.conversion.h4"></a>
+        <span class="phrase"><a name="json.dom.conversion.providing_conversions_without_ad"></a></span><a class="link" href="conversion.html#json.dom.conversion.providing_conversions_without_ad">Providing
+        Conversions Without Adding Dependency on Boost.JSON </a>
+      </h5>
+<div class="important"><table border="0" summary="Important">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Important]" src="../../../../../../doc/src/images/important.png"></td>
+<th align="left">Important</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+          The contents of this subsection do not apply to <a class="link" href="../overview.html#json.overview.requirements.without_boost">standalone
+          mode</a>
+        </p></td></tr>
+</table></div>
+<p>
+        Library authors may wish to provide conversions between types in their libraries
+        and <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a>.
+        It's possible to do this even without adding a physical dependency on Boost.JSON
+        with the help of a few forward declarations.
+      </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">boost</span> <span class="special">{</span>
+<span class="keyword">namespace</span> <span class="identifier">json</span> <span class="special">{</span>
+
+<span class="keyword">class</span> <span class="identifier">value</span><span class="special">;</span>
+
+<span class="keyword">struct</span> <span class="identifier">value_from_tag</span><span class="special">;</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">class</span> <span class="identifier">T</span> <span class="special">&gt;</span>
+<span class="keyword">struct</span> <span class="identifier">value_to_tag</span><span class="special">;</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">class</span> <span class="identifier">T</span> <span class="special">&gt;</span>
+<span class="identifier">T</span> <span class="identifier">value_to</span><span class="special">(</span> <span class="keyword">const</span> <span class="identifier">value</span><span class="special">&amp;</span> <span class="identifier">v</span> <span class="special">);</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">value_from</span><span class="special">(</span> <span class="identifier">T</span><span class="special">&amp;&amp;</span> <span class="identifier">t</span><span class="special">,</span> <span class="identifier">value</span><span class="special">&amp;</span> <span class="identifier">jv</span> <span class="special">);</span>
+
+<span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<p>
+        Note that <a class="link" href="../ref/boost__json__value_from.html" title="value_from"><code class="computeroutput"><span class="identifier">value_from</span></code></a> is declared using an
+        out-parameter, rather then returning its result. This overload is specifically
+        designed for this use-case.
+      </p>
+<p>
+        After that the definitions of <code class="computeroutput"><span class="identifier">tag_invoke</span></code>
+        overloads should be provided. These overlaods have to be templates, since
+        <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a>
+        is only forward-declared and hence is an incomplete type.
+      </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">thirdparty</span> <span class="special">{</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">class</span> <span class="identifier">JsonValue</span> <span class="special">&gt;</span>
+<span class="identifier">customer</span> <span class="identifier">tag_invoke</span><span class="special">(</span> <span class="keyword">const</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">json</span><span class="special">::</span><span class="identifier">value_to_tag</span><span class="special">&lt;</span><span class="identifier">customer</span><span class="special">&gt;&amp;,</span> <span class="keyword">const</span> <span class="identifier">JsonValue</span><span class="special">&amp;</span> <span class="identifier">jv</span> <span class="special">)</span>
+<span class="special">{</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span> <span class="identifier">id</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">json</span><span class="special">::</span><span class="identifier">value_to</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span><span class="special">&gt;(</span> <span class="identifier">jv</span><span class="special">.</span><span class="identifier">at</span><span class="special">(</span> <span class="string">"id"</span> <span class="special">)</span> <span class="special">);</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">name</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">json</span><span class="special">::</span><span class="identifier">value_to</span><span class="special">&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&gt;(</span> <span class="identifier">jv</span><span class="special">.</span><span class="identifier">at</span><span class="special">(</span> <span class="string">"name"</span> <span class="special">)</span> <span class="special">);</span>
+    <span class="keyword">bool</span> <span class="identifier">late</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">json</span><span class="special">::</span><span class="identifier">value_to</span><span class="special">&lt;</span><span class="keyword">bool</span><span class="special">&gt;(</span> <span class="identifier">jv</span><span class="special">.</span><span class="identifier">at</span><span class="special">(</span> <span class="string">"late"</span> <span class="special">)</span> <span class="special">);</span>
+    <span class="keyword">return</span> <span class="identifier">customer</span><span class="special">(</span><span class="identifier">id</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">name</span><span class="special">),</span> <span class="identifier">late</span><span class="special">);</span>
+<span class="special">}</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">class</span> <span class="identifier">JsonValue</span> <span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">tag_invoke</span><span class="special">(</span> <span class="keyword">const</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">json</span><span class="special">::</span><span class="identifier">value_from_tag</span><span class="special">&amp;,</span> <span class="identifier">JsonValue</span><span class="special">&amp;</span> <span class="identifier">jv</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">customer</span><span class="special">&amp;</span> <span class="identifier">c</span><span class="special">)</span>
+<span class="special">{</span>
+    <span class="keyword">auto</span><span class="special">&amp;</span> <span class="identifier">obj</span> <span class="special">=</span> <span class="identifier">jv</span><span class="special">.</span><span class="identifier">emplace_object</span><span class="special">();</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">json</span><span class="special">::</span><span class="identifier">value_from</span><span class="special">(</span><span class="identifier">c</span><span class="special">.</span><span class="identifier">id</span><span class="special">,</span> <span class="identifier">obj</span><span class="special">[</span><span class="string">"id"</span><span class="special">]);</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">json</span><span class="special">::</span><span class="identifier">value_from</span><span class="special">(</span><span class="identifier">c</span><span class="special">.</span><span class="identifier">name</span><span class="special">,</span> <span class="identifier">obj</span><span class="special">[</span><span class="string">"name"</span><span class="special">]);</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">json</span><span class="special">::</span><span class="identifier">value_from</span><span class="special">(</span><span class="identifier">c</span><span class="special">.</span><span class="identifier">late</span><span class="special">,</span> <span class="identifier">obj</span><span class="special">[</span><span class="string">"late"</span><span class="special">]);</span>
+<span class="special">}</span>
+
+<span class="special">}</span>
+</pre>
+<h5>
+<a name="json.dom.conversion.h5"></a>
         <span class="phrase"><a name="json.dom.conversion.named_requirements_for_generic_c"></a></span><a class="link" href="conversion.html#json.dom.conversion.named_requirements_for_generic_c">Named Requirements
         for Generic Conversions</a>
       </h5>
@@ -555,7 +628,7 @@
           </li>
 </ul></div>
 <h3>
-<a name="json.dom.conversion.h5"></a>
+<a name="json.dom.conversion.h6"></a>
         <span class="phrase"><a name="json.dom.conversion.tuplelike_requirements"></a></span><a class="link" href="conversion.html#json.dom.conversion.tuplelike_requirements"><span class="emphasis"><em>TupleLike</em></span>
         Requirements</a>
       </h3>
@@ -605,7 +678,7 @@
 </table></div>
 </div>
 <br class="table-break"><h3>
-<a name="json.dom.conversion.h6"></a>
+<a name="json.dom.conversion.h7"></a>
         <span class="phrase"><a name="json.dom.conversion.stringlike_requirements"></a></span><a class="link" href="conversion.html#json.dom.conversion.stringlike_requirements"><span class="emphasis"><em>StringLike</em></span>
         Requirements</a>
       </h3>
@@ -694,7 +767,7 @@
 </table></div>
 </div>
 <br class="table-break"><h3>
-<a name="json.dom.conversion.h7"></a>
+<a name="json.dom.conversion.h8"></a>
         <span class="phrase"><a name="json.dom.conversion.from_to_containerlike_requiremen"></a></span><a class="link" href="conversion.html#json.dom.conversion.from_to_containerlike_requiremen"><span class="emphasis"><em>From/To
         ContainerLike</em></span> Requirements</a>
       </h3>
@@ -774,7 +847,7 @@
 </table></div>
 </div>
 <br class="table-break"><h3>
-<a name="json.dom.conversion.h8"></a>
+<a name="json.dom.conversion.h9"></a>
         <span class="phrase"><a name="json.dom.conversion.from_to_maplike_requirements"></a></span><a class="link" href="conversion.html#json.dom.conversion.from_to_maplike_requirements"><span class="emphasis"><em>From/To
         MapLike</em></span> Requirements</a>
       </h3>

@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\SPV_TCP\SPV\Debug\SPV.dll</FullPath>
+      <FullPath>D:\BitcoinWalletApp\SPV_CORE\SPV\Debug\SPV.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

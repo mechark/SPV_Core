@@ -3,20 +3,16 @@
 
 #include <iostream>
 #include <boost/asio.hpp>
-#include <boost/dynamic_bitset.hpp>
-#include <bitset>
 #include "spv.h"
 #include <fstream>
 #include <iomanip>
 #include <sstream>
 
-using namespace boost::asio;
-
 namespace tcp
 {
 	typedef boost::system::error_code error_code;
-	std::vector<string> tcp_client::dns_seeds;
-	std::vector<string> seeds_ips;
+	vector<string> tcp_client::dns_seeds;
+	vector<string> seeds_ips;
 
 	//Public methods
 
@@ -126,8 +122,8 @@ namespace tcp
 				Sleep(6000);
 
 				// Response
-				std::stringstream sstream;
-				std::vector<char> buff(1024 * 200);
+				stringstream sstream;
+				vector<char> buff(1024 * 200);
 
 				socket.read_some(buffer(buff.data(), buff.size()));
 

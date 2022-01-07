@@ -7,7 +7,7 @@
 namespace header_chain
 {
 	std::vector<models::header> 
-	dissector::dissect(std::string& raw_headers, std::string& last_header_hash, const int header_length)
+	dissector::dissect(std::string& raw_headers, std::string& last_header_hash, string& hex_bits, const int header_length)
 	{
 		tcp::converter conv;
 		if (raw_headers.size() > 0)
@@ -20,20 +20,29 @@ namespace header_chain
 			{
 				for (int i = 0; i < headers_number; ++i)
 				{
-					headers[i].header_bytes = raw_headers.substr(0, 162);
+					// To get a raw hex header bytes make raw_headers.substr(0, 162)
+					//string hdr_bytes = raw_headers.substr(0, 162);
 
 					// Version
 					string _version = raw_headers.substr(0, 8);
 					int version = conv.hex_str_toi(_version, true);
-					headers[i].version = static_cast<int32_t>(version);
+					headers[i].block_version = static_cast<int32_t>(version);
 
 					// Prev block hash
 					string prev_blk_hash = raw_headers.substr(8, 64);
-					for (char ch : prev_blk_hash) headers[i].prev_block.push_back(ch);
+					for (int j = 0; j < 64; ++j)
+					{
+						(headers[i].prev_block[j]) = prev_blk_hash[j];
+						(headers[i].prev_block[j]) = prev_blk_hash[j + 1];
+					}
 
 					// Merkle root hash
 					string mrkl_root_hash = raw_headers.substr(72, 64);
-					for (char ch : mrkl_root_hash) headers[i].merkle_root.push_back(ch);
+					for (int j = 0; j < 64; ++j) 
+					{
+						(headers[i].prev_block[j]) = mrkl_root_hash[j];
+						(headers[i].prev_block[j]) = mrkl_root_hash[j + 1];
+					}
 
 					// Timestamp
 					string _timestamp = raw_headers.substr(136, 8);
@@ -46,7 +55,7 @@ namespace header_chain
 					headers[i].bits = static_cast<uint32_t>(bits);
 
 					// Hex bits
-					headers[i].hex_bits = _difficulty;
+					hex_bits = _difficulty;
 
 					// Nonce
 					string _nonce = raw_headers.substr(152, 8);
@@ -56,7 +65,9 @@ namespace header_chain
 					raw_headers.replace(0, 162, "");
 				}
 			}
-			for (char ch : headers[headers.size() - 1].prev_block) last_header_hash += ch;
+			for (char ch : headers[headers.size() - 1].prev_block) 
+				last_header_hash += ch;
+
 			return headers;
 		}
 		else

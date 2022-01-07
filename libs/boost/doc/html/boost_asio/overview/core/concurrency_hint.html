@@ -76,6 +76,11 @@
                     consequence that the new handler is held back until the currently
                     executing handler finishes).
                   </p>
+                  <p>
+                    The <code class="computeroutput"><span class="identifier">io_context</span></code>
+                    still provides full thread safety, and distinct I/O objects may
+                    be used from any thread.
+                  </p>
                 </td>
 </tr>
 <tr>
@@ -117,9 +122,12 @@
                     I/O. This hint has the following restrictions:
                   </p>
                   <p>
-                    — Care must be taken to ensure that run functions on the <code class="computeroutput"><span class="identifier">io_context</span></code>, and all operations
-                    on the context's associated I/O objects (such as sockets and
-                    timers), occur in only one thread at a time.
+                    — Care must be taken to ensure that the <span class="emphasis"><em>run functions</em></span>
+                    on the <code class="computeroutput"><span class="identifier">io_context</span></code>
+                    (i.e. <code class="computeroutput"><span class="identifier">run</span></code>, <code class="computeroutput"><span class="identifier">run_for</span></code>, <code class="computeroutput"><span class="identifier">run_until</span></code>,
+                    <code class="computeroutput"><span class="identifier">run_one</span></code>, <code class="computeroutput"><span class="identifier">run_one_for</span></code>, <code class="computeroutput"><span class="identifier">run_one_until</span></code>, <code class="computeroutput"><span class="identifier">poll</span></code>, and <code class="computeroutput"><span class="identifier">poll_one</span></code>),
+                    and all operations on the context's associated I/O objects (such
+                    as sockets and timers), occur in only one thread at a time.
                   </p>
                 </td>
 </tr>

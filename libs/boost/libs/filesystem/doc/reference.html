@@ -384,10 +384,10 @@ native pathname format.</p>
 <h3><a name="native-pathname-format">native pathname format</a> [fs.def.native]</h3>
 <p>The operating system dependent pathname format accepted by the host operating system.</p>
 <h3><a name="normal-form">normal form</a> path [fs.def.normal]</h3>
-<p>A path with no redundant current directory (<i>dot</i>) or parent directory (<i>dot-dot</i>)
-elements. The normal form for an empty path is an empty path. The normal form
+<p>A path with no redundant directory separators, current directory (<i>dot</i>) or parent directory (<i>dot-dot</i>)
+elements. The normal form for an empty path is an empty path. [<b>v3:</b> The normal form
 for a path ending in a <i>directory-separator</i> that is not the root directory
-is the same path with a current directory (<i>dot</i>) element appended.</p>
+is the same path with a current directory (<i>dot</i>) element appended.]</p>
 <h3><a name="link">link</a> [fs.def.link]</h3>
 <p>A directory entry object that associates a
 filename with a file. On some file systems, several directory entries can
@@ -1080,8 +1080,11 @@ system or for a particular file system.</p>
         template &lt;class <a href="#Source">Source</a>&gt;
           path&amp; operator=(Source const&amp; source);
 
+        path&amp; assign(const path&amp; p);
+        path&amp; assign(path&amp;&amp; p) noexcept;
         template &lt;class <a href="#Source">Source</a>&gt;
-          path&amp; assign(Source const&amp; source, const codecvt_type&amp; cvt)
+          path&amp; assign(Source const&amp; source,
+            const codecvt_type&amp; cvt=codecvt())
 
         template &lt;class <a href="#InputIterator">InputIterator</a>&gt;
           path&amp; assign(InputIterator begin, InputIterator end,
@@ -1093,8 +1096,10 @@ system or for a particular file system.</p>
         template &lt;class <a href="#Source">Source</a>&gt;
           path&amp; operator/=(Source const&amp; source);
 
+        path&amp; append(const path&amp; x);
         template &lt;class <a href="#Source">Source</a>&gt;
-          path&amp; append(Source const&amp; source, const codecvt_type&amp; cvt);
+          path&amp; append(Source const&amp; source,
+            const codecvt_type&amp; cvt=codecvt());
 
         template &lt;class <a href="#InputIterator">InputIterator</a>&gt;
           path&amp; append(InputIterator begin, InputIterator end,
@@ -1102,20 +1107,19 @@ system or for a particular file system.</p>
 
         // <a href="#path-concatenation">concatenation</a>
         path&amp; operator+=(const path&amp; x);
-        path&amp; operator+=(const string_type&amp; x);
-        path&amp; operator+=(const value_type* x);
+        template &lt;class <a href="#Source">Source</a>&gt;
+          path&amp; operator+=(Source const&amp; source);
         path&amp; operator+=(value_type x);
-        template &lt;class Source&gt;
-          path&amp; operator+=(Source const&amp; x);
         template &lt;class CharT&gt;
           path&amp; operator+=(CharT x);
-        template &lt;class Source&gt;
-          path&amp; concat(Source const&amp; x, const codecvt_type&amp; cvt);
-        template &lt;class InputIterator&gt;
-          path&amp; concat(InputIterator begin, InputIterator end);
-        template &lt;class InputIterator&gt;
+
+        path&amp; concat(const path&amp; x);
+        template &lt;class <a href="#Source">Source</a>&gt;
+          path&amp; concat(Source const&amp; x,
+            const codecvt_type&amp; cvt=codecvt());
+        template &lt;class <a href="#InputIterator">InputIterator</a>&gt;
           path&amp; concat(InputIterator begin, InputIterator end,
-            const codecvt_type&amp; cvt);
+            const codecvt_type&amp; cvt=codecvt());
 
         // <a href="#path-modifiers">modifiers</a>
         void  <a href="#path-clear">clear</a>();
@@ -1315,11 +1319,11 @@ requirements for a C++ standard library <code>RandomIterator</code> compliant it
 <font size="4">path</font></code> constructors</a> [path.construct]</h3>
 
 <pre>template &lt;class <a href="#Source">Source</a>&gt;
-  path(Source const&amp; source, const codecvt_type&amp; cvt=codecvt());</pre>
+path(Source const&amp; source, const codecvt_type&amp; cvt=codecvt());</pre>
 
 
 <pre>template &lt;class <a href="#InputIterator">InputIterator</a>&gt;
-  path(InputIterator begin, InputIterator end, const codecvt_type&amp; cvt=codecvt());</pre>
+path(InputIterator begin, InputIterator end, const codecvt_type&amp; cvt=codecvt());</pre>
 
 <blockquote>
   <p><i>Effects:</i> Stores the contents [<code>begin</code>,<code>end</code>)
@@ -1329,32 +1333,37 @@ requirements for a C++ standard library <code>RandomIterator</code> compliant it
 <h3> <a name="path-assignments"> <code>
 <font size="4">path</font></code> assignments</a> [path.assign]</h3>
 
-<pre>template &lt;class <a href="#Source">Source</a>&gt;
-  path&amp; operator=(Source const&amp; source);
-  template &lt;class <a href="#Source">Source</a>&gt;
-  path&amp; assign(Source const&amp; source, const codecvt_type&amp; cvt);
-  template &lt;class <a href="#InputIterator">InputIterator</a>&gt;
-  path&amp; assign(InputIterator begin, InputIterator end, const codecvt_type&amp; cvt=codecvt());</pre>
+<pre>path&amp; operator=(const path&amp; p);
+path&amp; operator=(path&amp;&amp; p) noexcept;
+template &lt;class <a href="#Source">Source</a>&gt;
+path&amp; operator=(Source const&amp; source);
+path&amp; assign(const path&amp; p);
+path&amp; assign(path&amp;&amp; p) noexcept;
+template &lt;class <a href="#Source">Source</a>&gt;
+path&amp; assign(Source const&amp; source, const codecvt_type&amp; cvt=codecvt());
+template &lt;class <a href="#InputIterator">InputIterator</a>&gt;
+path&amp; assign(InputIterator begin, InputIterator end, const codecvt_type&amp; cvt=codecvt());</pre>
 
 <blockquote>
   <p><i>Effects:</i> Stores the contents [<code>begin</code>,<code>end</code>)
-  or <code>source</code> in <code>pathname</code>, converting format and
+  or <code>source</code> or <code>p</code> in <code>pathname</code>, converting format and
   encoding if required ([<a href="#path.arg.convert">path.arg.convert</a>]). </p>
   <p>
   <i>Returns: </i><code>*this</code></p>
   </blockquote>
-<h3><a name="path-appends"><code><font size="4"> path</font></code> appends</a>
+<h3><a name="path-appends"><code>path</code> appends</a>
 [path.append]</h3>
   <p>The append operations use <code>
   operator/=</code> to denote their semantic effect of appending <i>
   preferred-separator</i> when needed. </p>
 
-<pre>path&amp; operator/=(const path&amp; p);</pre>
+<pre>path&amp; operator/=(const path&amp; p);
+path&amp; append(const path&amp; p);</pre>
 
 <blockquote>
   <p><i>Effects:</i></p>
   <blockquote>
-    <p>Appends <code>path::preferred_separator</code> to <code>pathname</code>,
+    <p><b>v3:</b> Appends <code>path::preferred_separator</code> to <code>pathname</code>,
     converting format and encoding if required ([<a href="#path.arg.convert">path.arg.convert</a>]), unless:</p>
     <ul>
     <li>
@@ -1366,62 +1375,54 @@ requirements for a C++ standard library <code>RandomIterator</code> compliant it
     <p><code>p.empty()</code>, or</li>
     <li>
     <p><code>*p.native().cbegin()</code> is a directory separator.</li>
-  </ul>
+    </ul>
     <p>Then appends <code>p.native()</code> to <code>pathname</code>.</p>
+    <p><b>v4:</b> If <code>p.<a href="#path-is_absolute">is_absolute</a>() || (p.<a href="#path-has_root_name">has_root_name</a>() &amp;&amp; p.<a href="#path-root_name">root_name</a>() != <a href="#path-root_name">root_name</a>())</code>, assigns <code>p</code> to <code>*this</code>. Otherwise, modifies <code>*this</code> as if by these steps:
+    <ul>
+      <li>If <code>p.<a href="#path-has_root_name">has_root_directory</a>()</code>, removes root directory and relative path, if any.</li>
+      <li>Let <code>x</code> be a <code>path</code> with contents of <code>p</code> without a root name. If <code><a href="#path-has_filename">has_filename</a>()</code> is <code>true</code> and <code>x</code> does not start with a directory separator, appends <code>path::preferred_separator</code>.</li>
+      <li>Appends <code>x.native()</code>.</li>
+    </ul>
+    </p>
+    <p>[<i>Note:</i> Whether the path is absolute or not depends on the target OS conventions. Because of this, the result of append operation may be different for different operating systems for some paths. For example, <code>path(&quot;//net/foo&quot;) / &quot;/bar&quot;</code> will result in <code>&quot;/bar&quot;</code> on POSIX systems and <code>&quot;//net/foo/bar&quot;</code> on Windows because <code>&quot;/bar&quot;</code> is an absolute path on POSIX systems but not on Windows. For portable behavior avoid appending paths with non-empty <a href="#path-root_path">root path</a>. <i>—end note</i>]</p>
   </blockquote>
   <p><i>Returns: </i><code>*this</code></p>
 </blockquote>
 
 <pre>template &lt;class <a href="#Source">Source</a>&gt;
-  path&amp; operator/=(Source const &amp; source);
-  template &lt;class <a href="#Source">Source</a>&gt;
-  path&amp; append(Source const &amp; source, const codecvt_type&amp; cvt);
-  template &lt;class <a href="#InputIterator">InputIterator</a>&gt;
-  path&amp; append(InputIterator begin, InputIterator end, const codecvt_type&amp; cvt=codecvt());</pre>
+path&amp; operator/=(Source const &amp; source);
+template &lt;class <a href="#Source">Source</a>&gt;
+path&amp; append(Source const &amp; source, const codecvt_type&amp; cvt=codecvt());
+template &lt;class <a href="#InputIterator">InputIterator</a>&gt;
+path&amp; append(InputIterator begin, InputIterator end, const codecvt_type&amp; cvt=codecvt());</pre>
 
-<blockquote>
+  <blockquote>
   <p><i>Effects:</i></p>
   <blockquote>
-    <p>Appends <code>path::preferred_separator</code> to <code>pathname</code>, converting
-    format and encoding if required ([<a href="#path.arg.convert">path.arg.convert</a>]), unless:</p>
-    <ul>
-    <li>
-    <p>an added separator
-    would be redundant, or</li>
-    <li>
-    <p>would change a relative path to an absolute path, or</li>
-    <li>
-    <p><code>p.empty()</code>, or</li>
-    <li>
-    <p><code>*p.native().cbegin()</code> is a separator.</li>
-  </ul>
-    <p>Appends the contents [<code>begin</code>,<code>end</code>)
-  or <code>source</code> to <code>pathname</code>, converting format and
-    encoding if required ([<a href="#path.arg.convert">path.arg.convert</a>]).</p>
+    <p>As if <code>append(path(<i>args</i>))</code>, where <code><i>args</i></code> is the list of arguments passed to the operation.</p>
   </blockquote>
   <p><i>Returns: </i><code>*this</code></p>
   </blockquote>
 
 <h3><a name="path-concatenation"><code>path</code> concatenation</a> [path.concat]</h3>
 
-<pre>path&amp; operator+=(const path&amp; x);
-path&amp; operator+=(const string_type&amp; x);
-path&amp; operator+=(const value_type* x);
+<pre>path&amp; operator+=(const path&amp; p);
 path&amp; operator+=(value_type x);
-template &lt;class Source&gt;
-  path&amp; operator+=(Source const&amp; x);
+template &lt;class <a href="#Source">Source</a>&gt;
+path&amp; operator+=(Source const&amp; source);
 template &lt;class CharT&gt;
-  path&amp; operator+=(CharT x);
-template &lt;class InputIterator&gt;
-  path&amp; concat(InputIterator begin, InputIterator end);
-template &lt;class InputIterator&gt;
-  path&amp; concat(InputIterator begin, InputIterator end, const codecvt_type&amp; cvt);</pre>
+path&amp; operator+=(CharT x);
+path&amp; concat(const path&amp; p);
+template &lt;class <a href="#Source">Source</a>&gt;
+path&amp; concat(Source const&amp; source, const codecvt_type&amp; cvt=codecvt());
+template &lt;class <a href="#InputIterator">InputIterator</a>&gt;
+path&amp; concat(InputIterator begin, InputIterator end, const codecvt_type&amp; cvt=codecvt());</pre>
 
 <blockquote><p><i>Postcondition:</i> <code>native() == prior_native + <i>effective-argument</i></code>,
  where <code>prior_native</code> is <code>native()</code> prior to the call to <code>operator+=</code>,
  and <code><i>effective-argument</i></code> is:</p>
  <ul><li>
-   <p><code>x.native()</code> if <code>x</code> is present and is <code>const path&amp;</code>, otherwise</li>
+   <p><code>p.native()</code> if <code>p</code> is present and is <code>const path&amp;</code>, otherwise</li>
  <li>
  <p><code>s</code>, where <code>s</code> is
   <code>std::basic_string&lt;typename std::iterator_traits&lt;InputIterator&gt;::value_type&gt;<br>s(begin, end)</code>,
@@ -1494,9 +1495,10 @@ path</code> modifiers</a> [path.modifiers]</h3>
 <p><i>Returns:</i> <code>*this</code> in <a href="#normal-form">normal form</a>.</p>
 <p><i>Remarks:</i> Uses <code>operator/=</code> to compose the returned path.</p>
 <p>[<i>Example:</i></p>
-<p><code>assert(path(&quot;foo/./bar/..&quot;).lexically_normal() == &quot;foo&quot;);<br>
-assert(path(&quot;foo/.///bar/../&quot;).lexically_normal() == &quot;foo/.&quot;);</code></p>
-<p>The above assertions will succeed.<i> </i>On Windows, the
+<p><pre>std::cout &lt;&lt; path(&quot;foo/./bar/..&quot;).lexically_normal() &lt;&lt; std::endl;    // outputs &quot;foo&quot;
+std::cout &lt;&lt; path(&quot;foo/.///bar/../&quot;).lexically_normal() &lt;&lt; std::endl; // v3: outputs &quot;foo/.&quot;
+                                                                      // v4: outputs &quot;foo/&quot;</pre></p>
+<p>On Windows, the
 returned path&#39;s <i>directory-separator</i> characters will be backslashes rather than slashes, but that
 does not affect <code>path</code> equality.<i> —end example</i>]</p>
 </blockquote>
@@ -1679,7 +1681,7 @@ excluded from the returned string.</p>
 <pre>path <a name="path-root_path">root_path</a>() const;</pre>
 
 <blockquote>
-  <p><i>Returns:</i> <code>root_name() / root_directory()</code></p>
+  <p><i>Returns:</i> <code><a href="#path-root_name">root_name</a>() / <a href="#path-root_directory">root_directory</a>()</code></p>
 </blockquote>
 
 <pre>path <a name="path-relative_path">relative_path</a>() const;</pre>
@@ -1721,7 +1723,8 @@ std::cout &lt;&lt; path(&quot;..&quot;).parent_path();           // outputs &quo
 
     <pre>std::cout &lt;&lt; path(&quot;/foo/bar.txt&quot;).filename(); // outputs &quot;bar.txt&quot;
 std::cout &lt;&lt; path(&quot;/foo/bar&quot;).filename();     // outputs &quot;bar&quot;
-std::cout &lt;&lt; path(&quot;/foo/bar/&quot;).filename();    // outputs &quot;.&quot;
+std::cout &lt;&lt; path(&quot;/foo/bar/&quot;).filename();    // v3 outputs &quot;.&quot;
+                                              // v4 outputs &quot;&quot;
 std::cout &lt;&lt; path(&quot;/&quot;).filename();            // v3 outputs &quot;/&quot;
                                               // v4 outputs &quot;&quot;
 std::cout &lt;&lt; path(&quot;.&quot;).filename();            // outputs &quot;.&quot;
@@ -1730,7 +1733,7 @@ std::cout &lt;&lt; path(&quot;..&quot;).filename();           // outputs &quot;.
   </blockquote>
   <p> See the last bullet item in the <a href="#path-iterators">
   forward traversal order</a> list for why the <code>&quot;/foo/bar/&quot;</code> example
-  doesn&#39;t output <code>&quot;bar&quot;</code>.</p>
+  doesn&apos;t output <code>&quot;bar&quot;</code>.</p>
   <p> <i>—end example</i>]</p>
 </blockquote>
 
@@ -1797,7 +1800,7 @@ for (; !p.extension().empty(); p = p.stem())
     <pre>std::cout &lt;&lt; path(&quot;.&quot;).filename_is_dot();     // outputs 1
 std::cout &lt;&lt; path(&quot;/.&quot;).filename_is_dot();    // outputs 1
 std::cout &lt;&lt; path(&quot;foo/.&quot;).filename_is_dot(); // outputs 1
-std::cout &lt;&lt; path(&quot;foo/&quot;).filename_is_dot();  // outputs 1
+std::cout &lt;&lt; path(&quot;foo/&quot;).filename_is_dot();  // v3 outputs 1, v4 outputs 0
 std::cout &lt;&lt; path(&quot;/&quot;).filename_is_dot();     // outputs 0
 std::cout &lt;&lt; path(&quot;/foo&quot;).filename_is_dot();  // outputs 0
 std::cout &lt;&lt; path(&quot;/foo.&quot;).filename_is_dot(); // outputs 0
@@ -1805,7 +1808,7 @@ std::cout &lt;&lt; path(&quot;..&quot;).filename_is_dot();    // outputs 0</pre>
 
   </blockquote>
   <p> See the last bullet item in the <a href="#path-iterators">forward traversal order</a>
-  list for why <code>path(&quot;foo/&quot;).filename()</code> is a dot filename.</p>
+  list for why <code>path(&quot;foo/&quot;).filename()</code> is a dot filename in <b>v3</b>.</p>
   <p> <i>—end example</i>]</p>
 </blockquote>
 
@@ -1866,13 +1869,14 @@ std::cout &lt;&lt; path(&quot;..&quot;).filename_is_dot();    // outputs 0</pre>
 <pre>bool <a name="path-is_absolute">is_absolute</a>() const;</pre>
 
 <blockquote>
-  <p><i>Returns:</i> <code>true</code> if the elements of <code>root_path()</code> uniquely identify a directory, else <code>false</code>.</p>
+  <p><i>Returns:</i> <code>true</code> if the elements of <code><a href="#path-root_path">root_path</a>()</code> uniquely identify a directory, else <code>false</code>.</p>
+  <p>[<i>Note:</i> Path is considered absolute on POSIX systems if it has a <a href="#path-root_directory">root directory</a>, and on Windows - if it has both <a href="#path-root_name">root name</a> and <a href="#path-root_directory">root directory</a>. <i>—end note</i>]</p>
 </blockquote>
 
 <pre>bool <a name="path-is_relative">is_relative</a>() const;</pre>
 
 <blockquote>
-  <p><i>Returns:</i> <code>!is_absolute()</code>.</p>
+  <p><i>Returns:</i> <code>!<a href="#path-is_absolute">is_absolute</a>()</code>.</p>
 </blockquote>
 <h3> <a name="path-iterators"> <code>
 <font size="4">path</font></code> iterators</a> [path.itr]</h3>
@@ -1894,15 +1898,15 @@ out-live the iterator itself. <i>—end note</i>] </p>
 <p> The forward traversal order is as follows:</p>
 <ul>
   <li>The <i>root-name</i> element, if present.</li>
-  <li>The <i>root-directory</i> element, if present, in the generic format. <i>
-  [note:</i> the generic format is required to ensure lexicographical
+  <li>The <i>root-directory</i> element, if present, in the generic format.
+  [<i>Note:</i> the generic format is required to ensure lexicographical
   comparison works correctly. <i>—end note</i>]</li>
   <li>Each successive <i>filename</i> element, if present.</li>
-  <li><i>Dot</i>, if one or more trailing non-root <i>slash</i>
-  characters are present.|</li>
+  <li>[<b>v3:</b> <i>Dot</i>] [<b>v4:</b> Empty path], if one or more trailing non-root directory separators
+  are present.</li>
 </ul>
   <blockquote>
-  <p>[<i>Note:</i> Treating the last element during iteration as <i>dot</i> when
+  <p>[<i>Note:</i> Treating the last element during iteration as [<b>v3:</b> <i>dot</i>] [<b>v4:</b> an empty path] when
   there is a trailing directory separator enables lexical (i.e. syntactic)
   distinction between paths to directories versus paths to regular files. Such a
   distinction is usually irrelevant on POSIX and Windows based operating
@@ -1954,7 +1958,7 @@ out-live the iterator itself. <i>—end note</i>] </p>
 </blockquote>
 
 
-<h3> <a name="path-deprecated-functions"><code><font size="4"> path</font></code> deprecated functions</a></h3>
+<h3> <a name="path-deprecated-functions"><code>path</code> deprecated functions</a></h3>
 <p> Several member functions from previous versions of <code>class path</code> have been deprecated, either because they have been renamed or because the
 functionality is no longer desirable or has become obsolete.</p>
 <p> Deprecated functions available by default; will be suppressed if <code>BOOST_FILESYSTEM_NO_DEPRECATED</code> is defined:</p>
@@ -1981,9 +1985,9 @@ const string_type  external_directory_string() const { return native(); }</pre>
   <pre>bool lexicographical_compare(path::iterator first1, path::iterator last1,
                              path::iterator first2, path::iterator last2);</pre>
 <blockquote>
-  <p><i>Returns:</i> <code>true</code> if the sequence of <code>native()</code> strings for the elements defined by the half-open range <code>[first1,last1)</code> is
+  <p><i>Returns:</i> <code>true</code> if the sequence of <code>native()</code> strings for the elements defined by the half-open range <code>[first1, last1)</code> is
   lexicographically less than the sequence of <code>native()</code> strings for
-  the elements defined by the half-open range <code>[first2,last2)</code>. Returns <code>false</code> otherwise.</p>
+  the elements defined by the half-open range <code>[first2, last2)</code>. Returns <code>false</code> otherwise.</p>
   <p><i>Remarks:</i> If two sequences have the same number of elements and their
   corresponding elements are equivalent, then neither sequence is
   lexicographically less than the other. If one sequence is a prefix of the
@@ -2020,7 +2024,7 @@ const string_type  external_directory_string() const { return native(); }</pre>
 
   <div>
 
-  <pre>path lexically_<a name="lex-relative">relative</a>(const path&amp; p, const path&amp; base);</pre>
+  <pre>path <a name="lex-relative">lexically_relative</a>(const path&amp; p, const path&amp; base);</pre>
 
   </div>
 
@@ -2104,7 +2108,7 @@ const string_type  external_directory_string() const { return native(); }</pre>
   equivalence have different semantics.</p>
   <p>Equality is determined by the <code>path</code> non-member <code>operator==</code>, which considers the two path's lexical
   representations only. Thus <code>path(&quot;foo&quot;) == &quot;bar&quot;</code> is never <code>true</code>.</p>
-  <p>Equivalence is determined by the <a href="#equivalent"><code>equivalent()</code></a> non-member function, which determines if two paths <a href="#path">resolve</a> to the same file system entity.
+  <p>Equivalence is determined by the <code><a href="#equivalent">equivalent</a>()</code> non-member function, which determines if two paths <a href="#path">resolve</a> to the same file system entity.
   Thus <code>equivalent(&quot;foo&quot;, &quot;bar&quot;)</code> will be <code>true</code> when both paths resolve to the same file.</p>
   <p>Programmers wishing to determine if two paths are &quot;the same&quot; must decide if
   &quot;the same&quot; means &quot;the same representation&quot; or &quot;resolve to the same actual
@@ -2125,7 +2129,7 @@ so that paths with embedded spaces will round trip correctly. Ampersand (<code>&
 is as an escape character, so the path can itself contain double quotes.</p>
 <pre>template &lt;class Char, class Traits&gt;
 std::basic_ostream&lt;Char, Traits&gt;&amp; operator&lt;&lt;(std::basic_ostream&lt;Char, Traits&gt;&amp; os,
-                                             const path&amp; p)
+                                             const path&amp; p);
 </pre>
 <blockquote>
   <p><i>Effects: </i>Insert characters into <code>os</code>:</p>
@@ -2143,17 +2147,18 @@ std::basic_ostream&lt;Char, Traits&gt;&amp; operator&lt;&lt;(std::basic_ostream&
   <p>A double-quote.</p>
     </li>
   </ul>
+  <p>[<i>Note:</i> Effects are similar to:
+<pre>std::basic_string&lt;Char&gt; str(p.string&lt;std::basic_string&lt;Char&gt;&gt;());
+os &lt;&lt; <a href="../../io/doc/quoted_manip.html">boost::io::quoted</a>(str, static_cast&lt;Char&gt;('&amp;'));</pre>
+<i>—end note</i>]</p>
   <p><i>Returns:</i> <code>os</code></p>
 </blockquote>
 <pre>template &lt;class Char, class Traits&gt;
-inline std::basic_istream&lt;Char, Traits&gt;&amp; operator&gt;&gt;(std::basic_istream&lt;Char, Traits&gt;&amp; is,
-                                                    path&amp; p)
+std::basic_istream&lt;Char, Traits&gt;&amp; operator&gt;&gt;(std::basic_istream&lt;Char, Traits&gt;&amp; is,
+                                             path&amp; p);
 </pre>
 <blockquote>
-  <p><i>Effects:&nbsp; </i><code>&nbsp;std::basic_string&lt;Char&gt; str;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is &gt;&gt; <a href="../../io/doc/quoted_manip.html">boost::io::quoted</a>(str, static_cast&lt;Char&gt;('&amp;'));<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; p = str;</code></p>
-  <p><i>Effects:&nbsp; </i>Extract characters from os:</p>
+  <p><i>Effects:&nbsp; </i>Extract characters from <code>is</code>:</p>
   <ul>
     <li>If the first character that would be extracted is equal to double-quote,
     as determined by <code>operator==</code>, then:<ul>
@@ -2161,15 +2166,19 @@ inline std::basic_istream&lt;Char, Traits&gt;&amp; operator&gt;&gt;(std::basic_i
       <li>Save the value and then turn off the <code>skipws</code> flag.</li>
       <li><code>p.clear()</code></li>
       <li>Until an unescaped double-quote character is reached or <code>
-      is.not_good()</code>, extract characters from <code>os</code> and append
+      is.not_good()</code>, extract characters from <code>is</code> and append
       them to <code>p</code>, except that if an escape character is reached,
       ignore it and append the next character to <code>p</code>.</li>
       <li>Discard the final double-quote character.</li>
       <li>Restore the <code>skipws</code> flag to its original value.</li>
     </ul>
     </li>
-    <li>Otherwise, <code>os &gt;&gt; p</code>.</li>
+    <li>Otherwise, <code>is &gt;&gt; p</code>.</li>
   </ul>
+  <p>[<i>Note:</i> Effects are similar to:
+<pre>std::basic_string&lt;Char&gt; str;
+is &gt;&gt; <a href="../../io/doc/quoted_manip.html">boost::io::quoted</a>(str, static_cast&lt;Char&gt;('&amp;'));
+p = str;</pre><i>—end note</i>]</p>
   <p><i>Returns:</i> <code>is</code></p>
   </blockquote>
 <h2><a name="Class-filesystem_error">Class <code>filesystem_error</code>
@@ -3568,14 +3577,13 @@ bool <a name="remove2">remove</a>(const path&amp; p, system::error_code&amp; ec)
   resolves to being removed. <i>—end note</i>]</p>
   </blockquote>
   <p><i>Postcondition:</i> <code>!exists(symlink_status(p))</code>.</p>
-  <p><i>Returns:</i>&nbsp; <code>false</code> if p did not exist in the first
-  place, otherwise <code>true</code>.</p>
+  <p><i>Returns:</i>&nbsp; <code>false</code> if <code>p</code> did not exist, otherwise <code>true</code>.</p>
   <p><i>Throws:</i> As specified in <a href="#Error-reporting">Error reporting</a>.</p>
 </blockquote>
 <pre>uintmax_t <a name="remove_all">remove_all</a>(const path&amp; p);
 uintmax_t <a name="remove_all2">remove_all</a>(const path&amp; p, system::error_code&amp; ec);</pre>
 <blockquote>
-  <p><i>Effects:</i>&nbsp; Recursively deletes the contents of p if it exists,
+  <p><i>Effects:</i>&nbsp; Recursively deletes the contents of <code>p</code> if it exists,
   then deletes file <code>p</code> itself,
   as if by ISO/IEC 9945 <code><a href="http://www.opengroup.org/onlinepubs/000095399/functions/remove.html">remove()</a></code>.</p>
   <blockquote>

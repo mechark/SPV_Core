@@ -287,7 +287,7 @@
       <span class="comment">//we destroy the object automatically</span>
       <span class="identifier">my_deleter</span><span class="special">&lt;</span><span class="identifier">my_class</span><span class="special">&gt;</span> <span class="identifier">d</span><span class="special">(</span><span class="identifier">shmem</span><span class="special">.</span><span class="identifier">get_segment_manager</span><span class="special">());</span>
 
-      <span class="keyword">try</span><span class="special">{</span>
+      <span class="identifier">BOOST_TRY</span><span class="special">{</span>
          <span class="identifier">scoped_ptr</span><span class="special">&lt;</span><span class="identifier">my_class</span><span class="special">,</span> <span class="identifier">my_deleter</span><span class="special">&lt;</span><span class="identifier">my_class</span><span class="special">&gt;</span> <span class="special">&gt;</span> <span class="identifier">s_ptr</span><span class="special">(</span><span class="identifier">my_object</span><span class="special">,</span> <span class="identifier">d</span><span class="special">);</span>
          <span class="comment">//Let's emulate a exception capable operation</span>
          <span class="comment">//In the second try, throw an exception</span>
@@ -299,7 +299,7 @@
          <span class="comment">//to avoid destruction</span>
          <span class="identifier">s_ptr</span><span class="special">.</span><span class="identifier">release</span><span class="special">();</span>
       <span class="special">}</span>
-      <span class="keyword">catch</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">my_exception</span> <span class="special">&amp;){}</span>
+      <span class="identifier">BOOST_CATCH</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">my_exception</span> <span class="special">&amp;){}</span> <span class="identifier">BOOST_CATCH_END</span>
       <span class="comment">//Here, scoped_ptr is destroyed</span>
       <span class="comment">//so it we haven't thrown an exception</span>
       <span class="comment">//the object should be there, otherwise, destroyed</span>
@@ -442,7 +442,7 @@
 <p>
         To simplify this usage, <code class="computeroutput"><a class="link" href="../boost/interprocess/shared_ptr.html" title="Class template shared_ptr">boost::interprocess::shared_ptr</a></code>
         header offers a shared pointer definition helper class (<code class="computeroutput"><a class="link" href="../boost/interprocess/managed_shared_ptr.html" title="Struct template managed_shared_ptr">managed_shared_ptr</a></code>)
-        and a function (<code class="computeroutput"><a class="link" href="../boost/interprocess/make_man_idm46069651361408.html" title="Function template make_managed_shared_ptr">make_managed_shared_ptr</a></code>)
+        and a function (<code class="computeroutput"><a class="link" href="../boost/interprocess/make_managed_shar_idm29615.html" title="Function template make_managed_shared_ptr">make_managed_shared_ptr</a></code>)
         to easily construct a shared pointer from a type allocated in a managed segment
         with an allocator that will allocate the reference count also in the managed
         segment and a deleter that will erase the object from the segment.

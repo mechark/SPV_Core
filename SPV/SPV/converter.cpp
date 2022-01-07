@@ -2,7 +2,6 @@
 #include <string>
 #include <sstream>
 #include <vector>
-#include <boost/dynamic_bitset.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
 #include "SHA256.h"
 #include "spv.h"
@@ -92,6 +91,7 @@ namespace tcp
 			if (hex_str.size() % 2 != 0)
 			{
 				cout << "String length is not even";
+
 				terminate();
 			}
 			binary_str.reserve(hex_str.length() / 2);

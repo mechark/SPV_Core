@@ -9,9 +9,7 @@
 #if !defined(BOOST_SPIRIT_TEST_REAL_NUMERICS_HPP)
 #define BOOST_SPIRIT_TEST_REAL_NUMERICS_HPP
 
-#include <boost/version.hpp>
-#include <boost/config/warning_disable.hpp>
-#include <boost/detail/lightweight_test.hpp>
+#include <boost/spirit/include/karma_real.hpp>
 
 #include <boost/spirit/include/karma_char.hpp>
 #include <boost/spirit/include/karma_numeric.hpp>

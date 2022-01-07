@@ -27,12 +27,40 @@
 <a name="boost_asio.reference.experimental__coro.operator_lp__rp_"></a><a class="link" href="operator_lp__rp_.html" title="experimental::coro::operator()">experimental::coro::operator()</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="boost_asio.indexterm.experimental__coro.operator_lp__rp_"></a>
+          <a class="indexterm" name="boost_asio.indexterm.experimental__coro.operator_lp__rp_"></a> 
+Operator
+          used for coroutines with input value.
         </p>
 <pre class="programlisting">template&lt;
     detail::convertible_to&lt; input_type &gt; T&gt;
 auto operator()(
     T &amp;&amp; ip);
+</pre>
+<h6>
+<a name="boost_asio.reference.experimental__coro.operator_lp__rp_.h0"></a>
+          <span class="phrase"><a name="boost_asio.reference.experimental__coro.operator_lp__rp_.parameters"></a></span><a class="link" href="operator_lp__rp_.html#boost_asio.reference.experimental__coro.operator_lp__rp_.parameters">Parameters</a>
+        </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">ip</span></dt>
+<dd><p>
+                The input value
+              </p></dd>
+</dl>
+</div>
+<h6>
+<a name="boost_asio.reference.experimental__coro.operator_lp__rp_.h1"></a>
+          <span class="phrase"><a name="boost_asio.reference.experimental__coro.operator_lp__rp_.return_value"></a></span><a class="link" href="operator_lp__rp_.html#boost_asio.reference.experimental__coro.operator_lp__rp_.return_value">Return
+          Value</a>
+        </h6>
+<p>
+          An awaitable handle.
+        </p>
+<pre class="programlisting">coro&lt;void&gt; push_values(coro&lt;double(int)&gt; c)
+{
+   std::optional&lt;double&gt; res = co_await c(42);
+}
 </pre>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

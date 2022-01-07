@@ -1,3 +1,34 @@
+Version 322:
+
+* Fix typo in `_experimental::test::basic_stream` documentation.
+
+--------------------------------------------------------------------------------
+
+Version 321:
+
+* Remove test framework's dependency on RTTI.
+* Fix CVE-2016-9840 in zlib implementation.
+* Fix TLS SNI handling in websocket_client_async_ssl example.
+* Fix reuse of sliding window in WebSocket permessage_deflate.
+* Fix accept error handling in http_server_async example.
+* Move library-specific docca configuration to Beast.
+* Remove dependency on RTTI in `test::stream`.
+
+--------------------------------------------------------------------------------
+
+Version 320:
+
+* Fix missing includes in `stream_state`.
+* Update GitHub Actions CI.
+
+--------------------------------------------------------------------------------
+
+Version 319:
+
+* Update release notes for Boost 1.77.
+
+--------------------------------------------------------------------------------
+
 Version 318:
 
 * Add a Boost-friendly subproject case to CMakeLists.

@@ -7,7 +7,7 @@
 <link rel="home" href="../../../boost_asio.html" title="Boost.Asio">
 <link rel="up" href="../any_io_executor.html" title="any_io_executor">
 <link rel="prev" href="query.html" title="any_io_executor::query">
-<link rel="next" href="require/overload1.html" title="any_io_executor::require (1 of 2 overloads)">
+<link rel="next" href="require/overload1.html" title="any_io_executor::require (1 of 3 overloads)">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -33,16 +33,24 @@ Obtain
         </p>
 <pre class="programlisting">template&lt;
     typename Property&gt;
-any_io_executor <a class="link" href="require/overload1.html" title="any_io_executor::require (1 of 2 overloads)">require</a>(
+any_io_executor <a class="link" href="require/overload1.html" title="any_io_executor::require (1 of 3 overloads)">require</a>(
     const Property &amp; p,
     typename constraint&lt; traits::require_member&lt; const base_type &amp;, const Property &amp; &gt;::is_valid &gt;::type  = 0) const;
-  <span class="emphasis"><em>» <a class="link" href="require/overload1.html" title="any_io_executor::require (1 of 2 overloads)">more...</a></em></span>
+  <span class="emphasis"><em>» <a class="link" href="require/overload1.html" title="any_io_executor::require (1 of 3 overloads)">more...</a></em></span>
+
+
+
+template&lt;&gt;
+any_io_executor <a class="link" href="require/overload2.html" title="any_io_executor::require (2 of 3 overloads)">require</a>(
+    const execution::blocking_t::never_t &amp; p,
+    int ) const;
+  <span class="emphasis"><em>» <a class="link" href="require/overload2.html" title="any_io_executor::require (2 of 3 overloads)">more...</a></em></span>
 
 template&lt;
     typename Property&gt;
-any_executor <a class="link" href="require/overload2.html" title="any_io_executor::require (2 of 2 overloads)">require</a>(
+any_executor <a class="link" href="require/overload3.html" title="any_io_executor::require (3 of 3 overloads)">require</a>(
     Property ) const;
-  <span class="emphasis"><em>» <a class="link" href="require/overload2.html" title="any_io_executor::require (2 of 2 overloads)">more...</a></em></span>
+  <span class="emphasis"><em>» <a class="link" href="require/overload3.html" title="any_io_executor::require (3 of 3 overloads)">more...</a></em></span>
 </pre>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

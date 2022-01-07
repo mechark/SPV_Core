@@ -88,7 +88,7 @@ int apply(P1 const & p1, P2 const & p2, P const & p)``
 ]
 
 [heading Header]
-`#include <boost/geometry/strategies/cartesian/side_by_triangle.hpp>`
+`#include <boost/geometry/strategy/cartesian/side_by_triangle.hpp>`
 
 [endsect]
 

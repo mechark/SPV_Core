@@ -18,11 +18,36 @@ else()
   set(__boost_default_layout "system")
 endif()
 
-set(BOOST_INSTALL_LAYOUT ${__boost_default_layout} CACHE STRING "Installation layout (versioned, tagged, or system)")
-set_property(CACHE BOOST_INSTALL_LAYOUT PROPERTY STRINGS versioned tagged system)
+set(__boost_default_cmakedir "${CMAKE_INSTALL_LIBDIR}/cmake")
+set(__boost_default_include_subdir "/boost-${PROJECT_VERSION_MAJOR}_${PROJECT_VERSION_MINOR}")
 
-set(BOOST_INSTALL_CMAKEDIR "${CMAKE_INSTALL_LIBDIR}/cmake" CACHE STRING "Installation directory for CMake configuration files")
-set(BOOST_INSTALL_INCLUDE_SUBDIR "/boost-${PROJECT_VERSION_MAJOR}_${PROJECT_VERSION_MINOR}" CACHE STRING "Header subdirectory when layout is versioned")
+# Define cache variables when Boost is the root project
+
+if(CMAKE_SOURCE_DIR STREQUAL "${BOOST_SUPERPROJECT_SOURCE_DIR}")
+
+  set(BOOST_INSTALL_LAYOUT "${__boost_default_layout}" CACHE STRING "Installation layout (versioned, tagged, or system)")
+  set_property(CACHE BOOST_INSTALL_LAYOUT PROPERTY STRINGS versioned tagged system)
+
+  set(BOOST_INSTALL_CMAKEDIR "${__boost_default_cmakedir}" CACHE STRING "Installation directory for CMake configuration files")
+  set(BOOST_INSTALL_INCLUDE_SUBDIR "${__boost_default_include_subdir}" CACHE STRING "Header subdirectory when layout is versioned")
+
+else()
+
+  # add_subdirectory use
+
+  if(NOT DEFINED BOOST_INSTALL_LAYOUT)
+    set(BOOST_INSTALL_LAYOUT "${__boost_default_layout}")
+  endif()
+
+  if(NOT DEFINED BOOST_INSTALL_CMAKEDIR)
+    set(BOOST_INSTALL_CMAKEDIR "${__boost_default_cmakedir}")
+  endif()
+
+  if(NOT DEFINED BOOST_INSTALL_INCLUDE_SUBDIR)
+    set(BOOST_INSTALL_INCLUDE_SUBDIR "${__boost_default_include_subdir}")
+  endif()
+
+endif()
 
 if(BOOST_INSTALL_LAYOUT STREQUAL "versioned")
   string(APPEND CMAKE_INSTALL_INCLUDEDIR "${BOOST_INSTALL_INCLUDE_SUBDIR}")
@@ -186,15 +211,6 @@ function(boost_install_target)
 
   endif()
 
-  get_directory_property(excluded_from_all EXCLUDE_FROM_ALL)
-
-  if(excluded_from_all)
-
-    boost_message(DEBUG "boost_install_target: not installing target '${__TARGET}' due to EXCLUDE_FROM_ALL")
-    return()
-
-  endif()
-
   set(LIB ${__TARGET})
 
   if(NOT __HEADER_DIRECTORY)
@@ -231,6 +247,13 @@ function(boost_install_target)
 
   if(LIB MATCHES "^boost_(.*)$")
     set_target_properties(${LIB} PROPERTIES EXPORT_NAME ${CMAKE_MATCH_1})
+  endif()
+
+  if(CMAKE_SKIP_INSTALL_RULES)
+
+    boost_message(DEBUG "boost_install_target: not installing target '${__TARGET}' due to CMAKE_SKIP_INSTALL_RULES=${CMAKE_SKIP_INSTALL_RULES}")
+    return()
+
   endif()
 
   set(CONFIG_INSTALL_DIR "${BOOST_INSTALL_CMAKEDIR}/${LIB}-${__VERSION}")
@@ -274,6 +297,9 @@ function(boost_install_target)
     set(link_libraries ${INTERFACE_LINK_LIBRARIES} ${LINK_LIBRARIES})
     list(REMOVE_DUPLICATES link_libraries)
 
+    set(python_components "")
+    set(icu_components "")
+
     foreach(dep IN LISTS link_libraries)
 
       if(dep MATCHES "^Boost::(.*)$")
@@ -297,22 +323,54 @@ function(boost_install_target)
 
         string(APPEND CONFIG_FILE_CONTENTS "find_dependency(LibLZMA)\n")
 
+      elseif(dep STREQUAL "zstd::libzstd_shared" OR dep STREQUAL "zstd::libzstd_static")
+
+        string(APPEND CONFIG_FILE_CONTENTS "find_dependency(zstd)\n")
+
       elseif(dep STREQUAL "MPI::MPI_CXX")
 
         # COMPONENTS requires 3.9, but the imported target also requires 3.9
         string(APPEND CONFIG_FILE_CONTENTS "find_dependency(MPI COMPONENTS CXX)\n")
 
+      elseif(dep STREQUAL "Iconv::Iconv")
+
+        string(APPEND CONFIG_FILE_CONTENTS "find_dependency(Iconv)\n")
+
       elseif(dep STREQUAL "Python::Module")
 
-        string(APPEND CONFIG_FILE_CONTENTS "find_dependency(Python COMPONENTS Development)\n")
+        string(APPEND python_components " Development")
 
       elseif(dep STREQUAL "Python::NumPy")
 
-        string(APPEND CONFIG_FILE_CONTENTS "find_dependency(Python COMPONENTS NumPy)\n")
+        string(APPEND python_components " NumPy")
+
+      elseif(dep STREQUAL "ICU::data")
+
+        string(APPEND icu_components " data")
+
+      elseif(dep STREQUAL "ICU::i18n")
+
+        string(APPEND icu_components " i18n")
+
+      elseif(dep STREQUAL "ICU::uc")
+
+        string(APPEND icu_components " uc")
 
       endif()
 
     endforeach()
+
+    if(python_components)
+
+        string(APPEND CONFIG_FILE_CONTENTS "find_dependency(Python COMPONENTS ${python_components})\n")
+
+    endif()
+
+    if(icu_components)
+
+        string(APPEND CONFIG_FILE_CONTENTS "find_dependency(ICU COMPONENTS ${icu_components})\n")
+
+    endif()
 
     string(APPEND CONFIG_FILE_CONTENTS "\n")
 
@@ -382,16 +440,7 @@ function(boost_install)
 
   endif()
 
-  get_directory_property(excluded_from_all EXCLUDE_FROM_ALL)
-
-  if(excluded_from_all)
-
-    boost_message(DEBUG "boost_install: not installing targets '${__TARGETS}' due to EXCLUDE_FROM_ALL")
-    return()
-
-  endif()
-
-  if(__HEADER_DIRECTORY)
+  if(__HEADER_DIRECTORY AND NOT CMAKE_SKIP_INSTALL_RULES)
 
     get_filename_component(__HEADER_DIRECTORY "${__HEADER_DIRECTORY}" ABSOLUTE)
     install(DIRECTORY "${__HEADER_DIRECTORY}/" DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")

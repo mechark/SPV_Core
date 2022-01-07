@@ -31,7 +31,9 @@ using boost::move_detail::nanosecond_type;
 
 void print_stats(const char *str, boost::ulong_long_type element_count)
 {
-   std::printf("%sCmp:%8.04f Cpy:%9.04f\n", str, double(order_perf_type::num_compare)/element_count, double(order_perf_type::num_copy)/element_count );
+   std::printf( "%sCmp:%8.04f Cpy:%9.04f\n", str
+              , double(order_perf_type::num_compare)/double(element_count)
+              , double(order_perf_type::num_copy)/double(element_count));
 }
 
 #include <boost/move/algo/adaptive_merge.hpp>
@@ -172,7 +174,7 @@ bool measure_algo(T *elements, std::size_t element_count, std::size_t split_pos,
    nanosecond_type new_clock = timer.elapsed().wall;
 
    //std::cout << "Cmp:" << order_perf_type::num_compare << " Cpy:" << order_perf_type::num_copy;   //for old compilers without ll size argument
-   std::printf("Cmp:%8.04f Cpy:%9.04f", double(order_perf_type::num_compare)/element_count, double(order_perf_type::num_copy)/element_count );
+   std::printf("Cmp:%8.04f Cpy:%9.04f", double(order_perf_type::num_compare)/double(element_count), double(order_perf_type::num_copy)/double(element_count) );
 
    double time = double(new_clock);
 

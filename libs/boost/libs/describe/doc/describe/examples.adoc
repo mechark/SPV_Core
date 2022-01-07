@@ -35,36 +35,35 @@ include::../../example/printing_enums_rt.cpp[lines=5..-1]
 ## enum_to_string
 
 This example shows a function that, given an enumerator
-value, returns its name.
-
-Providing `enum_to_string` in a library is made difficult
-by the fact that the desired behavior when the passed value
-does not correspond to a named enumerator varies depending
-on the specific use case. But, since defining the function
-is trivial when `describe_enumerators` is available, every
-user can easily have his own.
-
-This specific example elects to return `"(unnamed)"` when
-the enum value doesn't have a name.
+value, returns its name. If the value does not correspond
+to a named value, the function returns `"(unnamed)"`.
 
 [source]
 ----
 include::../../example/enum_to_string.cpp[lines=5..-1]
 ----
 
+Since release 1.78.0, the library provides `enum_to_string`.
+It differs from the one in the example by having a second
+parameter that determines what should be returned when the
+value doesn't correspond to a named enumerator.
+
 [#example_string_to_enum]
 ## string_to_enum
 
 The opposite of the previous example; returns an enumerator
-value when given the enumerator name. The same problem exists
-here with respect to the error handling strategy when the string
-passed does not correspond to any enumerator name. This example
-throws an exception.
+value when given the enumerator name. When the string passed
+does not correspond to any enumerator name, throws an exception.
 
 [source]
 ----
 include::../../example/string_to_enum.cpp[lines=5..-1]
 ----
+
+Since release 1.78.0, the library provides `enum_from_string`.
+It differs from the function in the example by signaling failure
+by a `bool` return value instead of using exceptions. The
+enumerator value is assigned to the output argument.
 
 [#example_print_function]
 ## Defining a Universal Print Function
@@ -85,6 +84,27 @@ change its state and hence cannot violate its invariant.)
 ----
 include::../../example/print_function.cpp[lines=5..-1]
 ----
+
+Since release 1.78.0, this universal `operator<<` is supplied
+by the library, in the `boost::describe::operators` namespace.
+It's enabled by means of a using declaration in the namespace
+containing the described application types, like in the example
+below:
+```
+namespace app
+{
+
+struct X
+{
+    int a = 1;
+};
+
+BOOST_DESCRIBE_STRUCT(X, (), (a))
+
+using boost::describe::operators::operator<<;
+
+}
+```
 
 [#example_hash_value]
 ## Implementing hash_value
@@ -115,6 +135,42 @@ to all annotated classes also defined in `app`.
 [source]
 ----
 include::../../example/equality.cpp[lines=5..-1]
+----
+
+Since release 1.78.0, this universal `operator==` is supplied
+by the library, in the `boost::describe::operators` namespace.
+It's enabled by means of a using declaration in the namespace
+containing the described application types, like in the example
+below:
+```
+namespace app
+{
+
+struct X
+{
+    int a = 1;
+};
+
+BOOST_DESCRIBE_STRUCT(X, (), (a))
+
+using boost::describe::operators::operator==;
+
+}
+```
+
+The rest of the relational operators are also provided and can
+be enabled similarly.
+
+[#example_struct_to_tuple]
+## struct_to_tuple
+
+This example defines a function `struct_to_tuple` that takes
+a described class type as an argument and returns a tuple of
+all its public members.
+
+[source]
+----
+include::../../example/struct_to_tuple.cpp[lines=5..-1]
 ----
 
 [#example_to_json]

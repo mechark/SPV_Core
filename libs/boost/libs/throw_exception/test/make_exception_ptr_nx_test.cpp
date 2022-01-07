@@ -5,27 +5,16 @@
 #if defined(_MSC_VER)
 # pragma warning(disable: 4702) // unreachable code
 # pragma warning(disable: 4577) // noexcept used without /EHsc
+# pragma warning(disable: 4530) // C++ exception handler used
 #endif
 
-//#include <boost/exception_ptr.hpp>
-
-#include <boost/throw_exception.hpp>
-#include <boost/exception/exception.hpp>
-#include <boost/shared_ptr.hpp>
-#include <boost/make_shared.hpp>
-
-typedef boost::shared_ptr<boost::exception_detail::clone_base const> exception_ptr;
-
-template<class E> exception_ptr make_exception_ptr( E const& e )
-{
-    return boost::make_shared< boost::wrapexcept<E> >( e );
-}
+#include <boost/exception_ptr.hpp>
 
 class my_exception: public std::exception {};
 
 int main()
 {
-    ::make_exception_ptr( my_exception() );
+    boost::make_exception_ptr( my_exception() );
 }
 
 namespace boost

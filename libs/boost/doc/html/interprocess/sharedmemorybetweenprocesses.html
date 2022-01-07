@@ -446,7 +446,7 @@
 <span class="keyword">int</span> <span class="identifier">main</span> <span class="special">()</span>
 <span class="special">{</span>
    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
-   <span class="keyword">try</span><span class="special">{</span>
+   <span class="identifier">BOOST_TRY</span><span class="special">{</span>
       <span class="comment">//Create an anonymous shared memory segment with size 1000</span>
       <span class="identifier">mapped_region</span> <span class="identifier">region</span><span class="special">(</span><span class="identifier">anonymous_shared_memory</span><span class="special">(</span><span class="number">1000</span><span class="special">));</span>
 
@@ -455,10 +455,10 @@
 
       <span class="comment">//The segment is unmapped when "region" goes out of scope</span>
    <span class="special">}</span>
-   <span class="keyword">catch</span><span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
+   <span class="identifier">BOOST_CATCH</span><span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
       <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">ex</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
       <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
-   <span class="special">}</span>
+   <span class="special">}</span> <span class="identifier">BOOST_CATCH_END</span>
    <span class="keyword">return</span> <span class="number">0</span><span class="special">;</span>
 <span class="special">}</span>
 </pre>
@@ -630,14 +630,14 @@
 
 <span class="keyword">void</span> <span class="identifier">remove_old_shared_memory</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">xsi_key</span> <span class="special">&amp;</span><span class="identifier">key</span><span class="special">)</span>
 <span class="special">{</span>
-   <span class="keyword">try</span><span class="special">{</span>
+   <span class="identifier">BOOST_TRY</span><span class="special">{</span>
       <span class="identifier">xsi_shared_memory</span> <span class="identifier">xsi</span><span class="special">(</span><span class="identifier">open_only</span><span class="special">,</span> <span class="identifier">key</span><span class="special">);</span>
       <span class="identifier">xsi_shared_memory</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="identifier">xsi</span><span class="special">.</span><span class="identifier">get_shmid</span><span class="special">());</span>
    <span class="special">}</span>
-   <span class="keyword">catch</span><span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">e</span><span class="special">){</span>
+   <span class="identifier">BOOST_CATCH</span><span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">e</span><span class="special">){</span>
       <span class="keyword">if</span><span class="special">(</span><span class="identifier">e</span><span class="special">.</span><span class="identifier">get_error_code</span><span class="special">()</span> <span class="special">!=</span> <span class="identifier">not_found_error</span><span class="special">)</span>
-         <span class="keyword">throw</span><span class="special">;</span>
-   <span class="special">}</span>
+         <span class="identifier">BOOST_RETHROW</span>
+   <span class="special">}</span> <span class="identifier">BOOST_CATCH_END</span>
 <span class="special">}</span>
 
 <span class="keyword">int</span> <span class="identifier">main</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">argc</span><span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span><span class="identifier">argv</span><span class="special">[])</span>

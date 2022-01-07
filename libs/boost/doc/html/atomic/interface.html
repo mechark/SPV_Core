@@ -616,10 +616,13 @@
         section.
       </p>
 <p>
-        Note that the default constructor <code class="computeroutput"><span class="identifier">atomic_flag</span><span class="special">()</span></code> is unlike <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">atomic_flag</span></code>,
-        which leaves the default-constructed object uninitialized. This potentially
-        requires dynamic initialization during the program startup to perform the
-        object initialization, which makes it unsafe to create global <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">atomic_flag</span></code> objects that can be used before
+        Note that the default constructor <code class="computeroutput"><span class="identifier">atomic_flag</span><span class="special">()</span></code> is unlike C++11 <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">atomic_flag</span></code>,
+        which leaves the default-constructed object uninitialized. C++20 changes
+        <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">atomic_flag</span></code> default constructor to initialize
+        the flag to the clear state, similar to <span class="bold"><strong>Boost.Atomic</strong></span>.
+        This potentially requires dynamic initialization during the program startup
+        to perform the object initialization, which makes it unsafe to create global
+        <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">atomic_flag</span></code> objects that can be used before
         entring <code class="computeroutput"><span class="identifier">main</span><span class="special">()</span></code>.
         Some compilers though (especially those supporting C++11 <code class="computeroutput"><span class="keyword">constexpr</span></code>)
         may be smart enough to perform flag initialization statically (which is,
@@ -687,15 +690,27 @@
 <li class="listitem">
             a <code class="literal">class</code> or <code class="literal">struct</code> that has no non-trivial
             copy or move constructors or assignment operators, has a trivial destructor,
-            and that is comparable via <code class="literal">memcmp</code>.
+            and that is comparable via <code class="literal">memcmp</code> while disregarding
+            any padding bits (but see below).
           </li>
 </ul></div>
 <p>
         Note that classes with virtual functions or virtual base classes do not satisfy
-        the requirements. Also be warned that structures with padding bits may compare
-        non-equal via <code class="literal">memcmp</code> even though all members are equal.
-        This may also be the case with some floating point types, which include padding
-        bits themselves.
+        the requirements.
+      </p>
+<p>
+        Also be warned that the support for types with padding bits is largely dependent
+        on compiler offering a way to set the padding bits to a known state (e.g.
+        zero). Such feature is typically present in compilers supporting C++20. When
+        this feature is not supported by the compiler, <code class="computeroutput"><span class="identifier">BOOST_ATOMIC_NO_CLEAR_PADDING</span></code>
+        capability macro is defined and types with padding bits may compare non-equal
+        via <code class="literal">memcmp</code> even though all members are equal. This may
+        also be the case with some floating point types, which include padding bits
+        themselves. In this case, <span class="bold"><strong>Boost.Atomic</strong></span> attempts
+        to support some floating point types where the location of the padding bits
+        is known (one notable example is <a href="https://en.wikipedia.org/wiki/Extended_precision#x86_extended_precision_format" target="_top">80-bit
+        extended precision</a> <code class="computeroutput"><span class="keyword">long</span> <span class="keyword">double</span></code> type on x86 targets), but otherwise
+        types with padding bits are not supported.
       </p>
 <div class="note"><table border="0" summary="Note">
 <tr>
@@ -703,11 +718,19 @@
 <th align="left">Note</th>
 </tr>
 <tr><td align="left" valign="top"><p>
-          Although types with padding bits are generally not supported by the library,
-          <span class="bold"><strong>Boost.Atomic</strong></span> attempts to support operations
-          on floating point types on some platforms, where the location of the padding
-          bits is known. In particular, 80-bit <code class="computeroutput"><span class="keyword">long</span>
-          <span class="keyword">double</span></code> type on x86 targets is supported.
+          Even on compilers that support clearing the padding bits, unions with padding
+          may not work as expected. Compiler behavior varies with respect to unions.
+          In particular, gcc 11 clears bytes that constitute padding across all union
+          members (which is what is required by C++20 in [atomics.types.operations]/28)
+          and MSVC 19.27 <a href="https://developercommunity.visualstudio.com/t/__builtin_zero_non_value_bits-does-not-c/1551510" target="_top">does
+          not clear any padding at all</a>. Also, consider that some bits of
+          the union representation may constitute padding in one member of the union
+          but contribute to value of another. Current compilers cannot reliably track
+          the active member of a union and therefore cannot implement a reasonable
+          behavior with respect to clearing those bits. As a result, padding bits
+          of the currently active union member may be left uninitialized, which will
+          prevent atomic operations from working reliably. The C++20 standard explicitly
+          allows <code class="computeroutput"><span class="identifier">compare_exchange_</span><span class="special">*</span></code> operations to always fail in this case.
         </p></td></tr>
 </table></div>
 <div class="section">
@@ -744,7 +767,7 @@
                 </td>
 <td>
                   <p>
-                    Initialize to an unspecified value
+                    Initialize to a value of <code class="computeroutput"><span class="identifier">T</span><span class="special">()</span></code>. See the discussion below.
                   </p>
                 </td>
 </tr>
@@ -998,6 +1021,16 @@
 </table></div>
 <p>
           <code class="computeroutput"><span class="identifier">order</span></code> always has <code class="computeroutput"><span class="identifier">memory_order_seq_cst</span></code> as default parameter.
+        </p>
+<p>
+          The default constructor of <code class="literal">boost::atomic&lt;<span class="emphasis"><em>T</em></span>&gt;</code>
+          is different from C++11 <code class="literal">std::atomic&lt;<span class="emphasis"><em>T</em></span>&gt;</code>
+          and is in line with C++20. In C++11 (and older <span class="bold"><strong>Boost.Atomic</strong></span>
+          releases), the default constructor performed default initialization of
+          the contained object of type <code class="literal"><span class="emphasis"><em>T</em></span></code>,
+          which results in unspecified value if <code class="literal"><span class="emphasis"><em>T</em></span></code>
+          does not have a user-defined constructor. C++20 and the current <span class="bold"><strong>Boost.Atomic</strong></span> version performs value initialization,
+          which means zero initialization in this case.
         </p>
 <p>
           Waiting and notifying operations are described in detail in <a class="link" href="interface.html#atomic.interface.interface_wait_notify_ops" title="Waiting and notifying operations">this</a>
@@ -1828,15 +1861,20 @@
           values like NaN and signed zero is also different from normal C++.
         </p>
 <p>
-          Another source of the problem is padding bits that are added to some floating
-          point types for alignment. One widespread example of that is Intel x87
-          extended double format, which is typically stored as 80 bits of value padded
-          with 16 or 48 unused bits. These padding bits are often uninitialized and
-          contain garbage, which makes two equal numbers have different binary representation.
-          The library attempts to account for the known such cases, but in general
-          it is possible that some platforms are not covered. Note that the C++ standard
-          makes no guarantees about reliability of <code class="computeroutput"><span class="identifier">compare_exchange</span><span class="special">*</span></code> operations in the face of padding or trap
-          bits.
+          Another source of the problem may be the padding bits that are added to
+          some floating point types for alignment. One widespread example of that
+          is Intel x87 <a href="https://en.wikipedia.org/wiki/Extended_precision#x86_extended_precision_format" target="_top">80-bit
+          extended precision</a> <code class="computeroutput"><span class="keyword">long</span>
+          <span class="keyword">double</span></code> format, which is typically
+          stored as 80 bits of value padded with 16 or 48 unused bits. These padding
+          bits are often uninitialized and contain garbage, which makes two equal
+          numbers have different binary representation. This problem is solved if
+          the compiler provides a way to reliably clear the padding bits before operation.
+          Otherwise, the library attempts to account for the known such cases, but
+          in general it is possible that some platforms are not covered. The library
+          defines <code class="computeroutput"><span class="identifier">BOOST_ATOMIC_NO_CLEAR_PADDING</span></code>
+          capability macro to indicate that general support for types with padding
+          bits is not available.
         </p>
 </div>
 <div class="section">
@@ -2162,7 +2200,7 @@
 </pre>
             In the above example, <code class="computeroutput"><span class="identifier">ref</span></code>
             may silently corrupt the value of <code class="computeroutput"><span class="identifier">x</span><span class="special">.</span><span class="identifier">c</span></code>
-            because it resides in the trailing padding of the <code class="computeroutput"><span class="identifier">Base</span></code>
+            because it may reside in the trailing padding of the <code class="computeroutput"><span class="identifier">Base</span></code>
             base class subobject of <code class="computeroutput"><span class="identifier">x</span></code>.
           </li>
 <li class="listitem">
@@ -2325,33 +2363,22 @@
           </p></td></tr>
 </table></div>
 <p>
-          Next, some types may have padding bits, which are the bits of object representation
+          Next, some types may have padding bits, which are bits of object representation
           that do not contribute to the object value. Typically, padding bits are
-          used for alignment purposes. <span class="bold"><strong>Boost.Atomic</strong></span>
-          does not support types with padding bits, with an exception of floating
-          point types on platforms where the location of the padding bits is known
-          at compile time. One notable example is <code class="computeroutput"><span class="keyword">long</span>
-          <span class="keyword">double</span></code> on x86, where the value is
-          represented by an <a href="https://en.wikipedia.org/wiki/Extended_precision#x86_extended_precision_format" target="_top">80-bit
-          extended precision</a> floating point number complemented by 2 to 6
-          bytes of padding, depending on the target ABI.
-        </p>
-<p>
-          Padding bits pose a problem for <span class="bold"><strong>Boost.Atomic</strong></span>
-          because they can break binary comparison of object (as if by <code class="computeroutput"><span class="identifier">memcmp</span></code>), which is used in <code class="computeroutput"><span class="identifier">compare_exchange_weak</span></code>/<code class="computeroutput"><span class="identifier">compare_exchange_strong</span></code>
-          operations. <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">atomic</span></code> manages the internal object representation
-          and in some cases, like the mentioned <code class="computeroutput"><span class="keyword">long</span>
-          <span class="keyword">double</span></code> example, it is able to initialize
-          the padding bits so that binary comparison yields the expected result.
-          This is not possible with <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">atomic_ref</span></code>
+          used for alignment purposes. Padding bits pose a problem for <span class="bold"><strong>Boost.Atomic</strong></span> because they can break binary comparison
+          of object (as if by <code class="computeroutput"><span class="identifier">memcmp</span></code>),
+          which is used in <code class="computeroutput"><span class="identifier">compare_exchange_weak</span></code>/<code class="computeroutput"><span class="identifier">compare_exchange_strong</span></code> operations.
+          <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">atomic</span></code> manages the internal object representation
+          and, with proper support of the compiler, it is able to initialize the
+          padding bits so that binary comparison yields the expected result. This
+          is not possible with <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">atomic_ref</span></code>
           because the referenced object is initialized by external means and any
           particular content in the padding bits cannot be guaranteed. This requires
           <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">atomic_ref</span></code> to initialize padding bits
-          on construction. Since there may be other atomic references referring to
-          the same object, this initialization must be atomic. As a result, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">atomic_ref</span></code> construction can be relatively
-          expensive and may potentially disrupt atomic operations that are being
-          performed on the same object through other atomic references. It is recommended
-          to avoid constructing <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">atomic_ref</span></code>
+          of the referenced object on construction. As a result, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">atomic_ref</span></code>
+          construction can be relatively expensive and may potentially disrupt atomic
+          operations that are being performed on the same object through other atomic
+          references. It is recommended to avoid constructing <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">atomic_ref</span></code>
           in tight loops or hot paths.
         </p>
 <p>
@@ -2550,6 +2577,17 @@
         not required to communicate with each other. For example, a waiting operation
         on a non-IPC atomic reference may not be interrupted by a notifying operation
         on an IPC atomic reference referencing the same object.
+      </p>
+<p>
+        Additionally, users must not create IPC atomics on the stack and, possibly,
+        other non-shared memory. Waiting and notifying operations may not behave
+        as intended on some systems if the atomic object is placed in an unsupported
+        memory type. For example, on Mac OS notifying operations are known to fail
+        spuriously if the IPC atomic is on the stack. Use regular atomic objects
+        in process-local memory. Users should also avoid modifying properties of
+        the memory while IPC atomic operations are running. For example, resizing
+        the shared memory segment while threads are blocked on a waiting operation
+        may prevent subsequent notifying operations from waking up the blocked threads.
       </p>
 </div>
 <div class="section">
@@ -2838,7 +2876,8 @@
 <p>
         In addition to these standard macros, <span class="bold"><strong>Boost.Atomic</strong></span>
         also defines a number of extension macros, which can also be useful. Like
-        the standard ones, these macros are defined to values <code class="computeroutput"><span class="number">0</span></code>,
+        the standard ones, the <code class="computeroutput"><span class="special">*</span><span class="identifier">_LOCK_FREE</span></code>
+        macros below are defined to values <code class="computeroutput"><span class="number">0</span></code>,
         <code class="computeroutput"><span class="number">1</span></code> and <code class="computeroutput"><span class="number">2</span></code>
         to indicate whether the corresponding operations are lock-free or not.
       </p>
@@ -2932,6 +2971,20 @@
                   if the implementation does not support the <code class="computeroutput"><span class="identifier">BOOST_ATOMIC_FLAG_INIT</span></code>
                   macro for static initialization of <code class="computeroutput"><span class="identifier">atomic_flag</span></code>.
                   This macro is typically defined for pre-C++11 compilers.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">BOOST_ATOMIC_NO_CLEAR_PADDING</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Defined if the implementation does not support operating on types
+                  with internal padding bits. This macro is typically defined for
+                  compilers that don't support C++20.
                 </p>
               </td>
 </tr>
