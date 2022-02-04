@@ -3,6 +3,7 @@
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-D:\BitcoinWalletApp\SPV_CORE\SPV\SPV_TEST\SPV_TEST.cpp(51,18): warning C4129: '/': unrecognized character escape sequence
-D:\BitcoinWalletApp\SPV_CORE\SPV\SPV_TEST\SPV_TEST.cpp(56,49): warning C4129: '/': unrecognized character escape sequence
+D:\BitcoinWalletApp\SPV_CORE\SPV\SPV_TEST\SPV_TEST.cpp(50,36): warning C4018: '<': signed/unsigned mismatch
+D:\BitcoinWalletApp\SPV_CORE\SPV\SPV_TEST\SPV_TEST.cpp(88,18): warning C4129: '/': unrecognized character escape sequence
+D:\BitcoinWalletApp\SPV_CORE\SPV\SPV_TEST\SPV_TEST.cpp(68,17): warning C4101: 'conv': unreferenced local variable
   SPV_TEST.vcxproj -> D:\BitcoinWalletApp\SPV_CORE\SPV\Debug\SPV_TEST.exe

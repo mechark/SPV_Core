@@ -4,7 +4,11 @@
 #include <sstream>
 #include <cstdarg>
 #include <random>
+#include <bitset>
+#include <cmath>
+#include <boost/dynamic_bitset.hpp>
 
+#include "MurmurHash3.h"
 #include "sha256.h"
 #include "spv.h"
 
@@ -35,7 +39,7 @@ namespace tcp
 		sstream << "0000000000000000";
 		string ip_prefix = "00000000000000000000FFFF";
 		sstream << ip_prefix;
-			
+
 		// replace ip
 		string ip = _ip;
 		vector<string> ip_res;
@@ -45,7 +49,7 @@ namespace tcp
 		sstream << hex << port;
 
 		// Addr_from
-			
+
 		//service and from_ip
 		sstream << service;
 		sstream << "000000000000000000000000";
@@ -67,7 +71,7 @@ namespace tcp
 
 		// Relay
 		bool relay = 0;
-		sstream << hex << "00";
+		sstream << hex << "01";
 
 		if (is_debug)
 		{
@@ -88,6 +92,69 @@ namespace tcp
 			cout << "Relay: " << "00" << endl;
 			cout << endl;
 		}
+
+		return sstream.str();
+	}
+
+	uint32_t message::bloom_hash(const char* data, const uint32_t nFilterBytes, const uint32_t nHashNum, uint32_t nTweak)
+	{
+		uint32_t seed = (nHashNum * 0xfba4c795 + nTweak);
+		uint32_t hash_otpt[1];
+
+		MurmurHash3_x86_32(data, strlen(data), seed, hash_otpt);
+		return hash_otpt[0] % (nFilterBytes * 8);
+	}
+
+	string message::filterload_message_payload(const char* data_to_hash, unsigned int N)
+	{
+		stringstream sstream;
+		stringstream filter_stream;
+		converter conv;
+
+		std::random_device rd;
+		std::mt19937 n32(rd());
+
+		// Max sizes of bloom filter
+		const uint32_t bytes_max = 36000;
+		const uint32_t funcs_max = 50;
+		
+		// User keys number
+		const double fp_rate = 0.00001;
+
+		// Values to send
+
+		// Number of bytes in bloom filter
+		uint32_t bytes_formula = round((-1 / pow(log(2), 2) * N * log(fp_rate)) / 8);
+		uint32_t nFilterBytes = min(bytes_formula, bytes_max);
+
+		// Filter
+		boost::dynamic_bitset<> filter(nFilterBytes * 8);
+
+		// Number of hash functions in bloom filter
+		const uint32_t nHashFuncs = int(min(round(nFilterBytes * 8 / N * log(2)), double(funcs_max)));
+
+		// Random seed to add to the seed value
+		uint32_t nTweak = n32();
+
+		// Flags to choose replying mode
+		uint8_t nFlags = 2;
+
+		for (size_t nHashNum = 0; nHashNum < nHashFuncs; ++nHashNum)
+		{
+			uint32_t filter_index = bloom_hash(data_to_hash, nFilterBytes, nHashNum, nTweak);
+			filter[filter_index] = true;
+		}
+
+		string setted_filter = conv.bytes_to_hex(filter);
+		// Filter bytes
+		sstream << hex << conv.uito_little_endian_str(filter.size() / 8, 1);
+
+		sstream << hex << setted_filter;
+		sstream << hex << conv.uito_little_endian_str(nHashFuncs);
+		sstream << hex << _byteswap_ulong(nTweak);
+		sstream << hex << conv.uito_little_endian_str(nFlags, 1);
+
+		string res = sstream.str();
 
 		return sstream.str();
 	}
@@ -163,13 +230,15 @@ namespace tcp
 
 		// Length of payload
 		uint32_t length = payload.length() / 2;
-		sstream << hex << _byteswap_ulong(length);
+		//sstream << hex << _byteswap_ulong(length);
+		sstream << hex << conv.uito_little_endian_str(length);
 
 		// Checksum
 		string checksum;
 		conv.checksum(payload, checksum);
 		sstream << hex << checksum;
 
+		if (sstream.str().size() % 2 != 0) sstream << "0";
 		return sstream.str() + payload;
 	}
 

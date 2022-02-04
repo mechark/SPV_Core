@@ -10,33 +10,53 @@
 
 namespace repo
 {
-	void console_log(vector<models::header> headers)
+	std::uintmax_t file_size(const string file)
 	{
-		for (int i = 0; i < headers.size(); ++i)
-		{
-			std::ofstream fs("D:\/console_log.txt");
-			fs << "Version: ";
-			fs << headers[i].block_version << "\n";
-		}
+		std::ifstream is(file);
+		is.seekg(0, ios::end);
+		uintmax_t size = is.tellg();
+		return size;
 	}
 
 	void buffer::serialize(const string file, vector<models::header> headers)
 	{
-		
+		const int headers_number = headers.size();
+		if (headers_number == 0) terminate();
+
 		std::ofstream fs(file, std::ofstream::binary);
 		boost::archive::binary_oarchive oar(fs, boost::archive::no_header);
 
-		oar << headers;
+		for (int i = 0; i < headers_number; ++i)
+		{
+			oar << headers[i].block_version;
+			oar << headers[i].prev_block;
+			oar << headers[i].merkle_root;
+			oar << headers[i].timestamp;
+			oar << headers[i].bits;
+			oar << headers[i].nonce;
+		}
 	}
 
 	vector<models::header> buffer::deserialize(const string file)
 	{
+		const int one_header_bytes = 88;
+		const int headers_number = file_size(file) / one_header_bytes;
+
 		std::ifstream fs(file, std::ofstream::binary);
 		boost::archive::binary_iarchive iar(fs, boost::archive::no_header);
+		vector<models::header> headers(headers_number);
 
-		vector<models::header> headers;
-		iar >> headers;
+		for (int i = 0; i < headers_number; ++i)
+		{
+			iar >> headers[i].block_version;
+			iar >> headers[i].prev_block;
+			iar >> headers[i].merkle_root;
+			iar >> headers[i].timestamp;
+			iar >> headers[i].bits;
+			iar >> headers[i].nonce;
+		}
 
 		return headers;
+		
 	}
 }

@@ -3,6 +3,7 @@
 #include <sstream>
 #include <vector>
 #include <boost/multiprecision/cpp_int.hpp>
+#include <boost/dynamic_bitset.hpp>
 #include "SHA256.h"
 #include "spv.h"
 
@@ -21,6 +22,15 @@ namespace tcp
 				ip.replace(0, pos + 1, "");
 			else if (pos == -1)
 				ip.replace(0, ip.length(), "");
+		}
+	}
+
+	bool converter::is_even(string hex)
+	{
+		if (hex.size() % 2 != 0)
+		{
+			cout << "String length is not even. It consists of " << hex.length() << " characters" << endl;
+			terminate();
 		}
 	}
 
@@ -88,12 +98,7 @@ namespace tcp
 		try
 		{
 			cout << hex_str << endl;
-			if (hex_str.size() % 2 != 0)
-			{
-				cout << "String length is not even";
-
-				terminate();
-			}
+			is_even(hex_str);
 			binary_str.reserve(hex_str.length() / 2);
 			for (std::string::const_iterator pos = hex_str.begin(); pos < hex_str.end(); pos += 2)
 			{
@@ -116,12 +121,12 @@ namespace tcp
 
 		try
 		{
-			if (hex_str.length() % 2 != 0) 
+			if (hex_str.length() % 2 != 0)
 			{
 				cout << "String length is not even";
 				terminate();
 			}
-			for (int i = hex_str.length() - 1; i < hex_str.length(); --i)
+			for (size_t i = hex_str.length() - 1; i < hex_str.length(); --i)
 			{
 				if (i % 2 == 0)
 				{
@@ -137,5 +142,100 @@ namespace tcp
 		}
 
 		return les;
+	}
+
+	string converter::uito_little_endian_str(unsigned long long n, int bytes_n, bool is_little_endian)
+	{
+		stringstream sstream;
+		sstream << hex << n;
+		string hex = sstream.str();
+
+		string les;
+		if (hex.length() % 2 != 0) hex.insert(0, "0");
+		const int n_2add = bytes_n * 2 - hex.length();
+		for (int i = 0; i < n_2add; ++i)
+			hex.insert(0, "0");
+
+		if (is_little_endian)
+		{
+			for (size_t i = hex.length() - 1; i < hex.length(); --i)
+			{
+				if (i % 2 == 0)
+				{
+					les += hex[i];
+					les += hex[i + 1];
+				}
+			}
+		}
+
+		return les;
+	}
+
+	string converter::ito_little_endian_str(long long n, int bytes_n, bool is_little_endian)
+	{
+		stringstream sstream;
+		sstream << hex << n;
+		string hex = sstream.str();
+
+		string les;
+		if (hex.length() % 2 != 0) hex.insert(0, "0");
+		const int n_2add = bytes_n * 2 - hex.length();
+		for (int i = 0; i < n_2add; ++i)
+			hex.insert(0, "0");
+
+		if (is_little_endian)
+		{
+			for (size_t i = hex.length() - 1; i < hex.length(); --i)
+			{
+				if (i % 2 == 0)
+				{
+					les += hex[i];
+					les += hex[i + 1];
+				}
+			}
+		}
+
+		return les;
+	}
+
+	void converter::bitset_reverse(boost::dynamic_bitset<>& bs)
+	{
+		for (size_t begin = 0, end = bs.size() - 1; begin < end; begin++, end--)
+		{
+			bool b = bs[end];
+			bs[end] = bs[begin];
+			bs[begin] = b;
+		}
+	}
+
+	string converter::bytes_to_hex(boost::dynamic_bitset<> bitset)
+	{
+		if (bitset.size() % 8 != 0 || bitset.any() == false)
+		{
+			cout << "Error in converter::bytes_to_hex method. Bitset size is not divided by 8";
+			terminate();
+		}
+
+		stringstream sstream;
+		converter conv;
+		string result;
+		string sbytes;
+		vector<boost::dynamic_bitset<>> temp_bitset(bitset.size() / 4);
+
+		boost::to_string(bitset, sbytes);
+		for (size_t i = 0; i < bitset.size() / 4; ++i)
+		{
+			for (int k = 3; k >= 0; --k)
+			{
+				temp_bitset[i].resize(4);
+				if (sbytes[k] == '1')
+					temp_bitset[i][k] = true;
+			}
+			sbytes.erase(0, 4);
+			bitset_reverse(temp_bitset[i]);
+			sstream << hex << temp_bitset[i].to_ulong();
+			result += sstream.str();
+		}
+		return conv.hex_str_to_little_endian(sstream.str());
 	}
 }

@@ -3,6 +3,7 @@
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+D:\BitcoinWalletApp\SPV_CORE\SPV\SPV\buffer.cpp(47,34): warning C4244: 'argument': conversion from 'const uintmax_t' to 'const unsigned int', possible loss of data
   dissector.cpp
   Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
@@ -13,13 +14,14 @@
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-D:\BitcoinWalletApp\SPV_CORE\SPV\SPV\converter.cpp(123,41): warning C4018: '<': signed/unsigned mismatch
   dllmain.cpp
   message.cpp
   Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+D:\BitcoinWalletApp\SPV_CORE\SPV\SPV\message.cpp(127,26): warning C4244: 'initializing': conversion from 'double' to 'uint32_t', possible loss of data
+  MurmurHash3.cpp
   pow.cpp
   Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
@@ -31,8 +33,8 @@ D:\BitcoinWalletApp\SPV_CORE\SPV\SPV\pow.cpp(29,21): warning C4018: '<': signed/
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-D:\BitcoinWalletApp\SPV_CORE\SPV\SPV\tcp_client.cpp(44,27): warning C4018: '<': signed/unsigned mismatch
-D:\BitcoinWalletApp\SPV_CORE\SPV\SPV\tcp_client.cpp(88,21): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
-D:\BitcoinWalletApp\SPV_CORE\SPV\SPV\tcp_client.cpp(143): warning C4715: 'tcp::tcp_client::getheaders': not all control paths return a value
-LINK : fatal error LNK1104: cannot open file 'libboost_serialization-vc143-mt-gd-x32-1_78.lib'
+D:\BitcoinWalletApp\SPV_CORE\SPV\SPV\tcp_client.cpp(185): warning C4715: 'tcp::tcp_client::getheaders': not all control paths return a value
+D:\BitcoinWalletApp\SPV_CORE\SPV\SPV\converter.cpp(35): warning C4715: 'tcp::converter::is_even': not all control paths return a value
+     Creating library D:\BitcoinWalletApp\SPV_CORE\SPV\Debug\SPV.lib and object D:\BitcoinWalletApp\SPV_CORE\SPV\Debug\SPV.exp
+  SPV.vcxproj -> D:\BitcoinWalletApp\SPV_CORE\SPV\Debug\SPV.dll

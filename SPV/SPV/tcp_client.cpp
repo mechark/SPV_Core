@@ -1,12 +1,10 @@
-// 0 => Success
-// -1 => Fail
-
 #include <iostream>
 #include <boost/asio.hpp>
 #include "spv.h"
 #include <fstream>
 #include <iomanip>
 #include <sstream>
+
 
 namespace tcp
 {
@@ -41,7 +39,7 @@ namespace tcp
 		ip::tcp::resolver resolver(ioc);
 		ip::tcp::socket sock(ioc);
 
-		for (int seed = 0; seed < dns_seeds.size(); ++seed)
+		for (size_t seed = 0; seed < dns_seeds.size(); ++seed)
 		{
 			ip::tcp::resolver::query query(dns_seeds[seed], "http");
 
@@ -74,7 +72,52 @@ namespace tcp
 		return start_headers_index;
 	}
 
+	
+
 	// Public methods
+	void tcp_client::setfilter(const char* data_to_hash)
+	{
+		std::vector<std::string> ips;
+		get_ips(ips);
+
+		io_context ioc;
+		ip::tcp::resolver resolver(ioc);
+		ip::tcp::socket socket(ioc);
+		error_code erc;
+
+		for (size_t i = 0; i < ips.size(); ++i)
+		{
+			connect(socket, resolver.resolve(ips[i], "8333"), erc);
+
+			if (erc) continue;
+			else
+			{
+				converter conv;
+				message msg;
+				vector<string> ips;
+				get_ips(ips);
+
+				// Version message
+				std::string request = conv.hex_str_to_binary(msg.make_message(msg.version_message_payload(ips[i], false), "version"));
+				if (request.length() == 0) continue;
+
+				socket.send(buffer(request));
+				socket.wait(socket.wait_write);
+
+				// Verack message
+				string verack_message = conv.hex_str_to_binary(msg.verack_message());
+				socket.send(buffer(verack_message));
+				socket.wait(socket.wait_read);
+
+				// Filterload message
+				string filterload_payload = msg.filterload_message_payload(data_to_hash, 1);
+				string filterload_message = msg.make_message(filterload_payload, "filterload");
+				socket.send(buffer(conv.hex_str_to_binary(filterload_message)));
+				socket.wait(socket.wait_read);
+			}
+		}
+	}
+
 	std::string tcp_client::getheaders(string start_block_header)
 	{
 		std::vector<std::string> ips;
@@ -85,7 +128,7 @@ namespace tcp
 		ip::tcp::socket socket(ioc);
 		error_code erc;
 
-		for (int i = 0; i < ips.size(); ++i)
+		for (size_t i = 0; i < ips.size(); ++i)
 		{
 			connect(socket, resolver.resolve(ips[i], "8333"), erc);
 
@@ -116,10 +159,9 @@ namespace tcp
 				if (get_headers.length() == 0) continue;
 
 				// Sending
-				Sleep(3000);
 				socket.send(buffer(get_headers));
 				socket.wait(socket.wait_read);
-				Sleep(6000);
+				Sleep(400);
 
 				// Response
 				stringstream sstream;
@@ -136,7 +178,7 @@ namespace tcp
 				int message_payload_length = grab_payload_length(response, ifrom);
 				message_payload_length = (message_payload_length - 1) * 2;
 				string headers = response.substr(ifrom, message_payload_length);
-				
+
 				return headers;
 			}
 		}
